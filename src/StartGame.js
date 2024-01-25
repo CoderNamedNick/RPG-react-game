@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const StartGame = () => {
+const StartGame = ({ updatePlayerName}) => {
   // Initialize state for the name
   const [name, setName] = useState('');
 
@@ -14,6 +14,7 @@ const StartGame = () => {
     event.preventDefault(); // Prevent the default form submission behavior
     // You can do something with the name here, like save it to local storage or pass it to another component
     console.log("Name submitted:", name);
+    updatePlayerName(name);
   };
 
   return (
@@ -24,7 +25,7 @@ const StartGame = () => {
           {/* Use the value attribute to bind the input field to the name state */}
           <input
             type="text"
-            placeholder="Name"
+            placeholder="CharacterName"
             value={name}
             onChange={handleNameChange} // Call handleNameChange when the input changes
           />
@@ -34,7 +35,6 @@ const StartGame = () => {
           <button type="submit">Start Game</button>
         </div>
       </form>
-      {/* Display the name below the form */}
     </div>
   );
 };
