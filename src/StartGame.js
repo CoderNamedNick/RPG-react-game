@@ -7,7 +7,19 @@ const StartGame = ({ updatePlayerName, onFinish }) => {
 
   // Function to handle input changes and update the name state
   const handleNameChange = (event) => {
-    setName(event.target.value);
+    const newName = event.target.value;
+    setName(newName);
+
+    // Play sound whenever user types in something as the name
+    if (newName.trim() !== '') {
+      const audio = new Audio("/mixkit-mechanical-typewriter-hit-1365.wav"); // Update path to your WAV file
+      audio.play();
+    }
+  };
+  
+  const playAudio2 = () => {
+    const audio2 = new Audio("/mixkit-typewriter-classic-return-1381.wav");
+    audio2.play();
   };
 
   // Function to handle form submission
@@ -27,7 +39,7 @@ const StartGame = ({ updatePlayerName, onFinish }) => {
   };
 
   return (
-    <div>
+    <div className="StartGameDiv">
       <h1 className="Moms">{name}</h1>
       <form onSubmit={handleSubmit}>
         <div>
@@ -43,7 +55,8 @@ const StartGame = ({ updatePlayerName, onFinish }) => {
         {error && <div style={{ color: 'red' }}>{error}</div>}
         <br />
         <div>
-          <button type="submit">Start Game</button>
+          {/* No need to trigger audio on button click */}
+          <button type="submit" onClick={playAudio2}>Start Game</button>
         </div>
       </form>
     </div>

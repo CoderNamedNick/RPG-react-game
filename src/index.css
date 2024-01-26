@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgba(34, 34, 34, 0.918);
+  background-color: rgba(34, 34, 34, 0.966);
   color: white;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
@@ -23,4 +23,8 @@ code {
 .Moms{
   font-family: Moms;
   font-size: 40px;
+}
+.StartGameDiv{
+  margin-top: 300px;
+  margin-left: 40%;
 }
