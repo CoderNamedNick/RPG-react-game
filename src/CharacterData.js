@@ -1,6 +1,10 @@
 const CharacterData = ({ playerName }) => {
   const data = {
-    PlayerName: playerName
+    PlayerName: playerName,
+    Atk: 10,
+    Def: 10,
+    Mana: 0,
+    Inventory: {}
   };
 
   // You might use `data` somewhere in your component logic or return it

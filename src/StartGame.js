@@ -28,7 +28,7 @@ const StartGame = ({ updatePlayerName, onFinish }) => {
 
   return (
     <div>
-      <h1>{name}</h1>
+      <h1 className="Moms">{name}</h1>
       <form onSubmit={handleSubmit}>
         <div>
           {/* Use the value attribute to bind the input field to the name state */}
