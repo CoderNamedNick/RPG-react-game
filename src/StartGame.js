@@ -16,7 +16,7 @@ const StartGame = ({ updatePlayerName, onFinish }) => {
       audio.play();
     }
   };
-  
+
   const playAudio2 = () => {
     const audio2 = new Audio("/mixkit-typewriter-classic-return-1381.wav");
     audio2.play();
@@ -45,6 +45,7 @@ const StartGame = ({ updatePlayerName, onFinish }) => {
         <div>
           {/* Use the value attribute to bind the input field to the name state */}
           <input
+            className="SGinput"
             type="text"
             placeholder="CharacterName"
             value={name}
@@ -56,7 +57,7 @@ const StartGame = ({ updatePlayerName, onFinish }) => {
         <br />
         <div>
           {/* No need to trigger audio on button click */}
-          <button type="submit" onClick={playAudio2}>Start Game</button>
+          <button className="SGbtn" type="submit" onClick={playAudio2}>Start Game</button>
         </div>
       </form>
     </div>
