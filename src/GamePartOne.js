@@ -3,15 +3,21 @@ import A1Chest from "./A1Chest";
 
 const GamePartOne = () => {
   const [showChest, setShowChest] = useState(false);
+  const [chestDone, setChestDone] = useState(false);
 
   const handleChestClick = () => {
     setShowChest(true);
+    setChestDone(true);
+  }
+
+  const handleReturnToGame = () => {
+    setShowChest(false);
   }
 
   return (
     <div>
       {showChest ? (
-        <A1Chest />
+        <A1Chest onReturn={handleReturnToGame} />
       ) : (
         <div>
           <h1> 
@@ -24,7 +30,12 @@ const GamePartOne = () => {
           </div>
           <div className="GameBoard">
             <div className="Map-places Start">Start</div>
-            <div onClick={handleChestClick} className="Map-places P1A1">Chest</div>
+            <div 
+              onClick={chestDone ? null : handleChestClick} 
+              className={`Map-places P1A1 ${chestDone ? 'disabled' : ''}`}
+            >
+              Chest
+            </div>
             <div className="Map-places P1A2">Fight</div>
             <div className="Map-places P1A3">Encounter</div>
             <div className="Map-places P1A4">Town1</div>
