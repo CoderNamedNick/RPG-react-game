@@ -64,6 +64,7 @@ code {
   padding-top: 30px;
   font-size: x-small;
   margin-top: 200px;
+  cursor: pointer;
 }
 .Start{
   position: fixed;
