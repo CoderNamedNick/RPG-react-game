@@ -48,8 +48,9 @@ code {
 
 .GameBoard{
   background-color: rgb(128, 97, 88);
-  width: 100%;
-  height: 500px;
+  width: 80%;
+  margin-left: 50px;
+  height: 80vh;
   border-radius: 10px;
 }
 
@@ -57,10 +58,35 @@ code {
   position: absolute;
   text-align: center;
   background-color: blue;
-  width: 80px;
-  height: 50px;
+  width: 100px;
+  height: 70px;
   border-radius: 50%;
-  margin-top: 200px;
   padding-top: 30px;
   font-size: x-small;
+  margin-top: 200px;
+}
+.Start{
+  position: fixed;
+  bottom: 5%;
+  right: 56%;
+}
+.P1A1{
+  position: fixed;
+  bottom: 22%;
+  right: 56%;
+}
+.P1A2{
+  position: fixed;
+  bottom: 38%;
+  right: 56%;
+}
+.P1A3{
+  position: fixed;
+  bottom: 53%;
+  right: 56%;
+}
+.P1A4{
+  position: fixed;
+  bottom: 68%;
+  right: 56%;
 }
