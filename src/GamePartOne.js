@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import A1Chest from "./A1Chest";
+import CharacterData from "./CharacterData";
 
-const GamePartOne = () => {
+const GamePartOne = ({playerName}) => {
   const [showChest, setShowChest] = useState(false);
   const [chestDone, setChestDone] = useState(false);
 
@@ -14,6 +15,8 @@ const GamePartOne = () => {
     setShowChest(false);
   }
 
+  const characterData = CharacterData({ playerName });
+
   return (
     <div>
       {showChest ? (
@@ -24,9 +27,13 @@ const GamePartOne = () => {
             Welcome to my game! You start with nothing! 
             and Are Nothing, play the game to become Something
           </h1>
-          <div>
-            <button>Inventory</button>
-            <div className="Inv-Tooltip"></div>
+          <div className="Inv-div">
+            <button className="Inv-btn">Inventory</button>
+            <div className="Inv-Tooltip">
+              <div className="Stats">
+                <h3>HP: {characterData.Hp}</h3>
+              </div>
+            </div>
           </div>
           <div className="GameBoard">
             <div className="Map-places Start">Start</div>

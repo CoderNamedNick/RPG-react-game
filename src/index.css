@@ -91,3 +91,12 @@ code {
   bottom: 68%;
   right: 56%;
 }
+.Inv-btn{
+  padding: 4px;
+  position: fixed;
+  border-radius: 10px;
+  color: white;
+  background-color: black;
+  border: solid white;
+  margin-left: 4%;
+}

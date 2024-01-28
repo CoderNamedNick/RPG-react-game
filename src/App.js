@@ -25,7 +25,7 @@ function App() {
       {/* Pass playerName to CharacterData */}
       <CharacterData playerName={playerName} />
       {/* Render GamePartOne only if the game has started */}
-      {gameStarted && <GamePartOne />}
+      {gameStarted && <GamePartOne playerName={playerName}/>}
     </div>
   );
 }
