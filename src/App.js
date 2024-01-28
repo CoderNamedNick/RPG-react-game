@@ -23,7 +23,7 @@ function App() {
       {/* Render StartGame only if the game hasn't started */}
       {!gameStarted && <StartGame updatePlayerName={updatePlayerName} onFinish={handleStartGame} />}
       {/* Pass playerName to CharacterData */}
-      <CharacterData playerName={playerName} />
+      {/*<CharacterData playerName={playerName} /> */}
       {/* Render GamePartOne only if the game has started */}
       {gameStarted && <GamePartOne playerName={playerName}/>}
     </div>
