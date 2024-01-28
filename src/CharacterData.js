@@ -12,7 +12,7 @@ const CharacterData = ({ playerName }) => {
   const { PlayerName, Hp, Atk, Def, Mana } = data;
 
   return (
-    <div>
+    <div className="Inv-data">
       <h2>Player Name: {PlayerName}</h2>
       <p>HP: {Hp}</p>
       <p>Attack: {Atk}</p>

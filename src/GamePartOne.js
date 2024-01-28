@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import A1Chest from "./A1Chest";
-import CharacterData from "./CharacterData";
 
-const GamePartOne = ({playerName}) => {
+const GamePartOne = () => {
   const [showChest, setShowChest] = useState(false);
   const [chestDone, setChestDone] = useState(false);
 
@@ -14,8 +13,6 @@ const GamePartOne = ({playerName}) => {
   const handleReturnToGame = () => {
     setShowChest(false);
   }
-
-  const characterData = CharacterData({ playerName });
 
   return (
     <div>
@@ -30,9 +27,6 @@ const GamePartOne = ({playerName}) => {
           <div className="Inv-div">
             <button className="Inv-btn">Inventory</button>
             <div className="Inv-Tooltip">
-              <div className="Stats">
-                <h3>HP: {characterData.Hp}</h3>
-              </div>
             </div>
           </div>
           <div className="GameBoard">

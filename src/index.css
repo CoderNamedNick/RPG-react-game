@@ -50,7 +50,7 @@ code {
   background-color: rgb(128, 97, 88);
   width: 80%;
   margin-left: 50px;
-  height: 80vh;
+  height: 88vh;
   border-radius: 10px;
 }
 
@@ -99,4 +99,11 @@ code {
   background-color: black;
   border: solid white;
   margin-left: 4%;
+}
+.Inv-data{
+  position: fixed;
+  margin-left: 4%;
+  margin-top: 10%;
+  z-index: 0;
+  opacity: 1;
 }
