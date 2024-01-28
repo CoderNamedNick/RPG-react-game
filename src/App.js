@@ -1,31 +1,33 @@
 import React, { useState } from "react";
 import StartGame from "./StartGame";
-import CharacterData from "./CharacterData";
 import GamePartOne from "./GamePartOne";
 
 function App() {
-  // Lift state up to App component
   const [playerName, setPlayerName] = useState('');
-  const [gameStarted, setGameStarted] = useState(false); // Track if the game has started
+  const [characterStats, setCharacterStats] = useState({
+    Hp: 100,
+    Atk: 10,
+    Def: 10,
+    Mana: 0,
+    Inventory: {}
+  });
+  const [gameStarted, setGameStarted] = useState(false); // Define gameStarted state
 
-  // Define a function to update playerName
-  const updatePlayerName = (name) => {
-    setPlayerName(name);
+  const updateCharacterStats = (updatedStats) => {
+    setCharacterStats(updatedStats);
   };
 
-  // Define a function to handle the finish event from StartGame
   const handleStartGame = () => {
-    setGameStarted(true); // Set gameStarted to true when the game starts
+    setGameStarted(true); // Update gameStarted state when the game starts
   };
+
+  // Log characterStats whenever it changes
+  console.log("Character Stats:", characterStats);
 
   return (
     <div>
-      {/* Render StartGame only if the game hasn't started */}
-      {!gameStarted && <StartGame updatePlayerName={updatePlayerName} onFinish={handleStartGame} />}
-      {/* Pass playerName to CharacterData */}
-      {/*<CharacterData playerName={playerName} /> */}
-      {/* Render GamePartOne only if the game has started */}
-      {gameStarted && <GamePartOne playerName={playerName}/>}
+      {!gameStarted && <StartGame updatePlayerName={setPlayerName} onFinish={handleStartGame} />}
+      {gameStarted && <GamePartOne playerName={playerName} characterStats={characterStats} updateCharacterStats={updateCharacterStats} />}
     </div>
   );
 }

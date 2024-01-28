@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import A1Chest from "./A1Chest";
 import CharacterData from "./CharacterData"; // Import CharacterData component
 
-const GamePartOne = ({playerName}) => {
+const GamePartOne = ({ playerName, characterStats, updateCharacterStats }) => {
   const [showChest, setShowChest] = useState(false);
   const [chestDone, setChestDone] = useState(false);
   const [showCharacterData, setShowCharacterData] = useState(false);
@@ -23,7 +23,7 @@ const GamePartOne = ({playerName}) => {
   return (
     <div>
       {showChest ? (
-        <A1Chest onReturn={handleReturnToGame} />
+        <A1Chest onReturn={handleReturnToGame} updateCharacterStats={updateCharacterStats} characterStats={characterStats} />
       ) : (
         <div>
           <h1> 
@@ -36,7 +36,7 @@ const GamePartOne = ({playerName}) => {
           {showCharacterData && (
             <div className="CharacterData">
               {/* Render your character data here */}
-              <CharacterData playerName={playerName}/> {/* Render the CharacterData component */}
+              <CharacterData playerName={playerName} updateCharacterStats={updateCharacterStats} characterStats={characterStats}/> {/* Render the CharacterData component */}
             </div>
           )}
           <div className="GameBoard">
