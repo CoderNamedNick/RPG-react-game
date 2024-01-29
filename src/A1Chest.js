@@ -2,11 +2,11 @@ import React, { useEffect } from "react";
 import CharacterData from "./CharacterData";
 
 const A1Chest = ({ onReturn, updateCharacterStats, characterStats }) => {
-  const handleReturn = () => {
+  const handleReturn = (attribute, StatIncrease) => {
     // Update the attack (Atk) by 5 in A1Chest
     const updatedStats = {
       ...characterStats,
-      Atk: characterStats.Atk + 5
+      [attribute]: characterStats[attribute] + StatIncrease
     };
 
     // Call the updateCharacterStats function passed as a prop
@@ -28,7 +28,7 @@ const A1Chest = ({ onReturn, updateCharacterStats, characterStats }) => {
   return (
     <div>
       <h2>A1 Chest</h2>
-      <button onClick={handleReturn}>Return</button>
+      <button onClick={() => handleReturn("Def", 5)}>Return</button>
       <CharacterData
         updateCharacterStats={updateCharacterStats}
         characterStats={characterStats}
