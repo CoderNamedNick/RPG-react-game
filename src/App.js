@@ -9,6 +9,7 @@ function App() {
     Atk: 10,
     Def: 10,
     Mana: 0,
+    Skills: '',
     Inventory: []
   });
   const [gameStarted, setGameStarted] = useState(false); // Define gameStarted state

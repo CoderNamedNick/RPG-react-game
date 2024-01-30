@@ -8,6 +8,7 @@ const CharacterData = ({ playerName, characterStats }) => {
     Atk: characterStats.Atk,
     Def: characterStats.Def,
     Mana: characterStats.Mana,
+    Skills: characterStats.Skills,
     Inventory: characterStats.Inventory
   });
 
@@ -19,6 +20,7 @@ const CharacterData = ({ playerName, characterStats }) => {
       Atk: characterStats.Atk,
       Def: characterStats.Def,
       Mana: characterStats.Mana,
+      Skills: characterStats.Skills,
       Inventory: characterStats.Inventory
     });
   }, [characterStats]);
@@ -30,6 +32,7 @@ const CharacterData = ({ playerName, characterStats }) => {
       <p>Attack: {characterData.Atk}</p>
       <p>Defense: {characterData.Def}</p>
       <p>Mana: {characterData.Mana}</p>
+      <p>Skills: {characterData.Skills}</p>
       <p>Inventory: {characterData.Inventory}</p>
     </div>
   );
