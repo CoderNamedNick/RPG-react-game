@@ -30,6 +30,7 @@ const CharacterData = ({ playerName, characterStats }) => {
       <p>Attack: {characterData.Atk}</p>
       <p>Defense: {characterData.Def}</p>
       <p>Mana: {characterData.Mana}</p>
+      <p>Inventory: {characterData.Inventory}</p>
     </div>
   );
 };
