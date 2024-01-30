@@ -119,8 +119,8 @@ code {
 .Inv-data{
   position: fixed;
   margin-left: 4%;
-  margin-top: 2%;
-  z-index: 0;
+  margin-top: 6%;
+  z-index: 100;
   opacity: 1;
   background-color: rgba(19, 19, 19, 0.726);
   padding: 10px;
