@@ -7,13 +7,13 @@ const A1Chest = ({ onReturn, updateCharacterStats, characterStats }) => {
 
   const handleChestClick = () => {
     const items = [
-      { range: [0, 10], item: 'Sword', attribute: 'Atk', increase: 12, skills: 'Slash' },
-      { range: [10, 20], item: 'Bow', attribute: 'Atk', increase: 8, skills: 'Arrow Shot' },
-      { range: [20, 30], item: 'Shield', attribute: 'Def', increase: 15, skills: 'Block' },
-      { range: [30, 40], item: 'Staff', attributes: ['Mana', 'Atk'], increases: [20, 3], skills: 'Fireball' },
-      { range: [40, 50], item: 'Dagger', attribute: 'Atk', increase: 10, skills: 'Backstab' },
-      { range: [50, 60], item: 'Spear', attribute: 'Atk', increase: 14, skills: 'Thrust' },
-      { range: [60, 70], item: 'Axe', attribute: 'Atk', increase: 16, skills: 'Cleave' },
+      { range: [0, 10], item: 'Sword', attribute: 'Atk', increase: 12, Skills: ['Slash'] },
+      { range: [10, 20], item: 'Bow', attribute: 'Atk', increase: 8, Skills: ['Arrow Shot'] },
+      { range: [20, 30], item: 'Shield', attribute: 'Def', increase: 15, Skills: ['Block'] },
+      { range: [30, 40], item: 'Staff', attributes: ['Mana', 'Atk'], increases: [20, 3], Skills: ['Fireball'] },
+      { range: [40, 50], item: 'Dagger', attribute: 'Atk', increase: 10, Skills: ['Backstab'] },
+      { range: [50, 60], item: 'Spear', attribute: 'Atk', increase: 14, Skills: ['Thrust'] },
+      { range: [60, 70], item: 'Axe', attribute: 'Atk', increase: 16, Skills: ['Cleave'] },
     ];
 
     let randomNum = Math.floor(Math.random() * 70);
@@ -35,6 +35,14 @@ const A1Chest = ({ onReturn, updateCharacterStats, characterStats }) => {
         });
       } else {
         updatedStats[selectedItem.attribute] = characterStats[selectedItem.attribute] + selectedItem.increase;
+      }
+
+      // Ensure skills is an array before attempting to concatenate
+      updatedStats.Skills = Array.isArray(characterStats.Skills) ? characterStats.Skills : [];
+      
+      // Add skills to updatedStats
+      if (selectedItem.Skills && selectedItem.Skills.length > 0) {
+        updatedStats.Skills = [...updatedStats.Skills, ...selectedItem.Skills];
       }
 
       // Call the updateCharacterStats function passed as a prop
@@ -77,3 +85,4 @@ const A1Chest = ({ onReturn, updateCharacterStats, characterStats }) => {
 };
 
 export default A1Chest;
+
