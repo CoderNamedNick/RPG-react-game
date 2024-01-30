@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import A1Chest from "./A1Chest";
 import CharacterData from "./CharacterData";
+import arrow from './up-arrow.png'
 
 const GamePartOne = ({ playerName, characterStats, updateCharacterStats }) => {
   const [showChest, setShowChest] = useState(false);
@@ -33,6 +34,8 @@ const GamePartOne = ({ playerName, characterStats, updateCharacterStats }) => {
           <div className="Inv-div">
             <button className="Inv-btn" onClick={handleInventoryClick}>Player Stats</button>
           </div>
+          <img className="Arrow" src={arrow} alt="Start From bottom go up"></img>
+          <img className="Arrow2" src={arrow} alt="Start From bottom go up"></img>
           {showCharacterData && (
             <div className="CharacterData">
               {/* Render your character data here */}

@@ -48,10 +48,13 @@ code {
 
 .GameBoard{
   background-color: rgb(75, 75, 75);
-  width: 80%;
-  margin-left: 50px;
-  height: 88vh;
+  width: 100%;
+  margin-left: 0px;
+  height: 92vh;
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .Map-places{
@@ -71,7 +74,6 @@ code {
   font-weight: 800;
   color: black;
   bottom: 5%;
-  right: 56%;
 }
 .P1A1{
   position: fixed;
@@ -80,7 +82,6 @@ code {
   font-weight: 800;
   color: black;
   bottom: 22%;
-  right: 56%;
 }
 .P1A2{
   position: fixed;
@@ -89,7 +90,6 @@ code {
   font-weight: 800;
   color: black;
   bottom: 38%;
-  right: 56%;
 }
 .P1A3{
   position: fixed;
@@ -98,7 +98,6 @@ code {
   font-weight: 800;
   color: black;
   bottom: 53%;
-  right: 56%;
 }
 .P1A4{
   position: fixed;
@@ -107,7 +106,6 @@ code {
   font-weight: 800;
   color: black;
   bottom: 68%;
-  right: 56%;
 }
 .Inv-btn{
   padding: 4px;
@@ -128,4 +126,16 @@ code {
   padding: 10px;
   border: none;
   border-radius: 20px;
+}
+.Arrow{
+  position: absolute;
+  width: 100px;
+  bottom: 5%;
+  left: 18%;
+}
+.Arrow2{
+  position: absolute;
+  width: 100px;
+  bottom: 5%;
+  right: 18%;
 }
