@@ -8,6 +8,7 @@ const A1Fight = ({ onReturn }) => {
   return (
     <div>
       <h1>FIGHT</h1>
+      {/* make a cool fight sceen with skills and think of an enemy to fight */}
       <button onClick={handleReturn}>Return</button>
     </div>
   );
