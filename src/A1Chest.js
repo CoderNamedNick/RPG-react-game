@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import CharacterData from "./CharacterData";
 
-const A1Chest = ({ onReturn, updateCharacterStats, characterStats }) => {
+const A1Chest = ({playerName, onReturn, updateCharacterStats, characterStats }) => {
   const [RewardDone, setRewardDone] = useState(false);
   const [ShowRewardBtn, setShowRewardBtn] = useState(true);
 
@@ -77,6 +77,7 @@ const A1Chest = ({ onReturn, updateCharacterStats, characterStats }) => {
       </button>
       {/* Assuming CharacterData is used to display character stats */}
       <CharacterData
+        playerName={playerName}
         updateCharacterStats={updateCharacterStats}
         characterStats={characterStats}
       />

@@ -24,12 +24,12 @@ const GamePartOne = ({ playerName, characterStats, updateCharacterStats }) => {
   return (
     <div>
       {showChest ? (
-        <A1Chest onReturn={handleReturnToGame} updateCharacterStats={updateCharacterStats} characterStats={characterStats} />
+        <A1Chest playerName={playerName} onReturn={handleReturnToGame} updateCharacterStats={updateCharacterStats} characterStats={characterStats} />
       ) : (
         <div>
           <h1>
-            Welcome to my game! You start with nothing!
-            and Are Nothing, play the game to become Something
+            Welcome to my game! You start From the bottom and work up!
+            I hope you enjoy my game! its a work in progress!
           </h1>
           <div className="Inv-div">
             <button className="Inv-btn" onClick={handleInventoryClick}>Player Stats</button>
