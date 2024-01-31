@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import CharacterData from "./CharacterData";
+import chest from './treasure.png'
 
 const A1Chest = ({playerName, onReturn, updateCharacterStats, characterStats }) => {
   const [RewardDone, setRewardDone] = useState(false);
   const [ShowRewardBtn, setShowRewardBtn] = useState(true);
+  const [isReturnButtonEnabled, setReturnButtonEnabled] = useState(true);
 
   const handleChestClick = () => {
     const items = [
@@ -52,6 +54,7 @@ const A1Chest = ({playerName, onReturn, updateCharacterStats, characterStats }) 
 
     setRewardDone(true);
     setShowRewardBtn(false);
+    setReturnButtonEnabled(false)
   };
 
   const handleReturn = () => {
@@ -65,16 +68,19 @@ const A1Chest = ({playerName, onReturn, updateCharacterStats, characterStats }) 
 
   return (
     <div>
-      <h2>A1 Chest</h2>
-      {ShowRewardBtn ? (
-        <button onClick={handleChestClick}>Chest click for reward</button>
-      ) : null}
-      <button
-        onClick={handleReturn}
-        className={`${RewardDone ? "disabled" : ""}`}
-      >
-        Return
-      </button>
+      <div className="A1ChestDiv">
+        <h2>Chest</h2>
+        {ShowRewardBtn ? (
+          <img className="Chest-img" src={chest} alt="Chest click for reward" onClick={handleChestClick}></img>
+        ) : null}
+        <button
+          onClick={handleReturn}
+          className={` return-btn ${RewardDone ? "disabled" : ""}`}
+          disabled={isReturnButtonEnabled}
+        >
+          Return
+        </button>
+      </div>
       {/* Assuming CharacterData is used to display character stats */}
       <CharacterData
         playerName={playerName}
