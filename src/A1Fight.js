@@ -17,6 +17,12 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
         characterStats={characterStats}
       />
       </div>
+      <div className="PLayerCombatMovesDiv">
+        <div className="CombatMoves move1">Move 1</div>
+        <div className="CombatMoves move2">Move 2</div>
+        <div className="CombatMoves move3">Move 3</div>
+        <div className="CombatMoves move4">Move 4</div>
+      </div>
       <button onClick={handleReturn}>Return</button>
     </div>
   );
