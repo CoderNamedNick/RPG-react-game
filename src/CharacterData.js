@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const CharacterData = ({ playerName, characterStats }) => {
+const CharacterData = ({ playerName, characterStats, skills }) => {
   // Initialize character data using props
   const [characterData, setCharacterData] = useState({
     PlayerName: playerName,

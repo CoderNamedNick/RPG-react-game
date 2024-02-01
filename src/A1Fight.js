@@ -9,19 +9,21 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
   return (
     <div>
       <h1>FIGHT</h1>
-      {/* make a cool fight sceen with skills and think of an enemy to fight */}
+      {/* make a cool fight scene with skills and think of an enemy to fight */}
       <div>
-      <CharacterData
-        playerName={playerName}
-        updateCharacterStats={updateCharacterStats}
-        characterStats={characterStats}
-      />
+        <CharacterData
+          playerName={playerName}
+          updateCharacterStats={updateCharacterStats}
+          characterStats={characterStats}
+          skills={characterStats.Skills} // Pass the skills prop
+        />
       </div>
-      <div className="PLayerCombatMovesDiv">
-        <div className="CombatMoves move1">Move 1</div>
-        <div className="CombatMoves move2">Move 2</div>
-        <div className="CombatMoves move3">Move 3</div>
-        <div className="CombatMoves move4">Move 4</div>
+      <div className="PlayerCombatMovesDiv">
+        <div className="CombatMoves move1">Basic Attack</div>
+        <div className="CombatMoves move2">{characterStats.Skills[0]}</div>
+        {/* Display other skills as needed */}
+        <div className="CombatMoves move3">Observe</div>
+        <div className="CombatMoves move4">Run</div>
       </div>
       <button onClick={handleReturn}>Return</button>
     </div>
