@@ -9,7 +9,7 @@ const CharacterData = ({ playerName, characterStats, skills }) => {
     Def: characterStats.Def,
     Mana: characterStats.Mana,
     Skills: characterStats.Skills,
-    Inventory: characterStats.Inventory
+    Inventory: characterStats.Inventory,
   });
 
   // Update character data whenever characterStats prop changes
@@ -21,7 +21,7 @@ const CharacterData = ({ playerName, characterStats, skills }) => {
       Def: characterStats.Def,
       Mana: characterStats.Mana,
       Skills: characterStats.Skills,
-      Inventory: characterStats.Inventory
+      Inventory: characterStats.Inventory,
     });
   }, [characterStats]);
 
@@ -32,7 +32,16 @@ const CharacterData = ({ playerName, characterStats, skills }) => {
       <p>Attack: {characterData.Atk}</p>
       <p>Defense: {characterData.Def}</p>
       <p>Mana: {characterData.Mana}</p>
-      <p>Skills: {characterData.Skills}</p>
+      <div>
+        <h3>Skills:</h3>
+        <ul>
+          {characterData.Skills.map((skill, index) => (
+            <li key={index}>
+              {skill.name} - Damage: {skill.damage}, ManaCost: {skill.manaCost}
+            </li>
+          ))}
+        </ul>
+      </div>
       <p>Inventory: {characterData.Inventory}</p>
     </div>
   );
