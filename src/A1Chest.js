@@ -9,13 +9,13 @@ const A1Chest = ({ playerName, onReturn, updateCharacterStats, characterStats })
 
   const handleChestClick = () => {
     const items = [
-      { range: [0, 10], item: 'Sword', attribute: 'Atk', increase: 12, Skills: [{ name: 'Slash', damage: 15, manaCost: 5 }] },
-      { range: [10, 20], item: 'Bow', attribute: 'Atk', increase: 8, Skills: [{ name: 'Arrow Shot', damage: 10, manaCost: 8 }] },
+      { range: [0, 10], item: 'Sword', attributes: ['Mana', 'Atk'], increases: [10, 12], Skills: [{ name: 'Slash', damage: 25, manaCost: 5 }] },
+      { range: [10, 20], item: 'Bow', attribute: 'Atk', increase: 8, Skills: [{ name: 'Strong Shot', damage: 22, manaCost: 0 }] },
       { range: [20, 30], item: 'Shield', attribute: 'Def', increase: 15, Skills: [{ name: 'Block', damage: 0, manaCost: 0 }] },
       { range: [30, 40], item: 'Staff', attributes: ['Mana', 'Atk'], increases: [20, 3], Skills: [{ name: 'Fireball', damage: 20, manaCost: 10 }] },
-      { range: [40, 50], item: 'Dagger', attribute: 'Atk', increase: 10, Skills: [{ name: 'Backstab', damage: 12, manaCost: 6 }] },
-      { range: [50, 60], item: 'Spear', attribute: 'Atk', increase: 14, Skills: [{ name: 'Thrust', damage: 18, manaCost: 8 }] },
-      { range: [60, 70], item: 'Axe', attribute: 'Atk', increase: 16, Skills: [{ name: 'Cleave', damage: 25, manaCost: 12 }] },
+      { range: [40, 50], item: 'Dagger', attributes: ['Mana', 'Atk'], increases: [6, 10], Skills: [{ name: 'Backstab', damage: 32, manaCost: 6 }] },
+      { range: [50, 60], item: 'Spear', attributes: ['Mana', 'Atk'], increases: [10, 10], Skills: [{ name: 'Thrust', damage: 28, manaCost: 5 }] },
+      { range: [60, 70], item: 'Axe', attributes: ['Mana', 'Atk'], increases: [15, 13], Skills: [{ name: 'Cleave', damage: 28, manaCost: 15 }] },
     ];
 
     let randomNum = Math.floor(Math.random() * 70);
