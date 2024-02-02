@@ -16,6 +16,11 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
     if (characterStats.Skills.length > 0) {
       const firstSkill = characterStats.Skills[0];
       alert(`Skill Attack! ${firstSkill.name} - DMG: ${firstSkill.damage}, ManaCost: ${firstSkill.manaCost}`);
+      const updatedStats = {
+        ...characterStats,
+      };
+      updatedStats.Mana = characterStats.Mana - firstSkill.manaCost
+      updateCharacterStats(updatedStats);
     } else {
       alert("No skills available!");
     }
