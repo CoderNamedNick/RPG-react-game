@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import CharacterData from "./CharacterData";
 
 const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn }) => {
@@ -10,6 +11,13 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
     // Display an alert with the ATK value
     alert(`Basic Attack! DMG: ${characterStats.Atk}`);
   };
+
+  const [EnemyStats, setEnemyStats] = useState({
+    Hp: 80,
+    Atk: 8,
+    Def: 4,
+    Mana: 5,
+  });
 
   const handleSkillAttack = () => {
     if (characterStats.Skills.length > 0) {
@@ -43,6 +51,14 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
           updateCharacterStats={updateCharacterStats}
           characterStats={characterStats}
         />
+      </div>
+      <div className="EnemyStats">
+        {/* Display EnemyStats */}
+        <p>Name: ???</p>
+        <p>HP: {EnemyStats.Hp}</p>
+        <p>ATK: {EnemyStats.Atk}</p>
+        <p>DEF: {EnemyStats.Def}</p>
+        <p>Mana: {EnemyStats.Mana}</p>
       </div>
       <div className="PlayerCombatMovesDiv">
         <div className="CombatMoves move1" onClick={handleBasicAttack}>
