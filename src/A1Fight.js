@@ -12,15 +12,22 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
   };
 
   const handleSkillAttack = () => {
-    // Display an alert with the first skill's DMG value
     if (characterStats.Skills.length > 0) {
       const firstSkill = characterStats.Skills[0];
-      alert(`Skill Attack! ${firstSkill.name} - DMG: ${firstSkill.damage}, ManaCost: ${firstSkill.manaCost}`);
-      const updatedStats = {
-        ...characterStats,
-      };
-      updatedStats.Mana = characterStats.Mana - firstSkill.manaCost
-      updateCharacterStats(updatedStats);
+  
+      // Check if player has enough mana to use the skill
+      if (characterStats.Mana >= firstSkill.manaCost) {
+        alert(`Skill Attack! ${firstSkill.name} - DMG: ${firstSkill.damage}, ManaCost: ${firstSkill.manaCost}`);
+        
+        // Update character stats only if the skill can be used
+        const updatedStats = {
+          ...characterStats,
+          Mana: characterStats.Mana - firstSkill.manaCost
+        };
+        updateCharacterStats(updatedStats);
+      } else {
+        alert("Not enough mana to use this skill!");
+      }
     } else {
       alert("No skills available!");
     }
