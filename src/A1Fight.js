@@ -7,26 +7,40 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
     onReturn(); // Call the onReturn function passed as a prop
   };
 
-  const handleBasicAttack = () => {
-    // Display an alert with the ATK value
-    alert(`Basic Attack! DMG: ${characterStats.Atk}`);
-  };
-
-  const [EnemyStats, setEnemyStats] = useState({
+  const [FirstEnemyStats, setEnemyStats] = useState({
     Hp: 80,
     Atk: 8,
     Def: 4,
     Mana: 5,
   });
+  let DamageToEnemy = (param, param1) => {
+    const updatedEnstats = {
+      ...param,
+      Hp: param.Hp - param1
+    }
+    
+    updateEnemyStats(updatedEnstats);
+  }
+
+  const handleBasicAttack = () => {
+    // Display an alert with the ATK value
+    alert(`Basic Attack! DMG: ${characterStats.Atk}`);
+    DamageToEnemy(FirstEnemyStats, characterStats.Atk)
+  };
+
+  const updateEnemyStats = (updatedEnStats) => {
+    setEnemyStats(updatedEnStats);
+  };
 
   const handleSkillAttack = () => {
     if (characterStats.Skills.length > 0) {
       const firstSkill = characterStats.Skills[0];
   
-      // Check if player has enough mana to use the skill
       if (characterStats.Mana >= firstSkill.manaCost) {
         alert(`Skill Attack! ${firstSkill.name} - DMG: ${firstSkill.damage}, ManaCost: ${firstSkill.manaCost}`);
-        
+
+        DamageToEnemy(FirstEnemyStats, firstSkill.damage)
+
         // Update character stats only if the skill can be used
         const updatedStats = {
           ...characterStats,
@@ -55,10 +69,10 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
       <div className="EnemyStats">
         {/* Display EnemyStats */}
         <p>Name: ???</p>
-        <p>HP: {EnemyStats.Hp}</p>
-        <p>ATK: {EnemyStats.Atk}</p>
-        <p>DEF: {EnemyStats.Def}</p>
-        <p>Mana: {EnemyStats.Mana}</p>
+        <p>HP: {FirstEnemyStats.Hp}</p>
+        <p>ATK: {FirstEnemyStats.Atk}</p>
+        <p>DEF: {FirstEnemyStats.Def}</p>
+        <p>Mana: {FirstEnemyStats.Mana}</p>
       </div>
       <div className="PlayerCombatMovesDiv">
         <div className="CombatMoves move1" onClick={handleBasicAttack}>
