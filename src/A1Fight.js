@@ -26,14 +26,24 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
       Hp: Enemy.Hp - Math.max(0, damage - Enemy.Def), // Subtracting effective damage (max of 0 and damage - Def)
     };
     updateEnemyStats(updatedEnstats);
+    if(Enemy.Hp <= 0){alert('you won')}
     return Math.max(0, Enemy.Def - modifiedDef); // Return Defense reduction
   };
   
   const handleBasicAttack = () => {
-    // Display an alert with the true damage dealt
-    const dps = DamageToEnemy(FirstEnemyStats, characterStats.Atk);
-    alert(`Basic Attack! DMG: ${characterStats.Atk}, True Damage Dealt: ${characterStats.Atk - dps}`);
-    EnemyTurn();
+    if (!FirstAction) {
+      // Display an alert with the true damage dealt
+      const dps = DamageToEnemy(FirstEnemyStats, characterStats.Atk);
+      alert(`Basic Attack! DMG: ${characterStats.Atk}, True Damage Dealt: ${characterStats.Atk - dps}`);
+      let EnemyDmg = EnemyTurn();
+      const updatedStats = {
+        ...characterStats,
+        Hp: characterStats.Hp - EnemyDmg,
+      };
+      updateCharacterStats(updatedStats);
+    } else {
+      combatstart();
+    }
   };
   
   const updateEnemyStats = (updatedEnStats) => { 
@@ -55,54 +65,51 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
   }
 
   const EnemyTurn = () => {
-    if (FirstAction) { 
-      combatstart()
-    } else {
-    let EnemyAtk = FirstEnemyStats.Atk
-    let CharacterDef = characterStats.Def / 1.5
-    alert("Cd:" + Math.round(CharacterDef) + 'EA:' + EnemyAtk)
-    let DmgDealt = EnemyAtk - CharacterDef
-    alert(Math.round(DmgDealt))
+  if (FirstAction) {
+    combatstart();
+  } else {
+    let EnemyAtk = FirstEnemyStats.Atk;
+    let CharacterDef = characterStats.Def / 1.5;
+    alert("Cd:" + Math.round(CharacterDef) + 'EA:' + EnemyAtk);
+    let DmgDealt = Math.max(0, EnemyAtk - CharacterDef);
+    let DMGdealt = Math.round(DmgDealt);
+    alert(DMGdealt);
 
-    if (DmgDealt < 0) {
-      const updatedStats = {
-        ...characterStats,
-      };
-      updateCharacterStats(updatedStats);
-    } else {
-      const updatedStats = {
-        ...characterStats,
-        Hp: characterStats.Hp - Math.round(DmgDealt)
-      };
-      updateCharacterStats(updatedStats);
-    }
-    }
-  };
+   return DMGdealt
+  }
+};
 
-  const handleSkillAttack = () => {
+const handleSkillAttack = () => {
+  if (FirstAction) {
+    combatstart();
+  } else {
+
     if (characterStats.Skills.length > 0) {
       const firstSkill = characterStats.Skills[0];
-  
+
       if (characterStats.Mana >= firstSkill.manaCost) {
+        DamageToEnemy(FirstEnemyStats, firstSkill.damage);
 
-        DamageToEnemy(FirstEnemyStats, firstSkill.damage)
-        const skilldps = DamageToEnemy(FirstEnemyStats, firstSkill.damage)
+        //alert(`Skill Attack! ${firstSkill.name} - DMG: ${firstSkill.damage}, ManaCost: ${firstSkill.manaCost}, True DMG: ${firstSkill.damage - skilldps}`);
 
-        alert(`Skill Attack! ${firstSkill.name} - DMG: ${firstSkill.damage}, ManaCost: ${firstSkill.manaCost}, True DMG: ${firstSkill.damage - skilldps}`);
-        EnemyTurn();
+        let EnemyDmg = EnemyTurn()
+
         // Update character stats only if the skill can be used
         const updatedStats = {
           ...characterStats,
-          Mana: characterStats.Mana - firstSkill.manaCost
+          Hp: characterStats.Hp - EnemyDmg,
+          Mana: characterStats.Mana - firstSkill.manaCost,
         };
         updateCharacterStats(updatedStats);
+
       } else {
         alert("Not enough mana to use this skill!");
       }
     } else {
       alert("No skills available!");
     }
-  };
+  }
+};
 
   return (
     <div>
