@@ -41,7 +41,7 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
   };
 
   let combatstart = () => {
-  alert("Comabt Has started")
+    alert("Combat Has started")
     const updatedEnStats = {
       ...FirstEnemyStats,
       name: 'Goblin',
@@ -62,12 +62,20 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
     let CharacterDef = characterStats.Def / 1.5
     alert("Cd:" + Math.round(CharacterDef) + 'EA:' + EnemyAtk)
     let DmgDealt = EnemyAtk - CharacterDef
+    alert(Math.round(DmgDealt))
 
-    const updatedStats = {
-      ...characterStats,
-      Hp: characterStats.Hp - Math.round(DmgDealt)
-    };
-    updateCharacterStats(updatedStats);
+    if (DmgDealt < 0) {
+      const updatedStats = {
+        ...characterStats,
+      };
+      updateCharacterStats(updatedStats);
+    } else {
+      const updatedStats = {
+        ...characterStats,
+        Hp: characterStats.Hp - Math.round(DmgDealt)
+      };
+      updateCharacterStats(updatedStats);
+    }
     }
   };
 
@@ -81,7 +89,7 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
         const skilldps = DamageToEnemy(FirstEnemyStats, firstSkill.damage)
 
         alert(`Skill Attack! ${firstSkill.name} - DMG: ${firstSkill.damage}, ManaCost: ${firstSkill.manaCost}, True DMG: ${firstSkill.damage - skilldps}`);
-
+        EnemyTurn();
         // Update character stats only if the skill can be used
         const updatedStats = {
           ...characterStats,
