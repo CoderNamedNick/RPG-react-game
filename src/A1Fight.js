@@ -3,8 +3,8 @@ import { useState } from "react";
 import CharacterData from "./CharacterData";
 
 const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn }) => {
-
   const [FirstAction, setFirstAction] = useState(true)
+  const [EnemyDefeated, setEnemyDefeated] = useState(false)
 
   const handleReturn = () => {
     onReturn(); // Call the onReturn function passed as a prop
@@ -19,6 +19,11 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
   });
   
   const DamageToEnemy = (Enemy, damage) => {
+    if(Enemy.Hp <= 0){
+      alert('you won')
+      setEnemyDefeated(true)
+      return null
+    }
     const modifiedDef = Math.max(0, Enemy.Def - damage); // Calculate modified Defense
     const updatedEnstats = {
       ...Enemy,
@@ -26,11 +31,15 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
       Hp: Enemy.Hp - Math.max(0, damage - Enemy.Def), // Subtracting effective damage (max of 0 and damage - Def)
     };
     updateEnemyStats(updatedEnstats);
-    if(Enemy.Hp <= 0){alert('you won')}
     return Math.max(0, Enemy.Def - modifiedDef); // Return Defense reduction
   };
   
   const handleBasicAttack = () => {
+    if(FirstEnemyStats.Hp <= 0){
+      alert('you won')
+      setEnemyDefeated(true)
+      return null
+    }
     if (!FirstAction) {
       // Display an alert with the true damage dealt
       const dps = DamageToEnemy(FirstEnemyStats, characterStats.Atk);
@@ -80,6 +89,11 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
 };
 
 const handleSkillAttack = () => {
+  if(FirstEnemyStats.Hp <= 0){
+    alert('you won')
+    setEnemyDefeated(true)
+    return null
+  }
   if (FirstAction) {
     combatstart();
   } else {
@@ -111,6 +125,9 @@ const handleSkillAttack = () => {
   }
 };
 
+  if (EnemyDefeated) {
+    return <div> hello </div>;
+  }
   return (
     <div>
       <h1>FIGHT</h1>
