@@ -4,6 +4,7 @@ const CharacterData = ({ playerName, characterStats, skills }) => {
   // Initialize character data using props
   const [characterData, setCharacterData] = useState({
     PlayerName: playerName,
+    LVL: characterStats.LVL,
     Hp: characterStats.Hp,
     Atk: characterStats.Atk,
     Def: characterStats.Def,
@@ -16,6 +17,7 @@ const CharacterData = ({ playerName, characterStats, skills }) => {
   useEffect(() => {
     setCharacterData({
       ...characterData,
+      LVL: characterStats.LVL,
       Hp: characterStats.Hp,
       Atk: characterStats.Atk,
       Def: characterStats.Def,
@@ -28,6 +30,7 @@ const CharacterData = ({ playerName, characterStats, skills }) => {
   return (
     <div className="Inv-data">
       <h2>Player Name: {characterData.PlayerName}</h2>
+      <p>LVL: {characterData.LVL}</p>
       <p>HP: {characterData.Hp}</p>
       <p>Attack: {characterData.Atk}</p>
       <p>Defense: {characterData.Def}</p>

@@ -5,6 +5,7 @@ import GamePartOne from "./GamePartOne";
 function App() {
   const [playerName, setPlayerName] = useState('');
   const [characterStats, setCharacterStats] = useState({
+    LVL: 1,
     Hp: 100,
     Atk: 10,
     Def: 10,
