@@ -119,7 +119,7 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
   };
   //on Observation
   const handleObsertaion = () => {
-
+    combatstart();
   }
 
   // useEffect to execute a function after EnemyDefeated changes to true
@@ -189,7 +189,7 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
           </div>
         )}
         {/* Display other skills as needed */}
-        <div className="CombatMoves move3">
+        <div onClick={handleObsertaion} className="CombatMoves move3">
           <h2>Observe</h2>
         </div>
         <div className="CombatMoves move4">
