@@ -181,6 +181,9 @@ h1{
 }
 .CombatMoves{
  background-color: rgba(73, 156, 211, 0.548);
+ display: flex;
+ flex-direction: column;
+ align-items: center;
 }
 .EnemyStats{
   background-color: rgba(0, 0, 0, 0.322);
@@ -189,5 +192,11 @@ h1{
   padding: 20px;
   font-size: 22px;
   border-radius: 10px;
-  bottom: 42%;
+  bottom: 52%;
+}
+.Goblin-PNG{
+  width: 200px;
+  position: absolute;
+  right: 15%;
+  bottom: 52%;
 }

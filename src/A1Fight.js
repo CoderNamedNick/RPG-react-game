@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from "react";
 import CharacterData from "./CharacterData";
+import goblin from "./goblin-18.png";
 
 const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn }) => {
   const [FirstAction, setFirstAction] = useState(true);
   const [EnemyDefeated, setEnemyDefeated] = useState(false);
+  const [ShowCharacterStats, setShowCharacterStats] = useState(false)
 
   const handleReturn = () => {
     onReturn(); //return function
   };
+  const handleCharacterstats = () => {
+    setShowCharacterStats(!ShowCharacterStats)
+  }
 
   //This is Enemy stats and and attacks
   const [FirstEnemyStats, setEnemyStats] = useState({
@@ -50,7 +55,6 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
   //THIS IS PLAYER ATTACKS AND STATS
   const DamageToEnemy = (Enemy, damage) => {
     if (Enemy.Hp <= 0) {
-      alert('you won');
       setEnemyDefeated(true);
       return null;
     }
@@ -64,7 +68,6 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
   };
   const handleBasicAttack = () => {
     if (FirstEnemyStats.Hp <= 0) {
-      alert('you won');
       setEnemyDefeated(true);
       return null;
     }
@@ -83,7 +86,6 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
   };
   const handleSkillAttack = () => {
     if (FirstEnemyStats.Hp <= 0) {
-      alert('you won');
       setEnemyDefeated(true);
       return null;
     }
@@ -113,6 +115,10 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
       }
     }
   };
+  //on Observation
+  const handleObsertaion = () => {
+
+  }
 
   // useEffect to execute a function after EnemyDefeated changes to true
   useEffect(() => {
@@ -146,13 +152,17 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
     <div>
       <h1>FIGHT</h1>
       {/* make a cool fight scene with skills and think of an enemy to fight */}
-      <div>
-        <CharacterData
-          playerName={playerName}
-          updateCharacterStats={updateCharacterStats}
-          characterStats={characterStats}
-        />
-      </div>
+      {ShowCharacterStats &&(
+        <div>
+          <CharacterData
+            playerName={playerName}
+            updateCharacterStats={updateCharacterStats}
+            characterStats={characterStats}
+          />
+        </div>
+      )}
+      <button onClick={handleCharacterstats}>Stats</button>
+      <img className="Goblin-PNG" src={goblin} alt="Goblin"></img>
       <div className="EnemyStats">
         {/* Display EnemyStats */}
         <p>Name: {FirstEnemyStats.name}</p>
@@ -163,18 +173,23 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
       </div>
       <div className="PlayerCombatMovesDiv">
         <div className="CombatMoves move1" onClick={handleBasicAttack}>
-          Basic Attack
+          <h2>Basic Attack</h2>
+          <h3>dmg: {characterStats.Atk}</h3>
         </div>
         {characterStats.Skills.length > 0 && (
           <div className="CombatMoves move2" onClick={handleSkillAttack}>
-            {characterStats.Skills[0].name}
+            <h1>{characterStats.Skills[0].name}</h1>
+            <h2>dmg: {characterStats.Skills[0].damage}</h2>
           </div>
         )}
         {/* Display other skills as needed */}
-        <div className="CombatMoves move3">Observe</div>
-        <div className="CombatMoves move4">Run</div>
+        <div className="CombatMoves move3">
+          <h2>Observe</h2>
+        </div>
+        <div className="CombatMoves move4">
+          <h2>Run</h2>
+        </div>
       </div>
-      <button onClick={handleReturn}>Return</button>
     </div>
   );
 };
