@@ -192,11 +192,16 @@ h1{
   padding: 20px;
   font-size: 22px;
   border-radius: 10px;
-  bottom: 52%;
+  bottom: 42%;
+}
+.goblin-div{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 32%;
 }
 .Goblin-PNG{
-  width: 200px;
-  position: absolute;
-  right: 15%;
-  bottom: 52%;
+  width: 400px;
+  margin-left: 70px;
 }

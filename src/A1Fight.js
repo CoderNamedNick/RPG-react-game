@@ -6,6 +6,7 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
   const [FirstAction, setFirstAction] = useState(true);
   const [EnemyDefeated, setEnemyDefeated] = useState(false);
   const [ShowCharacterStats, setShowCharacterStats] = useState(false)
+  const [ShowGoblin, setShowGoblin] = useState(false)
 
   const handleReturn = () => {
     onReturn(); //return function
@@ -37,6 +38,7 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
     };
     updateEnemyStats(updatedEnStats);
     setFirstAction(false);
+    setShowGoblin(true)
   };
   const EnemyTurn = () => {
     if (FirstAction) {
@@ -161,8 +163,12 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
           />
         </div>
       )}
+      {ShowGoblin && (
+        <div className="goblin-div">
+          <img className="Goblin-PNG" src={goblin} alt="Goblin"></img>
+        </div>
+      )}
       <button onClick={handleCharacterstats}>Stats</button>
-      <img className="Goblin-PNG" src={goblin} alt="Goblin"></img>
       <div className="EnemyStats">
         {/* Display EnemyStats */}
         <p>Name: {FirstEnemyStats.name}</p>
