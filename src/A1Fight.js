@@ -167,6 +167,9 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
     combatstart();
     setFightBtnDisabled(true);
   }
+  const handleRun = () => {
+    alert(playerName + ' can not escape')
+  }
 
   // useEffect to execute a function after EnemyDefeated changes to true
   useEffect(() => {
@@ -258,7 +261,7 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
               <h2>Fight</h2>
             </button>
           )}
-        <div className="CombatMoves move4">
+        <div onClick={handleRun} className="CombatMoves move4">
           <h2>Run</h2>
         </div>
       </div>
