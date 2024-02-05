@@ -210,3 +210,32 @@ h1{
   width: 300px;
   bottom: 20%;
 }
+.PlayerBars {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  position: absolute;
+  top: 10px;
+  right: 0%;
+}
+
+.healthBar,
+.manaBar {
+  width: 100%;
+  margin-top: 5px;
+}
+
+.bar {
+  height: 20px;
+  background-color: #4caf50; /* green color */
+}
+.bar2 {
+  height: 20px;
+  background-color: rgb(37, 56, 161); /* green color */
+}
+.bar,
+.bar2 {
+  border: none;
+  border-radius: 10px;
+}

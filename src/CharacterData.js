@@ -6,9 +6,11 @@ const CharacterData = ({ playerName, characterStats, skills }) => {
     PlayerName: playerName,
     LVL: characterStats.LVL,
     Hp: characterStats.Hp,
+    MaxHp: characterStats.MaxHp,
     Atk: characterStats.Atk,
     Def: characterStats.Def,
     Mana: characterStats.Mana,
+    MaxMana: characterStats.MaxMana,
     Skills: characterStats.Skills,
     Inventory: characterStats.Inventory,
   });
@@ -19,9 +21,11 @@ const CharacterData = ({ playerName, characterStats, skills }) => {
       ...characterData,
       LVL: characterStats.LVL,
       Hp: characterStats.Hp,
+      MaxHp: characterStats.MaxHp,
       Atk: characterStats.Atk,
       Def: characterStats.Def,
       Mana: characterStats.Mana,
+      MaxMana: characterStats.MaxMana,
       Skills: characterStats.Skills,
       Inventory: characterStats.Inventory,
     });

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import CharacterData from "./CharacterData";
+import A1HealthManaBars from "./A1HealthManaBars";
 import goblin from "./goblin-18.png";
 import slash from './pixil-frame-0.png'
 
@@ -217,6 +218,12 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
         </div>
       )}
       <button onClick={handleCharacterstats}>Stats</button>
+      <div>
+        <A1HealthManaBars 
+          playerName={playerName}
+          characterStats={characterStats}
+        />
+      </div>
       <div className="EnemyStats">
         {/* Display EnemyStats */}
         <p>Name: {FirstEnemyStats.name}</p>

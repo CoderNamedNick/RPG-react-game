@@ -7,9 +7,11 @@ function App() {
   const [characterStats, setCharacterStats] = useState({
     LVL: 1,
     Hp: 100,
+    MaxHp: 100,
     Atk: 10,
     Def: 10,
     Mana: 0,
+    MaxMana: 0,
     Skills: [],
     Inventory: []
   });
