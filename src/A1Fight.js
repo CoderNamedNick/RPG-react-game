@@ -9,6 +9,8 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
   const [ShowCharacterStats, setShowCharacterStats] = useState(false)
   const [ShowGoblin, setShowGoblin] = useState(false)
   const [ShowSlash, setShowSlash] = useState(false)
+  const [ShowFightBTN, setShowFightBTN] = useState(false)
+  const [FightBtnDisabled, setFightBtnDisabled] = useState(false);
 
   const handleReturn = () => {
     onReturn(); //return function
@@ -134,7 +136,35 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
   };
   //on Observation
   const handleObsertaion = () => {
+    setShowGoblin(true)
+    setTimeout(function () {
+      setShowGoblin(false);
+    }, 2000);
+    const updatedEnStats = {
+      ...FirstEnemyStats,
+      name: 'Goblin',
+      Hp: 80,
+      Atk: 12,
+      Def: 4,
+      Mana: 5,
+    };
+    updateEnemyStats(updatedEnStats);
+    setTimeout(function () {
+      const updatedEnStats2 = {
+        ...FirstEnemyStats,
+        name: '??',
+        Hp: '??',
+        Atk: '??',
+        Def: '??',
+        Mana: '??',
+      };
+      updateEnemyStats(updatedEnStats2);
+    }, 2000);
+    setShowFightBTN(true)
+  }
+  const handleFight = () => {
     combatstart();
+    setFightBtnDisabled(true);
   }
 
   // useEffect to execute a function after EnemyDefeated changes to true
@@ -207,9 +237,20 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
           </div>
         )}
         {/* Display other skills as needed */}
-        <div onClick={handleObsertaion} className="CombatMoves move3">
-          <h2>Observe</h2>
-        </div>
+        {!ShowFightBTN && (
+          <div onClick={handleObsertaion} className="CombatMoves move3">
+            <h2>Observe</h2>
+          </div>
+        )}
+         {ShowFightBTN && (
+            <button
+              onClick={handleFight}
+              className={`CombatMoves move3 ${FightBtnDisabled ? 'disabled' : ''}`}
+              disabled={FightBtnDisabled}
+            >
+              <h2>Fight</h2>
+            </button>
+          )}
         <div className="CombatMoves move4">
           <h2>Run</h2>
         </div>
