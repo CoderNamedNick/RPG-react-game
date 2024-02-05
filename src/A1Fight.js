@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import CharacterData from "./CharacterData";
 import goblin from "./goblin-18.png";
+import slash from './pixil-frame-0.png'
 
 const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn }) => {
   const [FirstAction, setFirstAction] = useState(true);
   const [EnemyDefeated, setEnemyDefeated] = useState(false);
   const [ShowCharacterStats, setShowCharacterStats] = useState(false)
   const [ShowGoblin, setShowGoblin] = useState(false)
+  const [ShowSlash, setShowSlash] = useState(false)
 
   const handleReturn = () => {
     onReturn(); //return function
@@ -60,12 +62,14 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
       setEnemyDefeated(true);
       return null;
     }
+
     const modifiedDef = Math.max(0, Enemy.Def - damage);
     const updatedEnstats = {
       ...Enemy,
       Hp: Enemy.Hp - Math.max(0, damage - Enemy.Def),
     };
     updateEnemyStats(updatedEnstats);
+  
     return Math.max(0, Enemy.Def - modifiedDef);
   };
   const handleBasicAttack = () => {
@@ -77,6 +81,12 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
       const dps = DamageToEnemy(FirstEnemyStats, characterStats.Atk);
       alert(`Basic Attack! DMG: ${characterStats.Atk}, True Damage Dealt: ${characterStats.Atk - dps}`);
       let EnemyDmg = EnemyTurn();
+      setShowSlash(true);
+  
+      // Use setTimeout to hide the slash after 2000 milliseconds (2 seconds)
+      setTimeout(function () {
+        setShowSlash(false);
+      }, 700);
       const updatedStats = {
         ...characterStats,
         Hp: characterStats.Hp - EnemyDmg,
@@ -101,7 +111,12 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
           DamageToEnemy(FirstEnemyStats, firstSkill.damage);
 
           let EnemyDmg = EnemyTurn();
-
+          setShowSlash(true);
+  
+          // Use setTimeout to hide the slash after 2000 milliseconds (2 seconds)
+          setTimeout(function () {
+            setShowSlash(false);
+          }, 700);
           const updatedStats = {
             ...characterStats,
             Hp: characterStats.Hp - EnemyDmg,
@@ -166,6 +181,9 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
       {ShowGoblin && (
         <div className="goblin-div">
           <img className="Goblin-PNG" src={goblin} alt="Goblin"></img>
+          {ShowSlash && (
+            <img className="Slash-PNG" src={slash} alt="Slash"></img>
+          )}
         </div>
       )}
       <button onClick={handleCharacterstats}>Stats</button>
