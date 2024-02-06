@@ -93,6 +93,7 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
       const updatedStats = {
         ...characterStats,
         Hp: characterStats.Hp - EnemyDmg,
+        Mana: characterStats.Mana + 1,
       };
       updateCharacterStats(updatedStats);
     } else {
@@ -123,7 +124,7 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
           const updatedStats = {
             ...characterStats,
             Hp: characterStats.Hp - EnemyDmg,
-            Mana: characterStats.Mana - firstSkill.manaCost,
+            Mana: characterStats.Mana - firstSkill.manaCost + 1,
           };
           updateCharacterStats(updatedStats);
 
@@ -171,9 +172,8 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
     alert(playerName + ' can not escape')
   }
 
-  // useEffect to execute a function after EnemyDefeated changes to true
   useEffect(() => {
-    if (EnemyDefeated) {
+    if (FirstEnemyStats.Hp <= 0) {
       // Call the function you want to execute after the enemy is defeated
       handleAfterEnemyDefeated();
     }
@@ -189,11 +189,7 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
       <div>
         <h1>LVL UP!</h1>
         <div>
-          <CharacterData
-            playerName={playerName}
-            updateCharacterStats={updateCharacterStats}
-            characterStats={characterStats}
-          />
+          Hp: {characterStats.Hp} + 
         </div>
       </div>
     );
