@@ -14,6 +14,7 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
   const [FightBtnDisabled, setFightBtnDisabled] = useState(false);
   const [ShowReturnBTN, setShowReturnBTN] = useState(false)
   const [RewardBtnDisabled, setRewardBtnDisabled] = useState(false);
+  const [FirstActionCompleted, setFirstActionCompleted] = useState(false);
 
   const handleReturn = () => {
     onReturn(); //return function
@@ -46,6 +47,9 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
     updateEnemyStats(updatedEnStats);
     setFirstAction(false);
     setShowGoblin(true)
+    setTimeout(() => {
+      setFirstActionCompleted(true);
+    }, 500);
   };
   const EnemyTurn = () => {
     if (FirstAction) {
@@ -140,6 +144,9 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
   };
   //on Observation + Run
   const handleObsertaion = () => {
+    if (FirstActionCompleted) {
+      return;
+    }
     setShowGoblin(true)
     setTimeout(function () {
       setShowGoblin(false);
@@ -361,19 +368,22 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
         )}
         {/* Display other skills as needed */}
         {!ShowFightBTN && (
-          <div onClick={handleObsertaion} className="CombatMoves move3">
+          <div 
+            onClick={handleObsertaion}
+            className={`CombatMoves move3 ${!FirstActionCompleted ? 'disabled' : ''}`}
+          >
             <h2>Observe</h2>
           </div>
         )}
-         {ShowFightBTN && (
-            <button
-              onClick={handleFight}
-              className={`CombatMoves move3 ${FightBtnDisabled ? 'disabled' : ''}`}
-              disabled={FightBtnDisabled}
-            >
-              <h2>Fight</h2>
-            </button>
-          )}
+        {ShowFightBTN && (
+          <button
+            onClick={handleFight}
+            className={`CombatMoves move3 ${FightBtnDisabled || !FirstActionCompleted ? 'disabled' : ''}`}
+            disabled={FightBtnDisabled || !FirstActionCompleted}
+          >
+            <h2>Fight</h2>
+          </button>
+        )}
         <div onClick={handleRun} className="CombatMoves move4">
           <h2>Run</h2>
         </div>
