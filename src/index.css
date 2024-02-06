@@ -239,3 +239,27 @@ h1{
   border: none;
   border-radius: 10px;
 }
+.Reward-main-div{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  height: auto;
+  gap: 10%;
+  align-items: center;
+  justify-content: center;
+}
+.Reward-Div1,
+.Reward-Div2,
+.Reward-Div3 {
+  background-color: rgba(244, 247, 90, 0.664);
+  height: 200px;
+  text-align: center;
+  justify-content: center;
+  font-size: 24px;
+  width: 25%;
+  padding-top: 60px;
+  border: solid black 3px;
+  border-radius: 20px;
+  color: black;
+  cursor: pointer;
+}

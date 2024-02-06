@@ -12,6 +12,7 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
   const [ShowSlash, setShowSlash] = useState(false)
   const [ShowFightBTN, setShowFightBTN] = useState(false)
   const [FightBtnDisabled, setFightBtnDisabled] = useState(false);
+  const [ShowReturnBTN, setShowReturnBTN] = useState(false)
 
   const handleReturn = () => {
     onReturn(); //return function
@@ -136,7 +137,7 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
       }
     }
   };
-  //on Observation
+  //on Observation + Run
   const handleObsertaion = () => {
     setShowGoblin(true)
     setTimeout(function () {
@@ -172,25 +173,43 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
     alert(playerName + ' can not escape')
   }
 
+  //after Fight
   useEffect(() => {
     if (FirstEnemyStats.Hp <= 0) {
       // Call the function you want to execute after the enemy is defeated
       handleAfterEnemyDefeated();
     }
   }, [EnemyDefeated]); // The effect will re-run whenever EnemyDefeated changes
-
   const handleAfterEnemyDefeated = () => {
     // Your logic for what should happen after the enemy is defeated
     alert("Congratulations! You've defeated the enemy. Performing post-defeat actions...");
   };
 
+
+
   if (EnemyDefeated) {
     return (
-      <div>
+      <div className="Lvl-up-main-div">
         <h1>LVL UP!</h1>
-        <div>
-          Hp: {characterStats.Hp} + 
+        <br></br>
+        <br></br>
+        <h2>Choose a Reward</h2>
+        <div className="Reward-main-div">
+          <div className="Reward-Div1">
+            <p>MaxHp: {characterStats.MaxHp} + 10</p>
+            <p>MaxMana: {characterStats.MaxMana} + 5</p>
+          </div>
+          <div className="Reward-Div2">
+            <p>Atk: {characterStats.Atk} + 5</p>
+            <p>Def: {characterStats.Def} + 5</p>
+          </div>
+          <div className="Reward-Div3">
+            <p>Get a Random Item</p>
+          </div>
         </div>
+        {ShowReturnBTN && (
+          <button>Return</button>
+        )}
       </div>
     );
   }
