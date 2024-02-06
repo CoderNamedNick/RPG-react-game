@@ -13,6 +13,7 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
   const [ShowFightBTN, setShowFightBTN] = useState(false)
   const [FightBtnDisabled, setFightBtnDisabled] = useState(false);
   const [ShowReturnBTN, setShowReturnBTN] = useState(false)
+  const [RewardBtnDisabled, setRewardBtnDisabled] = useState(false);
 
   const handleReturn = () => {
     onReturn(); //return function
@@ -185,7 +186,82 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
     alert("Congratulations! You've defeated the enemy. Performing post-defeat actions...");
   };
 
-
+  const handleRewardDivs = (param) => {
+    if (RewardBtnDisabled) {
+      // Do nothing if the reward button is disabled
+      return;
+    }
+    if (param === 1) {
+      const updatedStats = {
+        ...characterStats,
+        MaxHp: characterStats.MaxHp + 10,
+        MaxMana: characterStats.MaxMana + 5,
+      };
+      updateCharacterStats(updatedStats);
+      setRewardBtnDisabled(true);
+    }
+    if (param === 2) {
+      const updatedStats = {
+        ...characterStats,
+        Atk: characterStats.Atk + 5,
+        Def: characterStats.Def + 5,
+      };
+      updateCharacterStats(updatedStats);
+      setRewardBtnDisabled(true);
+    }
+    if (param === 3) {
+      const items = [
+        { range: [1], item: 'Heart Pendant', attributes: ['MaxHp'], increases: [25] },
+        { range: [2], item: 'Skill Pendant', attributes: ['Skills.damage'], increases: [10] },
+        { range: [3], item: 'Mana Ring', attributes: ['MaxMana'], increases: [10] },
+      ];
+      const ItemNumb = Math.floor(Math.random() * 3) + 1; // Adjust range to cover 1, 2, and 3
+      const selectedItem = items.find((item) => ItemNumb === item.range[0]);
+  
+      if (selectedItem) {
+        alert(`you got a ${selectedItem.item} ${selectedItem.attributes[0]}: + ${selectedItem.increases[0]}`);
+  
+        const updatedStats = {
+          ...characterStats,
+        };
+  
+        if (selectedItem.attributes && selectedItem.increases && selectedItem.attributes.length === selectedItem.increases.length) {
+          selectedItem.attributes.forEach((attribute, index) => {
+            updatedStats[attribute] = characterStats[attribute] + selectedItem.increases[index];
+          });
+        }
+  
+        updatedStats.Inventory = Array.isArray(characterStats.Inventory) ? characterStats.Inventory : [];
+  
+        if (selectedItem.item && selectedItem.item.length > 0) {
+          updatedStats.Inventory = [...updatedStats.Inventory, selectedItem.item];
+        }
+  
+        // Check if the item is Skill Pendant
+        if (selectedItem.item === 'Skill Pendant') {
+          // Check if the character has Skills array
+          if (updatedStats.Skills) {
+            // Increase the damage of the first skill by 10
+            updatedStats.Skills[0].damage += 10;
+          } else {
+            // If Skills array doesn't exist, create it with the first skill
+            updatedStats.Skills = [
+              { name: 'Basic Skill', damage: 10, manaCost: 5 },
+              // Add more skills as needed
+            ];
+          }
+        }
+  
+        updateCharacterStats(updatedStats);
+        setRewardBtnDisabled(true);
+      } else {
+        console.error("No matching item found for random number:", ItemNumb);
+      }
+    }
+  
+    // setRewardBtnDisabled(true); // This line was repeated, removed to avoid redundancy
+    setShowReturnBTN(true);
+  };
 
   if (EnemyDefeated) {
     return (
@@ -193,22 +269,44 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
         <h1>LVL UP!</h1>
         <br></br>
         <br></br>
+        {ShowCharacterStats &&(
+          <div>
+            <CharacterData
+              playerName={playerName}
+              updateCharacterStats={updateCharacterStats}
+              characterStats={characterStats}
+            />
+          </div>
+        )}
+        <button onClick={handleCharacterstats}>Stats</button>
         <h2>Choose a Reward</h2>
         <div className="Reward-main-div">
-          <div className="Reward-Div1">
+          <div 
+            className={`Reward-Div1 ${RewardBtnDisabled ? 'disabled' : ''}`}
+            onClick={() => {handleRewardDivs(1)}}
+            disabled={RewardBtnDisabled}
+          >
             <p>MaxHp: {characterStats.MaxHp} + 10</p>
             <p>MaxMana: {characterStats.MaxMana} + 5</p>
           </div>
-          <div className="Reward-Div2">
+          <div
+            className={`Reward-Div2 ${RewardBtnDisabled ? 'disabled' : ''}`}
+            onClick={() => {handleRewardDivs(2)}}
+            disabled={RewardBtnDisabled}
+          >
             <p>Atk: {characterStats.Atk} + 5</p>
             <p>Def: {characterStats.Def} + 5</p>
           </div>
-          <div className="Reward-Div3">
+          <div 
+            className={`Reward-Div3 ${RewardBtnDisabled ? 'disabled' : ''}`}
+            onClick={() => {handleRewardDivs(3)}}
+            disabled={RewardBtnDisabled}
+          >
             <p>Get a Random Item</p>
           </div>
         </div>
         {ShowReturnBTN && (
-          <button>Return</button>
+          <button onClick={handleReturn}>Return</button>
         )}
       </div>
     );
