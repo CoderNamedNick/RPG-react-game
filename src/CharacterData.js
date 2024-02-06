@@ -35,9 +35,11 @@ const CharacterData = ({ playerName, characterStats, skills }) => {
     <div className="Inv-data">
       <h2>Player Name: {characterData.PlayerName}</h2>
       <p>LVL: {characterData.LVL}</p>
+      <p>MaxHP: {characterData.MaxHp}</p>
       <p>HP: {characterData.Hp}</p>
       <p>Attack: {characterData.Atk}</p>
       <p>Defense: {characterData.Def}</p>
+      <p>MaxMana: {characterData.MaxMana}</p>
       <p>Mana: {characterData.Mana}</p>
       <div>
         <h3>Skills:</h3>

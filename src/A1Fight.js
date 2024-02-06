@@ -174,6 +174,9 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
     setShowFightBTN(true)
   }
   const handleFight = () => {
+    if (FirstActionCompleted) {
+      return;
+    }
     combatstart();
     setFightBtnDisabled(true);
   }
@@ -370,7 +373,7 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
         {!ShowFightBTN && (
           <div 
             onClick={handleObsertaion}
-            className={`CombatMoves move3 ${!FirstActionCompleted ? 'disabled' : ''}`}
+            className={`CombatMoves move3`}
           >
             <h2>Observe</h2>
           </div>
@@ -378,8 +381,8 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
         {ShowFightBTN && (
           <button
             onClick={handleFight}
-            className={`CombatMoves move3 ${FightBtnDisabled || !FirstActionCompleted ? 'disabled' : ''}`}
-            disabled={FightBtnDisabled || !FirstActionCompleted}
+            className={`CombatMoves move3 ${FightBtnDisabled ? 'disabled' : ''}`}
+            disabled={FightBtnDisabled}
           >
             <h2>Fight</h2>
           </button>
