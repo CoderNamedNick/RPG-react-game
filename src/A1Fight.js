@@ -147,6 +147,9 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
     if (FirstActionCompleted) {
       return;
     }
+    if (ShowGoblin) {
+      return;
+    }
     setShowGoblin(true)
     setTimeout(function () {
       setShowGoblin(false);
@@ -171,10 +174,15 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
       };
       updateEnemyStats(updatedEnStats2);
     }, 2000);
-    setShowFightBTN(true)
+    setTimeout(function () {
+      setShowFightBTN(true)
+    }, 2000);
   }
   const handleFight = () => {
     if (FirstActionCompleted) {
+      return;
+    }
+    if (ShowGoblin) {
       return;
     }
     combatstart();
