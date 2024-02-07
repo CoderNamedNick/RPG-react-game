@@ -96,12 +96,20 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
       setTimeout(function () {
         setShowSlash(false);
       }, 700);
-      const updatedStats = {
-        ...characterStats,
-        Hp: characterStats.Hp - EnemyDmg,
-        Mana: characterStats.Mana + 1,
-      };
-      updateCharacterStats(updatedStats);
+      if (characterStats.Mana < characterStats.MaxMana) {
+        const updatedStats = {
+          ...characterStats,
+          Hp: characterStats.Hp - EnemyDmg,
+          Mana: characterStats.Mana + 1,
+        };
+        updateCharacterStats(updatedStats);
+      } else {
+        const updatedStats = {
+          ...characterStats,
+          Hp: characterStats.Hp - EnemyDmg,
+        };
+        updateCharacterStats(updatedStats);
+      }
     } else {
       combatstart();
     }
@@ -127,12 +135,21 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
           setTimeout(function () {
             setShowSlash(false);
           }, 700);
-          const updatedStats = {
-            ...characterStats,
-            Hp: characterStats.Hp - EnemyDmg,
-            Mana: characterStats.Mana - firstSkill.manaCost + 1,
-          };
-          updateCharacterStats(updatedStats);
+          if (characterStats.Mana < characterStats.MaxMana + 1) {
+            const updatedStats = {
+              ...characterStats,
+              Hp: characterStats.Hp - EnemyDmg,
+              Mana: characterStats.Mana - firstSkill.manaCost + 1,
+            };
+            updateCharacterStats(updatedStats);
+          } else {
+            const updatedStats = {
+              ...characterStats,
+              Hp: characterStats.Hp - EnemyDmg,
+              Mana: characterStats.Mana - firstSkill.manaCost
+            };
+            updateCharacterStats(updatedStats);
+          }
 
         } else {
           alert("Not enough mana to use this skill!");
@@ -202,6 +219,11 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
   const handleAfterEnemyDefeated = () => {
     // Your logic for what should happen after the enemy is defeated
     alert("Congratulations! You've defeated the enemy. Performing post-defeat actions...");
+    const updatedStats = {
+      ...characterStats,
+      LVL: characterStats.LVL + 1,
+    };
+    updateCharacterStats(updatedStats);
   };
 
   const handleRewardDivs = (param) => {
@@ -285,18 +307,21 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
     return (
       <div className="Lvl-up-main-div">
         <h1>LVL UP!</h1>
+        <h2 className="Lvlh2">{`LVL ${characterStats.LVL - 1} => LVL ${characterStats.LVL}`}</h2>
         <br></br>
         <br></br>
-        {ShowCharacterStats &&(
-          <div>
-            <CharacterData
-              playerName={playerName}
-              updateCharacterStats={updateCharacterStats}
-              characterStats={characterStats}
-            />
-          </div>
-        )}
-        <button onClick={handleCharacterstats}>Stats</button>
+        <div className="C-div">
+          {ShowCharacterStats &&(
+            <div>
+              <CharacterData
+                playerName={playerName}
+                updateCharacterStats={updateCharacterStats}
+                characterStats={characterStats}
+              />
+            </div>
+          )}
+          <button className="Inv-btn" onClick={handleCharacterstats}>Player Stats</button>
+        </div>
         <h2>Choose a Reward</h2>
         <div className="Reward-main-div">
           <div 
@@ -324,7 +349,7 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
           </div>
         </div>
         {ShowReturnBTN && (
-          <button onClick={handleReturn}>Return</button>
+          <button className="Return-BTN" onClick={handleReturn}>Return</button>
         )}
       </div>
     );
@@ -351,7 +376,7 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
           )}
         </div>
       )}
-      <button onClick={handleCharacterstats}>Stats</button>
+      <button className="Inv-btn" onClick={handleCharacterstats}>Player Stats</button>
       <div>
         <A1HealthManaBars 
           playerName={playerName}
