@@ -292,29 +292,36 @@ h1{
   width: 100%;
   height: 100vh;
   background-color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.eye,
-.eye2{
-  color: white;
-  width: 100px;
-  position: absolute;
-  top: 10%;
-  left: 40%;
-}
-.eye2{
-  left: 50%;
-}
+
 .mouth{
   color: white;
   position: absolute;
-  width: 250px;
-  top: 16%;
-  left: 39%;
+  opacity: .6;
+  width: 220px;
+  top: 20%;
 }
 .coin{
   color: white;
   position: absolute;
   width: 100px;
-  top: 75%;
-  left: 44%;
+  top: 65%;
+  opacity: .8;
+}
+.Wincon{
+  font-family: Moms;
+  font-size: 20px;
+  position: absolute;
+  left: 5%;
+  bottom: 50%;
+}
+.Losecon{
+  font-family: Moms;
+  font-size: 20px;
+  position: absolute;
+  right: 5%;
+  bottom: 50%;
 }
