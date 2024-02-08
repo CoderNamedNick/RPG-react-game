@@ -334,3 +334,15 @@ h1{
   position: absolute;
   bottom: 23%;
 }
+.h2Head, 
+.h2Tail{
+  font-family: Moms;
+  font-size: 50px;
+  position: absolute;
+  cursor: pointer;
+  bottom: 30%;
+  margin-left: 40%;
+}
+.h2Head{
+  margin-right: 80%;
+}
