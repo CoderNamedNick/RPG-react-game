@@ -304,24 +304,32 @@ h1{
   width: 220px;
   top: 20%;
 }
-.coin{
-  color: white;
-  position: absolute;
-  width: 100px;
-  top: 65%;
-  opacity: .8;
-}
 .Wincon{
   font-family: Moms;
-  font-size: 20px;
+  font-size: 18px;
   position: absolute;
-  left: 5%;
+  left: 1%;
   bottom: 50%;
 }
 .Losecon{
   font-family: Moms;
-  font-size: 20px;
+  font-size: 18px;
   position: absolute;
-  right: 5%;
+  right: 1%;
   bottom: 50%;
+}
+.h2yes,
+.h2no{
+  font-family: Moms;
+  font-size: 50px;
+  position: absolute;
+  bottom: 5%;
+  margin-left: 40%;
+}
+.h2yes{
+  margin-right: 80%;
+}
+.PLay{
+  position: absolute;
+  bottom: 23%;
 }

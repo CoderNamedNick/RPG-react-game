@@ -118,6 +118,9 @@ const GamePartOne = ({ playerName, characterStats, updateCharacterStats }) => {
       {showEncounter && (
         <A1Encounter
           onReturn={handleReturnToGame}
+          playerName={playerName}
+          updateCharacterStats={updateCharacterStats}
+          characterStats={characterStats}
         />
       )}
 
