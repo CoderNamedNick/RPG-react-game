@@ -325,6 +325,7 @@ h1{
   position: absolute;
   bottom: 5%;
   margin-left: 40%;
+  cursor: pointer;
 }
 .h2yes{
   margin-right: 80%;
