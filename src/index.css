@@ -304,6 +304,13 @@ h1{
   width: 220px;
   top: 20%;
 }
+.mouth2{
+  color: white;
+  position: absolute;
+  opacity: .8;
+  width: 280px;
+  top: 18%;
+}
 .Wincon{
   font-family: Moms;
   font-size: 18px;
