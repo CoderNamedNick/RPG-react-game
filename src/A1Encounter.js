@@ -5,6 +5,7 @@ const A1Encounter = ({ playerName, characterStats, updateCharacterStats, onRetur
   const [PlayingGame, setPlayingGame] = useState(false);
   const [Heads, setHeads] = useState('');
   const [Tails, setTails] = useState('');
+  const [SecondGame, setSecondGame] = useState(false);
 
   const handleReturn = () => {
     onReturn(); //return function
@@ -25,6 +26,17 @@ const A1Encounter = ({ playerName, characterStats, updateCharacterStats, onRetur
     }
   };
 
+
+  if (SecondGame) {
+    return (
+      <div>
+        wanna play again
+      </div>
+    )
+  }
+
+
+
   if (PlayingGame) {
     // Add your game logic here
     // You can return different content or components based on the game state
@@ -32,18 +44,42 @@ const A1Encounter = ({ playerName, characterStats, updateCharacterStats, onRetur
     const handlHeadsclick = () => {
       if (Heads === 'yes') {
         alert('You WIn')
+        const updatedStats = {
+          ...characterStats,
+          Hp: characterStats.Hp + 10,
+        };
+        updateCharacterStats(updatedStats);
+        setSecondGame(true)
       }
       if (Heads === 'no') {
         alert('You Lose')
+        const updatedStats = {
+          ...characterStats,
+          Hp: characterStats.Hp - 10,
+        };
+        updateCharacterStats(updatedStats);
+        setSecondGame(true)
       }
       coinflip();
     }
     const handlTailsclick = () => {
       if (Tails === 'yes') {
         alert('You WIn')
+        const updatedStats = {
+          ...characterStats,
+          Hp: characterStats.Hp + 10,
+        };
+        updateCharacterStats(updatedStats);
+        setSecondGame(true)
       }
       if (Tails === 'no') {
         alert('You Lose')
+        const updatedStats = {
+          ...characterStats,
+          Hp: characterStats.Hp - 10,
+        };
+        updateCharacterStats(updatedStats);
+        setSecondGame(true)
       }
       coinflip();
     }
