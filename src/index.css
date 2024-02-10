@@ -311,6 +311,13 @@ h1{
   width: 280px;
   top: 18%;
 }
+.mouth3{
+  color: white;
+  position: absolute;
+  opacity: 1;
+  width: 400px;
+  top: 30%;
+}
 .Wincon{
   font-family: Moms;
   font-size: 18px;
@@ -352,4 +359,11 @@ h1{
 }
 .h2Head{
   margin-right: 80%;
+}
+.h2Leave{
+  font-family: Moms;
+  font-size: 50px;
+  position: absolute;
+  cursor: pointer;
+  bottom: 10%;
 }

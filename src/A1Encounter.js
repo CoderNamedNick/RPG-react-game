@@ -33,6 +33,24 @@ const A1Encounter = ({ playerName, characterStats, updateCharacterStats, onRetur
     }
   };
 
+  if (ThirdGame) {
+    return (
+    <div className="Main-A1-Encounter-Div">
+      <img className="mouth3" src={mouth} alt="mouth"></img>
+      <p className="Moms">PLAY! PLAY! PLAY! PLAY! PLAY!</p>
+      <div>
+        <A1HealthManaBars 
+          playerName={playerName}
+          characterStats={characterStats}
+        />
+      </div>
+      <h2 onClick={handleReturn} className="h2Leave">
+        Leave
+      </h2>
+    </div>
+    )
+  }
+
   if (SecondPlayingGame) {
     // Add your game logic here
     // You can return different content or components based on the game state
