@@ -16,6 +16,7 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
   const [RewardBtnDisabled, setRewardBtnDisabled] = useState(false);
   const [FirstActionCompleted, setFirstActionCompleted] = useState(false);
   const [observation, setobservation] = useState(false);
+  const [trueDamageDealt, setTrueDamageDealt] = useState(null);
 
   const handleReturn = () => {
     onReturn(); //return function
@@ -23,8 +24,6 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
   const handleCharacterstats = () => {
     setShowCharacterStats(!ShowCharacterStats)
   }
-
-  let damage = '';
 
   //This is Enemy stats and and attacks
   const [FirstEnemyStats, setEnemyStats] = useState({
@@ -60,10 +59,8 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
     } else {
       let EnemyAtk = FirstEnemyStats.Atk;
       let CharacterDef = characterStats.Def / 1.5;
-      alert("Cd:" + Math.round(CharacterDef) + 'EA:' + EnemyAtk);
       let DmgDealt = Math.max(0, EnemyAtk - CharacterDef);
       let DMGdealt = Math.round(DmgDealt);
-      alert(DMGdealt);
 
       return DMGdealt;
     }
@@ -94,8 +91,8 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
     }
     if (!FirstAction) {
       const dps = DamageToEnemy(FirstEnemyStats, characterStats.Atk);
-      damage = characterStats.Atk - dps
-      alert(`Basic Attack! DMG: ${characterStats.Atk}, True Damage Dealt: ${characterStats.Atk - dps}`);
+      const trueDamageDealt = characterStats.Atk - dps;
+      setTrueDamageDealt(trueDamageDealt);
       let EnemyDmg = EnemyTurn();
       setShowSlash(true);
   
@@ -138,7 +135,9 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
         if (characterStats.Mana >= firstSkill.manaCost) {
           DamageToEnemy(FirstEnemyStats, firstSkill.damage);
 
-          
+          const dps = DamageToEnemy(FirstEnemyStats, firstSkill.damage);
+          const trueDamageDealt = firstSkill.damage - dps;
+          setTrueDamageDealt(trueDamageDealt);
 
           let EnemyDmg = EnemyTurn();
           setShowSlash(true);
@@ -386,9 +385,11 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
       )}
       {ShowGoblin && (
         <div className="Main-gob-div">
-          {ShowSlash && (
-            <p className="DPS-num"> adadfaf{damage}</p>
-          )}
+          <div className="dps-div">
+            {ShowSlash && (
+              <p className="DPS-num"> - {trueDamageDealt !== null ? trueDamageDealt : "DISPLAY DAMAGE HERE"}</p>
+            )}
+          </div>
           <div className="goblin-div">
             <img className="Goblin-PNG" src={goblin} alt="Goblin"></img>
             {ShowSlash && (
