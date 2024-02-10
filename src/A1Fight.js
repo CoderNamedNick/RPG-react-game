@@ -15,6 +15,7 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
   const [ShowReturnBTN, setShowReturnBTN] = useState(false)
   const [RewardBtnDisabled, setRewardBtnDisabled] = useState(false);
   const [FirstActionCompleted, setFirstActionCompleted] = useState(false);
+  const [observation, setobservation] = useState(false);
 
   const handleReturn = () => {
     onReturn(); //return function
@@ -82,6 +83,9 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
     return Math.max(0, Enemy.Def - modifiedDef);
   };
   const handleBasicAttack = () => {
+    if (observation) {
+      return;
+    }
     if (FirstEnemyStats.Hp <= 0) {
       setEnemyDefeated(true);
       return null;
@@ -115,6 +119,9 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
     }
   };
   const handleSkillAttack = () => {
+    if (observation) {
+      return;
+    }
     if (FirstEnemyStats.Hp <= 0) {
       setEnemyDefeated(true);
       return null;
@@ -161,6 +168,7 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
   };
   //on Observation + Run
   const handleObsertaion = () => {
+    setobservation(true)
     if (FirstActionCompleted) {
       return;
     }
@@ -193,6 +201,7 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
     }, 2000);
     setTimeout(function () {
       setShowFightBTN(true)
+      setobservation(false)
     }, 2000);
   }
   const handleFight = () => {
