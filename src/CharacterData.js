@@ -28,6 +28,7 @@ const CharacterData = ({ playerName, characterStats, skills }) => {
       MaxMana: characterStats.MaxMana,
       Skills: characterStats.Skills,
       Inventory: characterStats.Inventory,
+      Nils: characterStats.Nils,
     });
   }, [characterStats]);
 
@@ -52,6 +53,7 @@ const CharacterData = ({ playerName, characterStats, skills }) => {
         </ul>
       </div>
       <p>Inventory: {characterData.Inventory}</p>
+      <p>Nils: {characterData.Nils}</p>
     </div>
   );
 };

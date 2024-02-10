@@ -13,7 +13,8 @@ function App() {
     Mana: 0,
     MaxMana: 0,
     Skills: [],
-    Inventory: []
+    Inventory: [],
+    Nils: 0,
   });
   const [gameStarted, setGameStarted] = useState(false); // Define gameStarted state
 

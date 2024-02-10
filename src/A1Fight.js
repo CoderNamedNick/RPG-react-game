@@ -24,6 +24,8 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
     setShowCharacterStats(!ShowCharacterStats)
   }
 
+  let damage = '';
+
   //This is Enemy stats and and attacks
   const [FirstEnemyStats, setEnemyStats] = useState({
     name: '??',
@@ -92,6 +94,7 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
     }
     if (!FirstAction) {
       const dps = DamageToEnemy(FirstEnemyStats, characterStats.Atk);
+      damage = characterStats.Atk - dps
       alert(`Basic Attack! DMG: ${characterStats.Atk}, True Damage Dealt: ${characterStats.Atk - dps}`);
       let EnemyDmg = EnemyTurn();
       setShowSlash(true);
@@ -134,6 +137,8 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
 
         if (characterStats.Mana >= firstSkill.manaCost) {
           DamageToEnemy(FirstEnemyStats, firstSkill.damage);
+
+          
 
           let EnemyDmg = EnemyTurn();
           setShowSlash(true);
@@ -231,6 +236,7 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
     const updatedStats = {
       ...characterStats,
       LVL: characterStats.LVL + 1,
+      Nils: characterStats.Nils + 10,
     };
     updateCharacterStats(updatedStats);
   };
@@ -263,8 +269,9 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
         { range: [1], item: 'Heart Pendant', attributes: ['MaxHp'], increases: [25] },
         { range: [2], item: 'Skill Pendant', attributes: ['Skills.damage'], increases: [10] },
         { range: [3], item: 'Mana Ring', attributes: ['MaxMana'], increases: [10] },
+        { range: [4], item: 'Pouch of Nil', attributes: ['Nils'], increases: [20] },
       ];
-      const ItemNumb = Math.floor(Math.random() * 3) + 1; // Adjust range to cover 1, 2, and 3
+      const ItemNumb = Math.floor(Math.random() * 4) + 1; // Adjust range to cover 1, 2, and 3
       const selectedItem = items.find((item) => ItemNumb === item.range[0]);
   
       if (selectedItem) {
@@ -378,11 +385,16 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
         </div>
       )}
       {ShowGoblin && (
-        <div className="goblin-div">
-          <img className="Goblin-PNG" src={goblin} alt="Goblin"></img>
+        <div className="Main-gob-div">
           {ShowSlash && (
-            <img className="Slash-PNG" src={slash} alt="Slash"></img>
+            <p className="DPS-num"> adadfaf{damage}</p>
           )}
+          <div className="goblin-div">
+            <img className="Goblin-PNG" src={goblin} alt="Goblin"></img>
+            {ShowSlash && (
+              <img className="Slash-PNG" src={slash} alt="Slash"></img>
+            )}
+          </div>
         </div>
       )}
       <button className="Inv-btn" onClick={handleCharacterstats}>Player Stats</button>

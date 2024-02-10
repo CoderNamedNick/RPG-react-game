@@ -37,13 +37,7 @@ const A1Encounter = ({ playerName, characterStats, updateCharacterStats, onRetur
     return (
     <div className="Main-A1-Encounter-Div">
       <img className="mouth3" src={mouth} alt="mouth"></img>
-      <p className="Moms">PLAY! PLAY! PLAY! PLAY! PLAY!</p>
-      <div>
-        <A1HealthManaBars 
-          playerName={playerName}
-          characterStats={characterStats}
-        />
-      </div>
+      <p className="Moms">PLAY! PLAY! PLAY!</p>
       <h2 onClick={handleReturn} className="h2Leave">
         Leave
       </h2>

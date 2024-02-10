@@ -367,3 +367,12 @@ h1{
   cursor: pointer;
   bottom: 10%;
 }
+.DPS-num{
+  color: red;
+}
+.Main-gob-div{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
