@@ -4,12 +4,33 @@ import A1HealthManaBars from "./A1HealthManaBars"
 
 const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) => {
   const [ShowInnDescription, setShowInnDescription] = useState(false)
+  const [ShowAmorSHopDescription, setShowAmorSHopDescription] = useState(false)
+  const [ShowWeaponShopDescription, setShowWeaponShopDescription] = useState(false)
+  const [ShowItemShopDescription, setShowItemShopDescription] = useState(false)
 
   const HandleInnHover = () => {
     setShowInnDescription(true)
   }
   const HandleInnExit = () => {
     setShowInnDescription(false)
+  }
+  const HandleArmorHover = () => {
+    setShowAmorSHopDescription(true)
+  }
+  const HandleArmorExit = () => {
+    setShowAmorSHopDescription(false)
+  }
+  const HandleWeaponHover = () => {
+    setShowWeaponShopDescription(true)
+  }
+  const HandleWeaponExit = () => {
+    setShowWeaponShopDescription(false)
+  }
+  const HandleItemHover = () => {
+    setShowItemShopDescription(true)
+  }
+  const HandleItemExit = () => {
+    setShowItemShopDescription(false)
   }
 
   return (
@@ -27,17 +48,17 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
         <div className="Roof"></div>
         Inn
       </div>
-      <div className="SHOPS  Shop2">
+      <div className="SHOPS  Shop2" onMouseOver={HandleArmorHover} onMouseLeave={HandleArmorExit}>
         <div className="Door"></div>
         <div className="Roof"></div>
         Shop2
       </div>
-      <div className="SHOPS  Shop3">
+      <div className="SHOPS  Shop3" onMouseOver={HandleWeaponHover} onMouseLeave={HandleWeaponExit}>
         <div className="Door"></div>
         <div className="Roof"></div>
         Shop3
       </div>
-      <div className="SHOPS  Shop4">
+      <div className="SHOPS  Shop4" onMouseOver={HandleItemHover} onMouseLeave={HandleItemExit}>
         <div className="Door"></div>
         <div className="Roof"></div>
         Shop4
@@ -47,6 +68,27 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
         <h1>Inn</h1>
         <p>Revovers HP and Mana</p>
         <p>2 Nils</p>
+      </div>
+      )}
+      {ShowAmorSHopDescription && (
+        <div className="Hover-Descriptions">
+        <h1>Armor Smith</h1>
+        <p>May Raise Def and HP stats</p>
+        <p>?? Nils</p>
+      </div>
+      )}
+      {ShowWeaponShopDescription && (
+        <div className="Hover-Descriptions">
+        <h1>Weapon Smith</h1>
+        <p>May Raise ATK and Skill stats</p>
+        <p>?? Nils</p>
+      </div>
+      )}
+      {ShowItemShopDescription && (
+        <div className="Hover-Descriptions">
+        <h1>Accessory Smith</h1>
+        <p>?????</p>
+        <p>?? Nils</p>
       </div>
       )}
     </div>
