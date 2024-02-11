@@ -390,13 +390,65 @@ h1{
   flex-direction: column;
   align-items: center;
   width: 100%;
-  background-color: #77c979;
+  background-color: #4d6b4d;
+  border-radius: 50px;
 }
 .ROAD{
   background-color: rgb(71, 67, 67);
   height: 90vh;
-  width: 400px;
+  width: 200px;
   border: 1px black;
   border-end-end-radius: 50px;
   border-end-start-radius: 50px;
+}
+.SHOPS{
+  background-color: rgb(108, 116, 104);
+  border: black solid 2px;
+  width: 200px;
+  height: 130px;
+  border-radius: 30px;
+  position: absolute;
+  border-top-left-radius: 350px;
+  border-top-right-radius: 350px;
+  text-align: center;
+  padding-top: 70px;
+}
+.Shop1{
+  left: 5%;
+  top: 10%;
+}
+.Shop2{
+  left: 5%;
+  top: 50%;
+}
+.Shop3{
+  right: 5%;
+  top: 10%;
+  align-items: center;
+}
+.Shop4{
+  right: 5%;
+  top: 50%;
+}
+.Door{
+  background-color: rgb(71, 39, 39);
+  position: absolute;
+  bottom: 0;
+  left: 30%;
+  width: 80px;
+  height: 80px;
+  border-top-left-radius: 350px;
+  border-top-right-radius: 350px;
+  border: black solid 1px;
+}
+.Roof{
+  background-color: rgb(71, 39, 39);
+  width: 100%;
+  position: absolute;
+  top: 0%;
+  padding-bottom: 95px;
+  margin-left: -2px;
+  border-top-left-radius: 350px;
+  border-top-right-radius: 350px;
+  border: black solid 2px;
 }
