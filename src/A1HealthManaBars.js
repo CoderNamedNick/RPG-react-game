@@ -25,6 +25,10 @@ const A1HealthManaBars = ({ playerName, characterStats }) => {
         <p>Mana: {characterStats.Mana}</p>
         <div className="bar2" style={{ width: manaBarWidth }}></div>
       </div>
+      <br></br>
+      <div>
+        Nils: {characterStats.Nils}
+      </div>
     </div>
   );
 };
