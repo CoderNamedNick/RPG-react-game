@@ -16,6 +16,7 @@ const GamePartOne = ({ playerName, characterStats, updateCharacterStats }) => {
   const [EncounterDone, setEncounterDone] = useState(false);
   const [showTown, setShowTown] = useState(false);
   const [TownDone, setTownDone] = useState(false);
+  const [ShowAct1Boss, setShowAct1Boss] = useState(false)
 
   const handleChestClick = () => {
     setShowChest(true);
@@ -28,6 +29,13 @@ const GamePartOne = ({ playerName, characterStats, updateCharacterStats }) => {
     setShowEncounter(false);
     setShowTown(false);
   };
+  const handleTownReturn = () => {
+    setShowChest(false);
+    setShowFight(false);
+    setShowEncounter(false);
+    setShowTown(false);
+    setShowAct1Boss(true)
+  }
 
   const handleInventoryClick = () => {
     setShowCharacterData(!showCharacterData);
@@ -45,6 +53,14 @@ const GamePartOne = ({ playerName, characterStats, updateCharacterStats }) => {
   const handleTownClick = () => {
     setShowTown(true);
     setTownDone(true);
+  }
+
+  if (ShowAct1Boss) {
+    return(
+      <div>
+       <h1>BOSS FIGHT</h1>
+      </div>
+    );
   }
 
   return (
@@ -144,7 +160,7 @@ const GamePartOne = ({ playerName, characterStats, updateCharacterStats }) => {
       )}
       {showTown && (
         <A1Town
-          onReturn={handleReturnToGame}
+          onReturn={handleTownReturn}
           playerName={playerName}
           updateCharacterStats={updateCharacterStats}
           characterStats={characterStats}

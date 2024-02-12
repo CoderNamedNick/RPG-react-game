@@ -465,3 +465,15 @@ h1{
   bottom: 26%;
   right: 0%;
 }
+.Leave-div{
+  position: absolute;
+  cursor: pointer;
+  opacity: .4;
+  color: white;
+}
+.Leave-div:hover{
+  color: red;
+  background-color: rgba(0, 0, 0, 0.466);
+  width: 100%;
+  opacity: 1;
+}

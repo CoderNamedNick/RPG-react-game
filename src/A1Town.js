@@ -8,29 +8,26 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
   const [ShowWeaponShopDescription, setShowWeaponShopDescription] = useState(false)
   const [ShowItemShopDescription, setShowItemShopDescription] = useState(false)
 
+  const handleLeaveclick =() => {
+    onReturn()
+  }
   const HandleInnHover = () => {
     setShowInnDescription(true)
   }
-  const HandleInnExit = () => {
+  const HandlExits = () => {
     setShowInnDescription(false)
+    setShowAmorSHopDescription(false)
+    setShowWeaponShopDescription(false)
+    setShowItemShopDescription(false)
   }
   const HandleArmorHover = () => {
     setShowAmorSHopDescription(true)
   }
-  const HandleArmorExit = () => {
-    setShowAmorSHopDescription(false)
-  }
   const HandleWeaponHover = () => {
     setShowWeaponShopDescription(true)
   }
-  const HandleWeaponExit = () => {
-    setShowWeaponShopDescription(false)
-  }
   const HandleItemHover = () => {
     setShowItemShopDescription(true)
-  }
-  const HandleItemExit = () => {
-    setShowItemShopDescription(false)
   }
 
   return (
@@ -41,24 +38,27 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
           characterStats={characterStats}
         />
       </div>
+      <div className="Leave-div" onClick={handleLeaveclick}>
+        <h1>Leave</h1>
+      </div>
       <div className="ROAD"></div>
       <h1>TOWN</h1>
-      <div className="SHOPS  Shop1" onMouseOver={HandleInnHover} onMouseLeave={HandleInnExit}>
+      <div className="SHOPS  Shop1" onMouseOver={HandleInnHover} onMouseLeave={HandlExits}>
         <div className="Door"></div>
         <div className="Roof"></div>
         Inn
       </div>
-      <div className="SHOPS  Shop2" onMouseOver={HandleArmorHover} onMouseLeave={HandleArmorExit}>
+      <div className="SHOPS  Shop2" onMouseOver={HandleArmorHover} onMouseLeave={HandlExits}>
         <div className="Door"></div>
         <div className="Roof"></div>
         Shop2
       </div>
-      <div className="SHOPS  Shop3" onMouseOver={HandleWeaponHover} onMouseLeave={HandleWeaponExit}>
+      <div className="SHOPS  Shop3" onMouseOver={HandleWeaponHover} onMouseLeave={HandlExits}>
         <div className="Door"></div>
         <div className="Roof"></div>
         Shop3
       </div>
-      <div className="SHOPS  Shop4" onMouseOver={HandleItemHover} onMouseLeave={HandleItemExit}>
+      <div className="SHOPS  Shop4" onMouseOver={HandleItemHover} onMouseLeave={HandlExits}>
         <div className="Door"></div>
         <div className="Roof"></div>
         Shop4
