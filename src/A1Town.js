@@ -1,10 +1,13 @@
 import { useState} from "react"
 import A1HealthManaBars from "./A1HealthManaBars"
+import floor from './—Pngtree—wooden floor 2 way texture_6978182.png'
 
 
 const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) => {
   const [ShowInnDescription, setShowInnDescription] = useState(false)
+  const [ShowInn, setShowInn] = useState(false)
   const [ShowAmorSHopDescription, setShowAmorSHopDescription] = useState(false)
+  const [ShowArmor, setShowArmor] = useState(false)
   const [ShowWeaponShopDescription, setShowWeaponShopDescription] = useState(false)
   const [ShowItemShopDescription, setShowItemShopDescription] = useState(false)
 
@@ -13,6 +16,12 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
   }
   const HandleInnHover = () => {
     setShowInnDescription(true)
+  }
+  const HandleInnClick = () => {
+    setShowInn(true)
+  }
+  const HandleArmorClick = () => {
+    setShowArmor(true)
   }
   const HandlExits = () => {
     setShowInnDescription(false)
@@ -30,6 +39,15 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
     setShowItemShopDescription(true)
   }
 
+  if (ShowArmor) {
+    return (
+      <div className="Inn-main-div">
+        <h1>Armor Shop</h1>
+        <img className="Floor" src={floor} alt="floor"></img>
+      </div>
+    )
+  }
+
   return (
     <div className="Main-Town-Div">
       <div className="Town-Bars">
@@ -43,12 +61,12 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
       </div>
       <div className="ROAD"></div>
       <h1>TOWN</h1>
-      <div className="SHOPS  Shop1" onMouseOver={HandleInnHover} onMouseLeave={HandlExits}>
+      <div className="SHOPS  Shop1" onClick={HandleInnClick} onMouseOver={HandleInnHover} onMouseLeave={HandlExits}>
         <div className="Door"></div>
         <div className="Roof"></div>
         Inn
       </div>
-      <div className="SHOPS  Shop2" onMouseOver={HandleArmorHover} onMouseLeave={HandlExits}>
+      <div className="SHOPS  Shop2" onClick={HandleArmorClick} onMouseOver={HandleArmorHover} onMouseLeave={HandlExits}>
         <div className="Door"></div>
         <div className="Roof"></div>
         Shop2

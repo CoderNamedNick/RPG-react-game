@@ -477,3 +477,18 @@ h1{
   width: 100%;
   opacity: 1;
 }
+.Inn-main-div{
+  background-color: rgb(41, 22, 5);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+}
+.Floor{
+  position: absolute;
+  background-color: none;
+  bottom: 0%;
+  width: 100%;
+  height: 140%;
+}
