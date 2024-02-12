@@ -517,3 +517,9 @@ h1{
   align-items: center;
   border-radius: 30px;
 }
+.LeftArrow{
+  position: absolute;
+  top: 0;
+  left: 10px;
+  width: 100px;
+}

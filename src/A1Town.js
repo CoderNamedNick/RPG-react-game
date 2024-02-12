@@ -1,6 +1,7 @@
 import { useState} from "react"
 import A1HealthManaBars from "./A1HealthManaBars"
 import floor from './—Pngtree—wooden floor 2 way texture_6978182.png'
+import leftarrow from './arrow-pointing-to-left.png'
 
 
 const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) => {
@@ -89,18 +90,15 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
       Description: `The pinnacle of armor, this full metal set provides exceptional defense for the entire body. Expensive but worth the investment for those facing formidable foes.`
     }]
 
-    const Item1hover = () => {
-      if (ShowItem1) {
-        setShowItem1(false)
-      }else {
-        setShowItem1(true);
-      }
+    const ExitArrow = () => {
+      setShowArmor(false)
     }
 
     return (
       <div className="Inn-main-div">
         <h1>Armor Shop</h1>
         <img className="Floor" src={floor} alt="floor"></img>
+        <img onClick={ExitArrow} className="LeftArrow" src={leftarrow} alt="EXIT"></img>
         <div>
           <A1HealthManaBars 
             playerName={playerName}
