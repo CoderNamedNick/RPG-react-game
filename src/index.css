@@ -500,5 +500,20 @@ h1{
   width: 100%;
 }
 .Items{
-  font-size: ;
+  font-size: 60px;
+  cursor: pointer;
+}
+.Items:hover{
+  color: gray;
+}
+.Armor-Description-Div{
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.445);
+  height: 30%;
+  position: absolute;
+  top: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 30px;
 }
