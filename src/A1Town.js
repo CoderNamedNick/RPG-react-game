@@ -44,6 +44,14 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
       <div className="Inn-main-div">
         <h1>Armor Shop</h1>
         <img className="Floor" src={floor} alt="floor"></img>
+        <div className="Item-div">
+          <h1 className="Moms Items">??</h1>
+          <h1 className="Moms Items">??</h1>
+          <h1 className="Moms Items">??</h1>
+          <h1 className="Moms Items">??</h1>
+          <h1 className="Moms Items">??</h1>
+          <h1 className="Moms Items">??</h1>
+        </div>
       </div>
     )
   }
