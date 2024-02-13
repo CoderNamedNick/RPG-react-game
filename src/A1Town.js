@@ -2,9 +2,11 @@ import { useState} from "react"
 import A1HealthManaBars from "./A1HealthManaBars"
 import floor from './—Pngtree—wooden floor 2 way texture_6978182.png'
 import leftarrow from './arrow-pointing-to-left.png'
+import CharacterData from "./CharacterData"
 
 
 const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) => {
+  const [ShowCharacterStats, setShowCharacterStats] = useState(false)
   const [ShowInnDescription, setShowInnDescription] = useState(false)
   const [ShowInn, setShowInn] = useState(false)
   const [ShowAmorSHopDescription, setShowAmorSHopDescription] = useState(false)
@@ -17,6 +19,9 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
   const handleLeaveclick =() => {
     onReturn()
   }
+  const handleCharacterstats = () => {
+    setShowCharacterStats(!ShowCharacterStats)
+  }
   const HandleInnHover = () => {
     setShowInnDescription(true)
   }
@@ -25,6 +30,7 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
   }
   const HandleArmorClick = () => {
     setShowArmor(true)
+    setShowAmorSHopDescription(false)
   }
   const HandlExits = () => {
     setShowInnDescription(false)
@@ -43,6 +49,33 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
   }
   const HandleArmorHover2 = (itemIndex) => {
     setHoveredArmorItem(itemIndex);
+  }
+
+  if (ShowInn) {
+
+    const handlerestclick = () => {
+      if (characterStats.Hp >= characterStats.MaxHp && characterStats.Mana >= characterStats.MaxMana){
+        alert(`you already have max Mana and Health`)
+        setShowInn(false);
+        return
+      }
+      let HpMissing = characterStats.MaxHp - characterStats.Hp
+      let ManaMissing = characterStats.MaxMana - characterStats.Mana
+      const updatedStats = {
+        ...characterStats,
+        Hp: characterStats.Hp + HpMissing,
+        Mana: characterStats.Mana + ManaMissing,
+        Nils: characterStats.Nils - 2
+      };
+      updateCharacterStats(updatedStats);
+      setShowInn(false);
+    }
+
+    return (
+      <div>
+        <h1 onClick={handlerestclick} className="Moms Items">REST?</h1>
+      </div>
+    );
   }
 
   if (ShowArmor) {
@@ -143,6 +176,18 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
 
   return (
     <div className="Main-Town-Div">
+       <div className="C-div">
+          {ShowCharacterStats &&(
+            <div>
+              <CharacterData
+                playerName={playerName}
+                updateCharacterStats={updateCharacterStats}
+                characterStats={characterStats}
+              />
+            </div>
+          )}
+          <button className="Inv-btn" onClick={handleCharacterstats}>Player Stats</button>
+        </div>
       <div className="Town-Bars">
         <A1HealthManaBars 
           playerName={playerName}
