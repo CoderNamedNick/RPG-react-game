@@ -486,6 +486,9 @@ h1{
   width: 100%;
   height: 100vh;
 }
+.Weapon-main-div{
+  background-color: rgb(105, 5, 5);
+}
 .Floor{
   position: absolute;
   background-color: none;
@@ -511,7 +514,7 @@ h1{
 .Weapon-Description-Div{
   width: 100%;
   background-color: rgba(0, 0, 0, 0.445);
-  height: 30%;
+  height: 40%;
   position: absolute;
   top: 30%;
   display: flex;
@@ -524,4 +527,14 @@ h1{
   top: 0;
   left: 10px;
   width: 100px;
+}
+.WeaponFloor{
+  position: absolute;
+  background-color: rgba(44, 42, 42, 0.877);
+  border-radius: 30px;
+  bottom: 0%;
+  width: 98%;
+  border: red 1px solid;
+  margin-left: 1%;
+  height: 30%;
 }

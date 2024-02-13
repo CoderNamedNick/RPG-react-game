@@ -204,51 +204,51 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
   if (ShowWeapon) {
     let WeaponStoreItems = [{
       Item: 1,
-      Name: '  Tattered Cleaning Kit,',
+      Name: '  Tattered Cleaning Kit',
       Cost: 4,
       Atk: 5,
       SkillAtk: 0,
-      Description: ``
+      Description: `A worn-out cleaning kit with rusty tools. Despite its shabby appearance, it adds a modest boost to your weapon's attack power. Suitable for beginners.`
     },
     {
       Item: 2,
-      Name: '  Novice Sharpening Kit,',
+      Name: '  Novice Sharpening Kit',
       Cost: 6,
       Atk: 8,
       SkillAtk: 0,
-      Description: ``
+      Description: `An entry-level sharpening kit for improving the cutting edge of your weapon. Provides a noticeable increase in attack power without any additional skills.`
     },
     {
       Item: 3,
-      Name: '  Crafted Hilt,',
+      Name: '  Crafted Hilt',
       Cost: 10,
       Atk: 9,
       SkillAtk: 3,
-      Description: ``
+      Description: `A carefully crafted hilt designed for enhanced handling and precision. Grants a moderate boost to both attack power and skill-based attacks.`
     },
     {
       Item: 4,
-      Name: '   Novice Enchantment Stone,',
+      Name: '  Novice Enchantment Stone',
       Cost: 25,
-      Atk: 18,
-      SkillAtk: 8,
-      Description: ``
+      Atk: 22,
+      SkillAtk: 9,
+      Description: `A magical stone imbued with basic enchantments. Enhances your weapon with additional attack power and skill-based damage. A valuable upgrade for those seeking more power.`
     },
     {
       Item: 5,
-      Name: '  Expert Shartpening Kit,',
+      Name: '  Expert Sharpening Kit',
       Cost: 50,
-      Atk: 30,
+      Atk: 40,
       SkillAtk: 0,
-      Description: ``
+      Description: `A high-quality sharpening kit designed for experienced warriors. Significantly boosts the cutting power of your weapon, making it a formidable choice in battles.`
     },
     {
       Item: 6,
-      Name: '  Dragon Stone Enchantment,',
+      Name: '  Dragon Stone Enchantment',
       Cost: 120,
       Atk: 60,
       SkillAtk: 30,
-      Description: ``
+      Description: `An ancient stone infused with the power of dragons. Unleashes a tremendous surge in both attack power and skill-based damage. Reserved for those facing the most formidable foes.`
     }];
     const handleWeaponClick = (index) => {
       const selectedWeapon = WeaponStoreItems[index];
@@ -286,7 +286,7 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
     return (
       <div className="Weapon-main-div">
         <h1>Weapon Shop</h1>
-        <img className="Floor" src={floor} alt="floor"></img>
+        <div className="WeaponFloor"></div>
         <img onClick={ExitArrow2} className="LeftArrow" src={leftarrow} alt="EXIT"></img>
         <div>
           <A1HealthManaBars 
