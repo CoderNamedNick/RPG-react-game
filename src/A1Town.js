@@ -82,42 +82,42 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
 
     let ArmorStoreItems = [{
       Item: 1,
-      Name: 'Cloak',
+      Name: '  Cloak,',
       Cost: 4,
       Def: 3,
       Description: `A ragged old cloak that could be used for minor protection but won't offer much defense. It's a basic and affordable option for beginners.`
     },
     {
       Item: 2,
-      Name: 'Boots',
+      Name: '  Boots,',
       Cost: 4,
       Def: 3,
       Description: `Sturdy leather boots that provide moderate defense. While not the most protective, they offer a balance between cost and functionality.`
     },
     {
       Item: 3,
-      Name: 'Helm',
+      Name: '  Helm,',
       Cost: 10,
       Def: 8,
       Description: ` A well-crafted helmet offering significant defense for the head. It provides enhanced protection and is a crucial addition to your armor set.`
     },
     {
       Item: 4,
-      Name: 'Arm Gaurds',
+      Name: '  Arm Gaurds,',
       Cost: 25,
       Def: 17,
       Description: `Tough arm guards made of reinforced materials, providing substantial defense for your arms. Ideal for those seeking better protection in battles.`
     },
     {
       Item: 5,
-      Name: 'Chain Mail',
+      Name: '  Chain Mail,',
       Cost: 50,
       Def: 36,
       Description: `A suit of chain mail armor that covers the body, offering a high level of protection against various attacks. A solid choice for those who prioritize defense.`
     },
     {
       Item: 6,
-      Name: 'Full Metal Armor',
+      Name: '  Full Metal Armor,',
       Cost: 90,
       Def: 60,
       Description: `The pinnacle of armor, this full metal set provides exceptional defense for the entire body. Expensive but worth the investment for those facing formidable foes.`
@@ -126,9 +126,37 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
     const ExitArrow = () => {
       setShowArmor(false)
     }
+    const handleArmorClick = (index) => {
+      const selectedArmor = ArmorStoreItems[index];
+      if (characterStats.Inventory.includes(selectedArmor.Name)) {
+        alert(`You already have ${selectedArmor.Name} in your inventory`);
+        return;
+      }
+    
+      // Check if the player has enough Nils to buy the item
+      if (characterStats.Nils >= selectedArmor.Cost) {
+        // Subtract the cost from the player's Nils
+        const updatedStats = {
+          ...characterStats,
+          Def: characterStats.Def + selectedArmor.Def, // Update the correct field (assuming characterStats has a 'Def' field)
+          Nils: characterStats.Nils - selectedArmor.Cost,
+        };
+        updateCharacterStats(updatedStats);
+    
+        // Add the selected item to the player's inventory
+        updatedStats.Inventory = [...updatedStats.Inventory, selectedArmor.Name];
+    
+        // Optionally, you can update other player stats based on the selected item
+        // For example, you can add defense to the player's stats
+        alert(`${selectedArmor.Name} Purchased`)
+      } else {
+        // Display a message or handle the case where the player doesn't have enough Nils
+        alert("Not enough Nils to buy this item");
+      }
+    };
 
     return (
-      <div className="Inn-main-div">
+      <div className="Armor-main-div">
         <h1>Armor Shop</h1>
         <img className="Floor" src={floor} alt="floor"></img>
         <img onClick={ExitArrow} className="LeftArrow" src={leftarrow} alt="EXIT"></img>
@@ -152,6 +180,7 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
           {ArmorStoreItems.map((item, index) => (
             <h1
               key={index}
+              onClick={() => handleArmorClick(index)}
               onMouseOver={() => HandleArmorHover2(index)}
               onMouseLeave={() => setHoveredArmorItem(null)}
               className="Moms Items"

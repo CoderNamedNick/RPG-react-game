@@ -265,10 +265,10 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
     }
     if (param === 3) {
       const items = [
-        { range: [1], item: 'Heart Pendant', attributes: ['MaxHp'], increases: [25] },
-        { range: [2], item: 'Skill Pendant', attributes: ['Skills.damage'], increases: [10] },
-        { range: [3], item: 'Mana Ring', attributes: ['MaxMana'], increases: [10] },
-        { range: [4], item: 'Pouch of Nil', attributes: ['Nils'], increases: [20] },
+        { range: [1], item: 'Heart Pendant, ', attributes: ['MaxHp'], increases: [25] },
+        { range: [2], item: 'Skill Pendant, ', attributes: ['Skills.damage'], increases: [10] },
+        { range: [3], item: 'Mana Ring, ', attributes: ['MaxMana'], increases: [10] },
+        { range: [4], item: 'Pouch of Nil, ', attributes: ['Nils'], increases: [20] },
       ];
       const ItemNumb = Math.floor(Math.random() * 4) + 1; // Adjust range to cover 1, 2, and 3
       const selectedItem = items.find((item) => ItemNumb === item.range[0]);
