@@ -11,10 +11,11 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
   const [ShowInn, setShowInn] = useState(false)
   const [ShowAmorSHopDescription, setShowAmorSHopDescription] = useState(false)
   const [ShowArmor, setShowArmor] = useState(false)
+  const [ShowWeapon, setShowWeapon] = useState(false)
   const [ShowWeaponShopDescription, setShowWeaponShopDescription] = useState(false)
   const [ShowItemShopDescription, setShowItemShopDescription] = useState(false)
-  const [ShowItem1, setShowItem1] = useState(false);
   const [hoveredArmorItem, setHoveredArmorItem] = useState(null);
+  const [hoveredWeaponItem, setHoveredWeaponItem] = useState(null);
 
   const handleLeaveclick =() => {
     onReturn()
@@ -31,6 +32,10 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
   const HandleArmorClick = () => {
     setShowArmor(true)
     setShowAmorSHopDescription(false)
+  }
+  const HandleWeaponClick = () => {
+    setShowWeapon(true)
+    setShowWeaponShopDescription(false)
   }
   const HandlExits = () => {
     setShowInnDescription(false)
@@ -49,6 +54,9 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
   }
   const HandleArmorHover2 = (itemIndex) => {
     setHoveredArmorItem(itemIndex);
+  }
+  const HandleWeaponHover2 = (itemIndex) => {
+    setHoveredWeaponItem(itemIndex);
   }
 
   if (ShowInn) {
@@ -166,16 +174,6 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
             characterStats={characterStats}
           />
         </div>
-        {ShowItem1 && (
-          <div className="Armor-Description-Div">
-          <h1>{ArmorStoreItems[0].Name}</h1>
-          <div>
-            <h3>Def Buff: {ArmorStoreItems[0].Def}</h3>
-            <h3>Cost: {ArmorStoreItems[0].Cost} Nils</h3>
-          </div>
-          <h4>{ArmorStoreItems[0].Description}</h4>
-        </div>
-        )}
         <div className="Item-div">
           {ArmorStoreItems.map((item, index) => (
             <h1
@@ -197,6 +195,127 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
               <h3>Cost: {ArmorStoreItems[hoveredArmorItem].Cost} Nils</h3>
             </div>
             <h4>{ArmorStoreItems[hoveredArmorItem].Description}</h4>
+          </div>
+        )}
+      </div>
+    )
+  }
+
+  if (ShowWeapon) {
+    let WeaponStoreItems = [{
+      Item: 1,
+      Name: '  Tattered Cleaning Kit,',
+      Cost: 4,
+      Atk: 5,
+      SkillAtk: 0,
+      Description: ``
+    },
+    {
+      Item: 2,
+      Name: '  Novice Sharpening Kit,',
+      Cost: 6,
+      Atk: 8,
+      SkillAtk: 0,
+      Description: ``
+    },
+    {
+      Item: 3,
+      Name: '  Crafted Hilt,',
+      Cost: 10,
+      Atk: 9,
+      SkillAtk: 3,
+      Description: ``
+    },
+    {
+      Item: 4,
+      Name: '   Novice Enchantment Stone,',
+      Cost: 25,
+      Atk: 18,
+      SkillAtk: 8,
+      Description: ``
+    },
+    {
+      Item: 5,
+      Name: '  Expert Shartpening Kit,',
+      Cost: 50,
+      Atk: 30,
+      SkillAtk: 0,
+      Description: ``
+    },
+    {
+      Item: 6,
+      Name: '  Dragon Stone Enchantment,',
+      Cost: 120,
+      Atk: 60,
+      SkillAtk: 30,
+      Description: ``
+    }];
+    const handleWeaponClick = (index) => {
+      const selectedWeapon = WeaponStoreItems[index];
+      if (characterStats.Inventory.includes(selectedWeapon.Name)) {
+        alert(`You already have ${selectedWeapon.Name} in your inventory`);
+        return;
+      }
+    
+      // Check if the player has enough Nils to buy the item
+      if (characterStats.Nils >= selectedWeapon.Cost) {
+        // Subtract the cost from the player's Nils
+        const updatedStats = {
+          ...characterStats,
+          Atk: characterStats.Atk + selectedWeapon.Atk, // Update the correct field (assuming characterStats has a 'Def' field)
+          Nils: characterStats.Nils - selectedWeapon.Cost,
+        };
+        updateCharacterStats(updatedStats);
+    
+        updatedStats.Skills[0].damage += selectedWeapon.SkillAtk;
+        updateCharacterStats(updatedStats);
+        // Add the selected item to the player's inventory
+        updatedStats.Inventory = [...updatedStats.Inventory, selectedWeapon.Name];
+    
+        // Optionally, you can update other player stats based on the selected item
+        // For example, you can add defense to the player's stats
+        alert(`${selectedWeapon.Name} Purchased`)
+      } else {
+        // Display a message or handle the case where the player doesn't have enough Nils
+        alert("Not enough Nils to buy this item");
+      }
+    };
+    const ExitArrow2 = () => {
+      setShowWeapon(false)
+    }
+    return (
+      <div className="Weapon-main-div">
+        <h1>Weapon Shop</h1>
+        <img className="Floor" src={floor} alt="floor"></img>
+        <img onClick={ExitArrow2} className="LeftArrow" src={leftarrow} alt="EXIT"></img>
+        <div>
+          <A1HealthManaBars 
+            playerName={playerName}
+            characterStats={characterStats}
+          />
+        </div>
+        <div className="Item-div">
+          {WeaponStoreItems.map((item, index) => (
+            <h1
+              key={index}
+              onClick={() => handleWeaponClick(index)}
+              onMouseOver={() => HandleWeaponHover2(index)}
+              onMouseLeave={() => setHoveredWeaponItem(null)}
+              className="Moms Items"
+            >
+              ??
+            </h1>
+          ))}
+        </div>
+        {hoveredWeaponItem !== null && (
+          <div className="Weapon-Description-Div">
+            <h1>{WeaponStoreItems[hoveredWeaponItem].Name}</h1>
+            <div>
+              <h3>Atk Buff: {WeaponStoreItems[hoveredWeaponItem].Atk}</h3>
+              <h3>Skill-Atk Buff: {WeaponStoreItems[hoveredWeaponItem].SkillAtk}</h3>
+              <h3>Cost: {WeaponStoreItems[hoveredWeaponItem].Cost} Nils</h3>
+            </div>
+            <h4>{WeaponStoreItems[hoveredWeaponItem].Description}</h4>
           </div>
         )}
       </div>
@@ -238,7 +357,7 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
         <div className="Roof"></div>
         Shop2
       </div>
-      <div className="SHOPS  Shop3" onMouseOver={HandleWeaponHover} onMouseLeave={HandlExits}>
+      <div className="SHOPS  Shop3" onClick={HandleWeaponClick} onMouseOver={HandleWeaponHover} onMouseLeave={HandlExits}>
         <div className="Door"></div>
         <div className="Roof"></div>
         Shop3

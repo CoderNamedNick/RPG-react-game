@@ -477,7 +477,8 @@ h1{
   width: 100%;
   opacity: 1;
 }
-.Armor-main-div{
+.Armor-main-div ,
+.Weapon-main-div{
   background-color: rgb(133, 131, 131);
   color: white;
   display: flex;
@@ -506,7 +507,8 @@ h1{
 .Items:hover{
   color: gray;
 }
-.Armor-Description-Div{
+.Armor-Description-Div, 
+.Weapon-Description-Div{
   width: 100%;
   background-color: rgba(0, 0, 0, 0.445);
   height: 30%;

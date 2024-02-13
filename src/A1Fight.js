@@ -293,7 +293,7 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
         }
   
         // Check if the item is Skill Pendant
-        if (selectedItem.item === 'Skill Pendant') {
+        if (selectedItem.item === 'Skill Pendant, ') {
           // Check if the character has Skills array
           if (updatedStats.Skills) {
             // Increase the damage of the first skill by 10
