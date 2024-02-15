@@ -12,10 +12,12 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
   const [ShowAmorSHopDescription, setShowAmorSHopDescription] = useState(false)
   const [ShowArmor, setShowArmor] = useState(false)
   const [ShowWeapon, setShowWeapon] = useState(false)
+  const [ShowAssesory, setShowAssesory] = useState(false)
   const [ShowWeaponShopDescription, setShowWeaponShopDescription] = useState(false)
-  const [ShowItemShopDescription, setShowItemShopDescription] = useState(false)
+  const [ShowAssesoryShopDescription, setShowAssesoryShopDescription] = useState(false)
   const [hoveredArmorItem, setHoveredArmorItem] = useState(null);
   const [hoveredWeaponItem, setHoveredWeaponItem] = useState(null);
+  const [hoveredAssesoryItem, setHoveredAssesoryItem] = useState(null);
 
   const handleLeaveclick =() => {
     onReturn()
@@ -37,11 +39,15 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
     setShowWeapon(true)
     setShowWeaponShopDescription(false)
   }
+  const HandleAssesoryClick = () => {
+    setShowAssesory(true)
+    setShowAssesoryShopDescription(false)
+  }
   const HandlExits = () => {
     setShowInnDescription(false)
     setShowAmorSHopDescription(false)
     setShowWeaponShopDescription(false)
-    setShowItemShopDescription(false)
+    setShowAssesoryShopDescription(false)
   }
   const HandleArmorHover = () => {
     setShowAmorSHopDescription(true)
@@ -50,13 +56,16 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
     setShowWeaponShopDescription(true)
   }
   const HandleItemHover = () => {
-    setShowItemShopDescription(true)
+    setShowAssesoryShopDescription(true)
   }
   const HandleArmorHover2 = (itemIndex) => {
     setHoveredArmorItem(itemIndex);
   }
   const HandleWeaponHover2 = (itemIndex) => {
     setHoveredWeaponItem(itemIndex);
+  }
+  const HandleAssesoryHover2 = (itemIndex) => {
+    setHoveredAssesoryItem(itemIndex);
   }
 
   if (ShowInn) {
@@ -84,6 +93,126 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
         <h1 onClick={handlerestclick} className="Moms Items">REST?</h1>
       </div>
     );
+  }
+  if (ShowAssesory) {
+    let AssesoryStoreItems = [{
+      Item: 1,
+      Name: '  Tattered Cleaning Kit',
+      Cost: 4,
+      Atk: 5,
+      SkillAtk: 0,
+      Description: `A worn-out cleaning kit with rusty tools. Despite its shabby appearance, it adds a modest boost to your weapon's attack power. Suitable for beginners.`
+    },
+    {
+      Item: 2,
+      Name: '  Novice Sharpening Kit',
+      Cost: 6,
+      Atk: 8,
+      SkillAtk: 0,
+      Description: `An entry-level sharpening kit for improving the cutting edge of your weapon. Provides a noticeable increase in attack power without any additional skills.`
+    },
+    {
+      Item: 3,
+      Name: '  Crafted Hilt',
+      Cost: 10,
+      Atk: 9,
+      SkillAtk: 3,
+      Description: `A carefully crafted hilt designed for enhanced handling and precision. Grants a moderate boost to both attack power and skill-based attacks.`
+    },
+    {
+      Item: 4,
+      Name: '  Novice Enchantment Stone',
+      Cost: 25,
+      Atk: 22,
+      SkillAtk: 9,
+      Description: `A magical stone imbued with basic enchantments. Enhances your weapon with additional attack power and skill-based damage. A valuable upgrade for those seeking more power.`
+    },
+    {
+      Item: 5,
+      Name: '  Expert Sharpening Kit',
+      Cost: 50,
+      Atk: 40,
+      SkillAtk: 0,
+      Description: `A high-quality sharpening kit designed for experienced warriors. Significantly boosts the cutting power of your weapon, making it a formidable choice in battles.`
+    },
+    {
+      Item: 6,
+      Name: '  Dragon Stone Enchantment',
+      Cost: 120,
+      Atk: 60,
+      SkillAtk: 30,
+      Description: `An ancient stone infused with the power of dragons. Unleashes a tremendous surge in both attack power and skill-based damage. Reserved for those facing the most formidable foes.`
+    }];
+    const handleAssesoryClick = (index) => {
+      const selectedAssesory = AssesoryStoreItems[index];
+      if (characterStats.Inventory.includes(selectedAssesory.Name)) {
+        alert(`You already have ${selectedAssesory.Name} in your inventory`);
+        return;
+      }
+    
+      // Check if the player has enough Nils to buy the item
+      if (characterStats.Nils >= selectedAssesory.Cost) {
+        // Subtract the cost from the player's Nils
+        const updatedStats = {
+          ...characterStats,
+          Atk: characterStats.Atk + selectedAssesory.Atk, // Update the correct field (assuming characterStats has a 'Def' field)
+          Nils: characterStats.Nils - selectedAssesory.Cost,
+        };
+        updateCharacterStats(updatedStats);
+    
+        updatedStats.Skills[0].damage += selectedAssesory.SkillAtk;
+        updateCharacterStats(updatedStats);
+        // Add the selected item to the player's inventory
+        updatedStats.Inventory = [...updatedStats.Inventory, selectedAssesory.Name];
+    
+        // Optionally, you can update other player stats based on the selected item
+        // For example, you can add defense to the player's stats
+        alert(`${selectedAssesory.Name} Purchased`)
+      } else {
+        // Display a message or handle the case where the player doesn't have enough Nils
+        alert("Not enough Nils to buy this item");
+      }
+    };
+    const ExitArrow3 = () => {
+      setShowAssesory(false)
+    }
+    return (
+      <div className="Weapon-main-div">
+        <h1>Assesory Shop</h1>
+        <div className="WeaponFloor"></div>
+        <img onClick={ExitArrow3} className="LeftArrow" src={leftarrow} alt="EXIT"></img>
+        <div>
+          <A1HealthManaBars 
+            playerName={playerName}
+            characterStats={characterStats}
+          />
+        </div>
+        <div className="Item-div">
+          {AssesoryStoreItems.map((item, index) => (
+            <h1
+              key={index}
+              onClick={() => handleAssesoryClick(index)}
+              onMouseOver={() => HandleAssesoryHover2(index)}
+              onMouseLeave={() => setHoveredAssesoryItem(null)}
+              className="Moms Items"
+            >
+              ??
+            </h1>
+          ))}
+        </div>
+        {hoveredAssesoryItem !== null && (
+          <div className="Weapon-Description-Div">
+            <h1>{AssesoryStoreItems[hoveredAssesoryItem].Name}</h1>
+            <div>
+              <h3>Atk Buff: {AssesoryStoreItems[hoveredAssesoryItem].Atk}</h3>
+              <h3>Skill-Atk Buff: {AssesoryStoreItems[hoveredAssesoryItem].SkillAtk}</h3>
+              <h3>Cost: {AssesoryStoreItems[hoveredAssesoryItem].Cost} Nils</h3>
+            </div>
+            <h4>{AssesoryStoreItems[hoveredAssesoryItem].Description}</h4>
+          </div>
+        )}
+      </div>
+    )
   }
 
   if (ShowArmor) {
@@ -362,7 +491,7 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
         <div className="Roof"></div>
         Shop3
       </div>
-      <div className="SHOPS  Shop4" onMouseOver={HandleItemHover} onMouseLeave={HandlExits}>
+      <div className="SHOPS  Shop4" onClick={HandleAssesoryClick} onMouseOver={HandleItemHover} onMouseLeave={HandlExits}>
         <div className="Door"></div>
         <div className="Roof"></div>
         Shop4
@@ -388,7 +517,7 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
         <p>?? Nils</p>
       </div>
       )}
-      {ShowItemShopDescription && (
+      {ShowAssesoryShopDescription && (
         <div className="Hover-Descriptions">
         <h1>Accessory Smith</h1>
         <p>?????</p>
