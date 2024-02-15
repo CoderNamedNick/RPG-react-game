@@ -17,12 +17,24 @@ const GamePartOne = ({ playerName, characterStats, updateCharacterStats }) => {
   const [showTown, setShowTown] = useState(false);
   const [TownDone, setTownDone] = useState(false);
   const [ShowAct1Boss, setShowAct1Boss] = useState(false)
+  const [Act1EnemyStats, setAct1EnemyStats] = useState({
+    name: 'Goblin',
+    Hp: 80,
+    Atk: 12,
+    Def: 4,
+    Mana: 5,
+  });
+  const updateEnemyStats = (updatedEnStats) => {
+    // Wrap the state update in a setTimeout to defer it to the next tick
+    setTimeout(() => {
+      setAct1EnemyStats(updatedEnStats);
+    }, 0);
+  };
 
   const handleChestClick = () => {
     setShowChest(true);
     setChestDone(true);
   };
-
   const handleReturnToGame = () => {
     setShowChest(false);
     setShowFight(false);
@@ -145,6 +157,8 @@ const GamePartOne = ({ playerName, characterStats, updateCharacterStats }) => {
       {showFight && (
         <A1Fight
           onReturn={handleReturnToGame}
+          Enemystats={Act1EnemyStats}
+          updateEnemyStats={updateEnemyStats}
           playerName={playerName}
           updateCharacterStats={updateCharacterStats}
           characterStats={characterStats}

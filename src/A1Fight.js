@@ -4,7 +4,7 @@ import A1HealthManaBars from "./A1HealthManaBars";
 import goblin from "./goblin-18.png";
 import slash from './pixil-frame-0.png'
 
-const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn }) => {
+const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn, Enemystats, updateEnemyStats }) => {
   const [FirstAction, setFirstAction] = useState(true);
   const [EnemyDefeated, setEnemyDefeated] = useState(false);
   const [ShowCharacterStats, setShowCharacterStats] = useState(false)
@@ -26,45 +26,56 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
   }
 
   //This is Enemy stats and and attacks
-  const [FirstEnemyStats, setEnemyStats] = useState({
-    name: '??',
-    Hp: '??',
-    Atk: '??',
-    Def: '??',
-    Mana: '??',
-  });
-  const updateEnemyStats = (updatedEnStats) => {
-    setEnemyStats(updatedEnStats);
-  };
-  let combatstart = () => {
-    alert("Combat Has started");
-    const updatedEnStats = {
-      ...FirstEnemyStats,
-      name: 'Goblin',
-      Hp: 80,
-      Atk: 12,
-      Def: 4,
-      Mana: 5,
-    };
+  useEffect(() => {
+    // This effect runs when the component mounts
+    // Set initial enemy stats using the passed Enemystats
+    const updatedEnStats = { ...Enemystats };
     updateEnemyStats(updatedEnStats);
+  }, [Enemystats]); // The empty dependency array ensures it only runs once when the component mounts
+
+  const combatstart = (enemyStats) => {
+    alert("Combat Has started");
+
+    // Use the passed enemy stats to initialize the combat
+    const updatedEnStats = { ...enemyStats };
+
+    // Update the enemy stats
+    updateEnemyStats(updatedEnStats);
+
     setFirstAction(false);
-    setShowGoblin(true)
+    setShowGoblin(true);
+
     setTimeout(() => {
       setFirstActionCompleted(true);
     }, 500);
   };
   const EnemyTurn = () => {
     if (FirstAction) {
-      combatstart();
+      combatstart(Enemystats);
     } else {
-      let EnemyAtk = FirstEnemyStats.Atk;
+      let EnemyAtk = Enemystats.Atk;
       let CharacterDef = characterStats.Def / 1.5;
       let DmgDealt = Math.max(0, EnemyAtk - CharacterDef);
       let DMGdealt = Math.round(DmgDealt);
-
+  
+      // Return the calculated damage value
       return DMGdealt;
     }
   };
+  
+  // Use useEffect to update the state after the component has rendered
+  useEffect(() => {
+    if (!FirstAction) {
+      const damageDealt = EnemyTurn();
+  
+      // Update the enemy stats outside the rendering phase
+      const updatedEnstats = {
+        ...Enemystats,
+        Hp: Enemystats.Hp - damageDealt,
+      };
+      updateEnemyStats(updatedEnstats);
+    }
+  }, [FirstAction]);
   //THIS IS PLAYER ATTACKS AND STATS
   const DamageToEnemy = (Enemy, damage) => {
     if (Enemy.Hp <= 0) {
@@ -85,12 +96,12 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
     if (observation) {
       return;
     }
-    if (FirstEnemyStats.Hp <= 0) {
+    if (Enemystats.Hp <= 0) {
       setEnemyDefeated(true);
       return null;
     }
     if (!FirstAction) {
-      const dps = DamageToEnemy(FirstEnemyStats, characterStats.Atk);
+      const dps = DamageToEnemy(Enemystats, characterStats.Atk);
       const trueDamageDealt = characterStats.Atk - dps;
       setTrueDamageDealt(trueDamageDealt);
       let EnemyDmg = EnemyTurn();
@@ -115,27 +126,27 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
         updateCharacterStats(updatedStats);
       }
     } else {
-      combatstart();
+      combatstart(Enemystats);
     }
   };
   const handleSkillAttack = () => {
     if (observation) {
       return;
     }
-    if (FirstEnemyStats.Hp <= 0) {
+    if (Enemystats.Hp <= 0) {
       setEnemyDefeated(true);
       return null;
     }
     if (FirstAction) {
-      combatstart();
+      combatstart(Enemystats);
     } else {
       if (characterStats.Skills.length > 0) {
         const firstSkill = characterStats.Skills[0];
 
         if (characterStats.Mana >= firstSkill.manaCost) {
-          DamageToEnemy(FirstEnemyStats, firstSkill.damage);
+          DamageToEnemy(Enemystats, firstSkill.damage);
 
-          const dps = DamageToEnemy(FirstEnemyStats, firstSkill.damage);
+          const dps = DamageToEnemy(Enemystats, firstSkill.damage);
           const trueDamageDealt = firstSkill.damage - dps;
           setTrueDamageDealt(trueDamageDealt);
 
@@ -183,18 +194,11 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
     setTimeout(function () {
       setShowGoblin(false);
     }, 2000);
-    const updatedEnStats = {
-      ...FirstEnemyStats,
-      name: 'Goblin',
-      Hp: 80,
-      Atk: 12,
-      Def: 4,
-      Mana: 5,
-    };
+    const updatedEnStats = { ...Enemystats };
     updateEnemyStats(updatedEnStats);
     setTimeout(function () {
       const updatedEnStats2 = {
-        ...FirstEnemyStats,
+        ...Enemystats,
         name: '??',
         Hp: '??',
         Atk: '??',
@@ -215,7 +219,7 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
     if (ShowGoblin) {
       return;
     }
-    combatstart();
+    combatstart(Enemystats);
     setFightBtnDisabled(true);
   }
   const handleRun = () => {
@@ -224,7 +228,7 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
 
   //after Fight
   useEffect(() => {
-    if (FirstEnemyStats.Hp <= 0) {
+    if (Enemystats.Hp <= 0) {
       // Call the function you want to execute after the enemy is defeated
       handleAfterEnemyDefeated();
     }
@@ -407,11 +411,11 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn })
       </div>
       <div className="EnemyStats">
         {/* Display EnemyStats */}
-        <p>Name: {FirstEnemyStats.name}</p>
-        <p>HP: {FirstEnemyStats.Hp}</p>
-        <p>ATK: {FirstEnemyStats.Atk}</p>
-        <p>DEF: {FirstEnemyStats.Def}</p>
-        <p>Mana: {FirstEnemyStats.Mana}</p>
+        <p>Name: {Enemystats.name}</p>
+        <p>HP: {Enemystats.Hp}</p>
+        <p>ATK: {Enemystats.Atk}</p>
+        <p>DEF: {Enemystats.Def}</p>
+        <p>Mana: {Enemystats.Mana}</p>
       </div>
       <div className="PlayerCombatMovesDiv">
         <div className="CombatMoves move1" onClick={handleBasicAttack}>
