@@ -8,7 +8,7 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn, E
   const [FirstAction, setFirstAction] = useState(true);
   const [EnemyDefeated, setEnemyDefeated] = useState(false);
   const [ShowCharacterStats, setShowCharacterStats] = useState(false)
-  const [ShowGoblin, setShowGoblin] = useState(false)
+  const [ShowEnemy, setShowEnemy] = useState(false)
   const [ShowSlash, setShowSlash] = useState(false)
   const [ShowFightBTN, setShowFightBTN] = useState(false)
   const [FightBtnDisabled, setFightBtnDisabled] = useState(false);
@@ -43,7 +43,7 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn, E
     updateEnemyStats(updatedEnStats);
 
     setFirstAction(false);
-    setShowGoblin(true);
+    setShowEnemy(true);
 
     setTimeout(() => {
       setFirstActionCompleted(true);
@@ -187,12 +187,12 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn, E
     if (FirstActionCompleted) {
       return;
     }
-    if (ShowGoblin) {
+    if (ShowEnemy) {
       return;
     }
-    setShowGoblin(true)
+    setShowEnemy(true)
     setTimeout(function () {
-      setShowGoblin(false);
+      setShowEnemy(false);
     }, 2000);
     const updatedEnStats = { ...Enemystats };
     updateEnemyStats(updatedEnStats);
@@ -216,7 +216,7 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn, E
     if (FirstActionCompleted) {
       return;
     }
-    if (ShowGoblin) {
+    if (ShowEnemy) {
       return;
     }
     combatstart(Enemystats);
@@ -387,7 +387,7 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn, E
           />
         </div>
       )}
-      {ShowGoblin && (
+      {ShowEnemy && (
         <div className="Main-gob-div">
           <div className="dps-div">
             {ShowSlash && (
@@ -409,14 +409,26 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn, E
           characterStats={characterStats}
         />
       </div>
-      <div className="EnemyStats">
+      {!ShowEnemy && (
+        <div className="EnemyStats">
         {/* Display EnemyStats */}
-        <p>Name: {Enemystats.name}</p>
-        <p>HP: {Enemystats.Hp}</p>
-        <p>ATK: {Enemystats.Atk}</p>
-        <p>DEF: {Enemystats.Def}</p>
-        <p>Mana: {Enemystats.Mana}</p>
+        <p>Name: ??</p>
+        <p>HP: ??</p>
+        <p>ATK: ??</p>
+        <p>DEF: ??</p>
+        <p>Mana: ??</p>
       </div>
+      )}
+      {ShowEnemy && (
+         <div className="EnemyStats">
+         {/* Display EnemyStats */}
+         <p>Name: {Enemystats.name}</p>
+         <p>HP: {Enemystats.Hp}</p>
+         <p>ATK: {Enemystats.Atk}</p>
+         <p>DEF: {Enemystats.Def}</p>
+         <p>Mana: {Enemystats.Mana}</p>
+       </div>
+      )}
       <div className="PlayerCombatMovesDiv">
         <div className="CombatMoves move1" onClick={handleBasicAttack}>
           <h2>Basic Attack</h2>
