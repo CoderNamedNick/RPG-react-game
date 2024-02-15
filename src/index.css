@@ -478,8 +478,9 @@ h1{
   opacity: 1;
 }
 .Armor-main-div ,
-.Weapon-main-div{
-  background-color: rgb(133, 131, 131);
+.Weapon-main-div,
+.Assesory-main-div{
+  background-color: rgb(91, 93, 121);
   color: white;
   display: flex;
   flex-direction: column;
@@ -488,6 +489,9 @@ h1{
 }
 .Weapon-main-div{
   background-color: rgb(105, 5, 5);
+}
+.Assesory-main-div{
+  background-color: rgb(58, 31, 63);
 }
 .Floor{
   position: absolute;
@@ -528,6 +532,16 @@ h1{
   left: 10px;
   width: 100px;
 }
+.ArmorFloor{
+  position: absolute;
+  background-color: rgba(95, 128, 139, 0.877);
+  border-radius: 30px;
+  bottom: 0%;
+  width: 98%;
+  border: rgb(24, 134, 185) 1px solid;
+  margin-left: 1%;
+  height: 30%;
+}
 .WeaponFloor{
   position: absolute;
   background-color: rgba(44, 42, 42, 0.877);
@@ -535,6 +549,16 @@ h1{
   bottom: 0%;
   width: 98%;
   border: red 1px solid;
+  margin-left: 1%;
+  height: 30%;
+}
+.AssesoryFloor{
+  position: absolute;
+  background-color: rgba(36, 19, 77, 0.877);
+  border-radius: 30px;
+  bottom: 0%;
+  width: 98%;
+  border: rgb(166, 58, 209) 1px solid;
   margin-left: 1%;
   height: 30%;
 }

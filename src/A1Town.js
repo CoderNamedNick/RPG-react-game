@@ -1,6 +1,5 @@
 import { useState} from "react"
 import A1HealthManaBars from "./A1HealthManaBars"
-import floor from './—Pngtree—wooden floor 2 way texture_6978182.png'
 import leftarrow from './arrow-pointing-to-left.png'
 import CharacterData from "./CharacterData"
 
@@ -102,7 +101,7 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
       Atk: 2,
       SkillAtk: 0,
       Def: 2,
-      Description: ``
+      Description: `A simple Lucky Charm that adds a touch of fortune to your adventures. Boosts your attack and defense moderately.`
     },
     {
       Item: 2,
@@ -111,7 +110,7 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
       Def: 0,
       Atk: 2,
       SkillAtk: 5,
-      Description: ``
+      Description: `A finely crafted Silver Medallion with magical properties. Enhances your attack and provides a bonus to skill attacks.`
     },
     {
       Item: 3,
@@ -120,7 +119,7 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
       Def: 0,
       Atk: 7,
       SkillAtk: 5,
-      Description: ``
+      Description: `This stone radiates powerful energy, empowering your attacks with increased damage. Ideal for those seeking a more offensive playstyle.`
     },
     {
       Item: 4,
@@ -129,7 +128,7 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
       Atk: 2,
       Def: 22,
       SkillAtk: 5,
-      Description: ``
+      Description: `A protective Ward Stone that significantly boosts your defense. Perfect for those who prefer a resilient and sturdy approach in battles.`
     },
     {
       Item: 5,
@@ -138,7 +137,7 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
       Atk: 5,
       Def: 2,
       SkillAtk: 30,
-      Description: ``
+      Description: `An intricate charm that amplifies your skill attacks to an extraordinary level. Recommended for those who rely on their special abilities.`
     },
     {
       Item: 6,
@@ -147,7 +146,7 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
       Atk: 30,
       Def: 40,
       SkillAtk: 20,
-      Description: ``
+      Description: ` A legendary Guardian Stone with unparalleled power. Provides a substantial boost to attack, defense, and skill attacks. The ultimate accessory for seasoned adventurers.`
     }];
     const handleAssesoryClick = (index) => {
       const selectedAssesory = AssesoryStoreItems[index];
@@ -184,9 +183,9 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
       setShowAssesory(false)
     }
     return (
-      <div className="Weapon-main-div">
+      <div className="Assesory-main-div">
         <h1>Assesory Shop</h1>
-        <div className="WeaponFloor"></div>
+        <div className="AssesoryFloor"></div>
         <img onClick={ExitArrow3} className="LeftArrow" src={leftarrow} alt="EXIT"></img>
         <div>
           <A1HealthManaBars 
@@ -303,7 +302,7 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
     return (
       <div className="Armor-main-div">
         <h1>Armor Shop</h1>
-        <img className="Floor" src={floor} alt="floor"></img>
+        <div className="ArmorFloor"></div>
         <img onClick={ExitArrow} className="LeftArrow" src={leftarrow} alt="EXIT"></img>
         <div>
           <A1HealthManaBars 
