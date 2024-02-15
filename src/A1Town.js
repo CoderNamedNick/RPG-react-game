@@ -69,6 +69,10 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
 
   if (ShowInn) {
 
+    const ExitArrow4 = () => {
+      setShowInn(false)
+    }
+
     const handlerestclick = () => {
       if (characterStats.Hp >= characterStats.MaxHp && characterStats.Mana >= characterStats.MaxMana){
         alert(`you already have max Mana and Health`)
@@ -88,8 +92,13 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
     }
 
     return (
-      <div>
+      <div className="Inn-main-div">
+        <img onClick={ExitArrow4} className="LeftArrow" src={leftarrow} alt="EXIT"></img>
         <h1 onClick={handlerestclick} className="Moms Items">REST?</h1>
+        <div className="Bed">
+          <div className="Blanket"></div>
+          <div className="Pillow"></div>
+        </div>
       </div>
     );
   }

@@ -479,7 +479,8 @@ h1{
 }
 .Armor-main-div ,
 .Weapon-main-div,
-.Assesory-main-div{
+.Assesory-main-div,
+.Inn-main-div{
   background-color: rgb(91, 93, 121);
   color: white;
   display: flex;
@@ -492,6 +493,9 @@ h1{
 }
 .Assesory-main-div{
   background-color: rgb(58, 31, 63);
+}
+.Inn-main-div{
+  background-color: rgb(19, 18, 18);
 }
 .Floor{
   position: absolute;
@@ -561,4 +565,40 @@ h1{
   border: rgb(166, 58, 209) 1px solid;
   margin-left: 1%;
   height: 30%;
+}
+.Bed{
+  background-color:rgb(189, 186, 186);
+  width: 30%;
+  height: 55%;
+  position: absolute;
+  bottom: 0;
+  left: 35%;
+  border: solid 8px rgb(68, 25, 25);
+  border-top: solid 16px rgb(68, 25, 25);
+  border-radius: 20PX;
+  z-index: 2;
+}
+.Blanket{
+  position: relative;
+  margin-left: -10%;
+  margin-top: 30%;
+  border-radius: 20px;
+  width: 110%;
+  background-color: red;
+  border: solid 8px rgb(134, 26, 26);
+  border-right: solid 14px rgb(134, 26, 26);
+  border-left: solid 14px rgb(134, 26, 26);
+  height: 80%;
+  z-index: 3;
+}
+.Pillow{
+  position: absolute;
+  top: 0;
+  left: 24%;
+  width: 50%;
+  height: 20%;
+  border-radius: 15px;
+  border: solid 2px rgb(182, 179, 179);
+  background-color: rgb(243, 241, 241);
+  z-index: 1;
 }
