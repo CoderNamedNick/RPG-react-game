@@ -30,6 +30,19 @@ const GamePartOne = ({ playerName, characterStats, updateCharacterStats }) => {
       setAct1EnemyStats(updatedEnStats);
     }, 0);
   };
+  const [Act1BossStats, setAct1BossStats] = useState({
+    name: 'Troll',
+    Hp: 160,
+    Atk: 16,
+    Def: 7,
+    Mana: 8,
+  });
+  const updatebossStats = (updatedEnStats) => {
+    // Wrap the state update in a setTimeout to defer it to the next tick
+    setTimeout(() => {
+      setAct1BossStats(updatedEnStats);
+    }, 0);
+  };
 
   const handleChestClick = () => {
     setShowChest(true);
@@ -70,7 +83,15 @@ const GamePartOne = ({ playerName, characterStats, updateCharacterStats }) => {
   if (ShowAct1Boss) {
     return(
       <div>
-       <h1>BOSS FIGHT</h1>
+        <h1>BOSS FIGHT</h1>
+       <A1Fight
+          onReturn={handleReturnToGame}
+          Enemystats={Act1BossStats}
+          updateEnemyStats={updatebossStats}
+          playerName={playerName}
+          updateCharacterStats={updateCharacterStats}
+          characterStats={characterStats}
+        />
       </div>
     );
   }
@@ -155,14 +176,17 @@ const GamePartOne = ({ playerName, characterStats, updateCharacterStats }) => {
       )}
 
       {showFight && (
-        <A1Fight
-          onReturn={handleReturnToGame}
-          Enemystats={Act1EnemyStats}
-          updateEnemyStats={updateEnemyStats}
-          playerName={playerName}
-          updateCharacterStats={updateCharacterStats}
-          characterStats={characterStats}
-        />
+        <div>
+          <h1>FIGHT</h1>
+          <A1Fight
+            onReturn={handleReturnToGame}
+            Enemystats={Act1EnemyStats}
+            updateEnemyStats={updateEnemyStats}
+            playerName={playerName}
+            updateCharacterStats={updateCharacterStats}
+            characterStats={characterStats}
+          />
+        </div>
       )}
       {showEncounter && (
         <A1Encounter

@@ -376,7 +376,6 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn, E
 
   return (
     <div>
-      <h1>FIGHT</h1>
       {/* make a cool fight scene with skills and think of an enemy to fight */}
       {ShowCharacterStats &&(
         <div>
