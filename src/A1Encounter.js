@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import mouth from './mouth-smile-clip-art-nicubunu_Mouth_with_teeth.png'
+import mouth from './images/mouth-smile-clip-art-nicubunu_Mouth_with_teeth.png'
 import A1HealthManaBars from "./A1HealthManaBars";
 
 const A1Encounter = ({ playerName, characterStats, updateCharacterStats, onReturn }) => {

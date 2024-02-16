@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import CharacterData from "./CharacterData";
 import A1HealthManaBars from "./A1HealthManaBars";
-import slash from './pixil-frame-0.png'
+import slash from './images/pixil-frame-0.png'
 
 const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn, Enemystats, updateEnemyStats, enemyImage }) => {
   const [FirstAction, setFirstAction] = useState(true);

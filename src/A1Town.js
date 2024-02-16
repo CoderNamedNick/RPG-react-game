@@ -1,6 +1,6 @@
 import { useState} from "react"
 import A1HealthManaBars from "./A1HealthManaBars"
-import leftarrow from './arrow-pointing-to-left.png'
+import leftarrow from './images/arrow-pointing-to-left.png'
 import CharacterData from "./CharacterData"
 
 
