@@ -168,6 +168,11 @@ code {
   bottom: 32%;
   left: 70%;
 }
+.here4{
+  position: fixed;
+  bottom: 50%;
+  left: 29%;
+}
 .Arrow2{
   position: fixed;
   width: 80px;
@@ -181,6 +186,13 @@ code {
   bottom: 30%;
   left: 63%;
   rotate: -90deg;
+}
+.Arrow4{
+  position: fixed;
+  width: 80px;
+  bottom: 48%;
+  left: 38%;
+  rotate: 90deg;
 }
 h1{
   text-align: center;
@@ -264,6 +276,7 @@ h1{
   right: 0%;
   opacity: .4;
   font-size: 16px;
+  z-index: -1;
 }
 
 .healthBar,
