@@ -133,8 +133,8 @@ const GamePartOne = ({ playerName, characterStats, updateCharacterStats }) => {
                         />
                       </div>
                       <div className="current-position">
-                        <img className="Arrow" src={arrow} alt="Start From bottom go up" />
-                        <p className="Here-p">you are here</p>
+                        <img className={(chestDone && !fightDone) ? "Arrow2" : (fightDone ? "Arrow3" : "Arrow")} src={arrow} alt="Start From bottom go up" />
+                        <p className={(chestDone && !fightDone) ? "here2" : (fightDone ? "here3" : "Here-p")}>you are here</p>
                       </div>
                       {showCharacterData && (
                         <div className="CharacterData">
@@ -155,7 +155,7 @@ const GamePartOne = ({ playerName, characterStats, updateCharacterStats }) => {
                             Chest
                           </div>
                         )}
-                        {!fightDone && (
+                        {!EncounterDone && (
                         <div
                           onClick={chestDone && !fightDone ? handleFightClick : null}
                           className={`Map-places P1A2 ${fightDone || !chestDone ? "disabled" : ""}`}

@@ -158,6 +158,30 @@ code {
   top: -20px;
   right: -138px;
 }
+.here2{
+  position: fixed;
+  bottom: 18%;
+  left: 7%;
+}
+.here3{
+  position: fixed;
+  bottom: 32%;
+  left: 70%;
+}
+.Arrow2{
+  position: fixed;
+  width: 80px;
+  bottom: 17%;
+  left: 17%;
+  rotate: 90deg;
+}
+.Arrow3{
+  position: fixed;
+  width: 80px;
+  bottom: 30%;
+  left: 63%;
+  rotate: -90deg;
+}
 h1{
   text-align: center;
 }
