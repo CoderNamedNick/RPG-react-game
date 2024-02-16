@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import CharacterData from "./CharacterData";
 import A1HealthManaBars from "./A1HealthManaBars";
-import goblin from "./goblin-18.png";
 import slash from './pixil-frame-0.png'
 
-const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn, Enemystats, updateEnemyStats }) => {
+const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn, Enemystats, updateEnemyStats, enemyImage }) => {
   const [FirstAction, setFirstAction] = useState(true);
   const [EnemyDefeated, setEnemyDefeated] = useState(false);
   const [ShowCharacterStats, setShowCharacterStats] = useState(false)
@@ -394,7 +393,7 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn, E
             )}
           </div>
           <div className="goblin-div">
-            <img className="Goblin-PNG" src={goblin} alt="Goblin"></img>
+            <img className="Goblin-PNG" src={enemyImage} alt="Enemy"></img>
             {ShowSlash && (
               <img className="Slash-PNG" src={slash} alt="Slash"></img>
             )}

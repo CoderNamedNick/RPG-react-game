@@ -1,10 +1,13 @@
 import React, { useState } from "react";
+import A1HealthManaBars from "./A1HealthManaBars";
 import A1Chest from "./A1Chest";
 import A1Fight from "./A1Fight";
 import CharacterData from "./CharacterData";
 import arrow from './up-arrow.png';
 import A1Encounter from "./A1Encounter";
 import A1Town from "./A1Town";
+import goblin from './goblin-18.png'
+import troll from './84614-troll-mythical-monster-minotaur-organism-creature.png'
 
 const GamePartOne = ({ playerName, characterStats, updateCharacterStats }) => {
   const [showChest, setShowChest] = useState(false);
@@ -88,6 +91,7 @@ const GamePartOne = ({ playerName, characterStats, updateCharacterStats }) => {
           onReturn={handleReturnToGame}
           Enemystats={Act1BossStats}
           updateEnemyStats={updatebossStats}
+          enemyImage={troll}
           playerName={playerName}
           updateCharacterStats={updateCharacterStats}
           characterStats={characterStats}
@@ -97,7 +101,7 @@ const GamePartOne = ({ playerName, characterStats, updateCharacterStats }) => {
   }
 
   return (
-    <div>
+    <div className="map-main-div">
       {!showTown && (
         <div>
           {!showEncounter && (
@@ -122,8 +126,16 @@ const GamePartOne = ({ playerName, characterStats, updateCharacterStats }) => {
                           Player Stats
                         </button>
                       </div>
-                      <img className="Arrow" src={arrow} alt="Start From bottom go up" />
-                      <img className="Arrow2" src={arrow} alt="Start From bottom go up" />
+                      <div className="Map-bars">
+                        <A1HealthManaBars 
+                          playerName={playerName}
+                          characterStats={characterStats}
+                        />
+                      </div>
+                      <div className="current-position">
+                        <img className="Arrow" src={arrow} alt="Start From bottom go up" />
+                        <p className="Here-p">you are here</p>
+                      </div>
                       {showCharacterData && (
                         <div className="CharacterData">
                           <CharacterData
@@ -135,7 +147,7 @@ const GamePartOne = ({ playerName, characterStats, updateCharacterStats }) => {
                       )}
                       <div className="GameBoard">
                         {!chestDone && <div className="Map-places Start">Start</div>}
-                        {!chestDone && (
+                        {!fightDone && (
                           <div
                             onClick={chestDone ? null : handleChestClick}
                             className={`Map-places P1A1 ${chestDone ? "disabled" : ""}`}
@@ -183,6 +195,7 @@ const GamePartOne = ({ playerName, characterStats, updateCharacterStats }) => {
             Enemystats={Act1EnemyStats}
             updateEnemyStats={updateEnemyStats}
             playerName={playerName}
+            enemyImage={goblin}
             updateCharacterStats={updateCharacterStats}
             characterStats={characterStats}
           />

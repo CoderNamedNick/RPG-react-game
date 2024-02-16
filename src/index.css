@@ -45,16 +45,26 @@ code {
   width: 100px;
   padding: 4px;
 }
+.map-main-div{
+  background-color: rgb(53, 73, 51);
+  width: 100%;
+  height: 98vh;
+}
 
 .GameBoard{
-  background-color: rgb(75, 75, 75);
+  background-color: rgb(53, 73, 51);
   width: 100%;
-  margin-left: 0px;
-  height: 92vh;
+  height: 100%;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.Map-bars{
+  position: absolute;
+  top: 14%;
+  right: 0%;
+  z-index: 20;
 }
 
 .Map-places{
@@ -73,34 +83,36 @@ code {
   font-size: 20px;
   font-weight: 800;
   color: black;
-  bottom: 5%;
+  bottom: 0%;
 }
 .P1A1{
-  position: fixed;
+  position: absolute;
   background-color: rgb(224, 222, 81);
   font-size: 20px;
   font-weight: 800;
   color: black;
-  bottom: 22%;
+  left: 26%;
+  bottom: 15%;
 }
 .P1A2{
-  position: fixed;
+  position: absolute;
   background-color: rgb(224, 81, 81);
   font-size: 20px;
   font-weight: 800;
   color: black;
-  bottom: 38%;
+  right: 39%;
+  bottom: 28%;
 }
 .P1A3{
-  position: fixed;
+  position: absolute;
   background-color: rgb(81, 224, 224);
   font-size: 20px;
   font-weight: 800;
   color: black;
-  bottom: 53%;
+  bottom: 46%;
 }
 .P1A4{
-  position: fixed;
+  position: absolute;
   background-color: rgb(81, 224, 105);
   font-size: 20px;
   font-weight: 800;
@@ -130,15 +142,21 @@ code {
 }
 .Arrow{
   position: absolute;
-  width: 100px;
-  bottom: 5%;
-  left: 18%;
+  width: 80px;
+  bottom: 0%;
+  left: 36%;
+  rotate: -90deg;
 }
-.Arrow2{
+.current-position{
   position: absolute;
   width: 100px;
-  bottom: 5%;
-  right: 18%;
+  bottom: 1%;
+  left: 54%;
+}
+.Here-p{
+  position: relative;
+  top: -20px;
+  right: -138px;
 }
 h1{
   text-align: center;
