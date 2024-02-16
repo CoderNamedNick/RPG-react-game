@@ -71,12 +71,17 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
 
     const ExitArrow4 = () => {
       setShowInn(false)
+      setShowInnDescription(false)
+      setShowAmorSHopDescription(false)
+      setShowWeaponShopDescription(false)
+      setShowAssesoryShopDescription(false)
     }
 
     const handlerestclick = () => {
       if (characterStats.Hp >= characterStats.MaxHp && characterStats.Mana >= characterStats.MaxMana){
         alert(`you already have max Mana and Health`)
         setShowInn(false);
+        setShowInnDescription(false)
         return
       }
       let HpMissing = characterStats.MaxHp - characterStats.Hp
@@ -89,6 +94,7 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
       };
       updateCharacterStats(updatedStats);
       setShowInn(false);
+      setShowInnDescription(false)
     }
 
     return (
@@ -190,6 +196,10 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
     };
     const ExitArrow3 = () => {
       setShowAssesory(false)
+      setShowInnDescription(false)
+      setShowAmorSHopDescription(false)
+      setShowWeaponShopDescription(false)
+      setShowAssesoryShopDescription(false)
     }
     return (
       <div className="Assesory-main-div">
@@ -278,6 +288,10 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
 
     const ExitArrow = () => {
       setShowArmor(false)
+      setShowInnDescription(false)
+      setShowAmorSHopDescription(false)
+      setShowWeaponShopDescription(false)
+      setShowAssesoryShopDescription(false)
     }
     const handleArmorClick = (index) => {
       const selectedArmor = ArmorStoreItems[index];
@@ -427,6 +441,10 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
     };
     const ExitArrow2 = () => {
       setShowWeapon(false)
+      setShowInnDescription(false)
+      setShowAmorSHopDescription(false)
+      setShowWeaponShopDescription(false)
+      setShowAssesoryShopDescription(false)
     }
     return (
       <div className="Weapon-main-div">

@@ -154,6 +154,9 @@ const GamePartOne = ({ playerName, characterStats, updateCharacterStats }) => {
                         </div>
                       )}
                       <div className="GameBoard">
+                        <div className="Swamp-water"><p className="swamp-p">SWAMP</p></div>
+                        <div className="Swamp-water2"><p className="swamp-p2">SWAMP</p></div>
+                        <div className="map-Path"></div>
                         {!chestDone && <div className="Map-places Start">Start</div>}
                         {!fightDone && (
                           <div
