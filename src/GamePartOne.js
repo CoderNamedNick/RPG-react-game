@@ -9,7 +9,7 @@ import A1Town from "./A1Town";
 import goblin from './images/goblin-18.png'
 import troll from './images/84614-troll-mythical-monster-minotaur-organism-creature.png'
 
-const GamePartOne = ({ playerName, characterStats, updateCharacterStats }) => {
+const GamePartOne = ({ playerName, characterStats, updateCharacterStats, FinishP1, }) => {
   const [showChest, setShowChest] = useState(false);
   const [chestDone, setChestDone] = useState(false);
   const [showCharacterData, setShowCharacterData] = useState(false);
@@ -88,7 +88,7 @@ const GamePartOne = ({ playerName, characterStats, updateCharacterStats }) => {
       <div>
         <h1>BOSS FIGHT</h1>
        <A1Fight
-          onReturn={handleReturnToGame}
+          onReturn={FinishP1}
           Enemystats={Act1BossStats}
           updateEnemyStats={updatebossStats}
           enemyImage={troll}

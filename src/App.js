@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import StartGame from "./StartGame";
 import GamePartOne from "./GamePartOne";
+import GamePartTwoComponent from "./GamePartTwo";
 
 function App() {
   const [playerName, setPlayerName] = useState('');
@@ -16,23 +17,28 @@ function App() {
     Inventory: [],
     Nils: 0,
   });
-  const [gameStarted, setGameStarted] = useState(false); // Define gameStarted state
+  const [gameStarted, setGameStarted] = useState(false);
+  const [GamePartTwo, setGamePartTwo] = useState(false); // Rename the state variable
 
   const updateCharacterStats = (updatedStats) => {
     setCharacterStats(updatedStats);
   };
 
+  const finishPartOne = () => {
+    setGamePartTwo(true); // Use the correct state variable
+  }
+
   const handleStartGame = () => {
-    setGameStarted(true); // Update gameStarted state when the game starts
+    setGameStarted(true);
   };
 
-  // Log characterStats whenever it changes
   console.log("Character Stats:", characterStats);
 
   return (
     <div>
       {!gameStarted && <StartGame updatePlayerName={setPlayerName} onFinish={handleStartGame} />}
-      {gameStarted && <GamePartOne playerName={playerName} characterStats={characterStats} updateCharacterStats={updateCharacterStats} />}
+      {!GamePartTwo && gameStarted && <GamePartOne FinishP1={finishPartOne} playerName={playerName} characterStats={characterStats} updateCharacterStats={updateCharacterStats} />}
+      {GamePartTwo && gameStarted && <GamePartTwoComponent playerName={playerName} characterStats={characterStats} updateCharacterStats={updateCharacterStats} />}
     </div>
   );
 }
