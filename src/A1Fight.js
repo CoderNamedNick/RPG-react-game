@@ -256,8 +256,12 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn, E
     // Your logic for what should happen after the enemy is defeated
     alert("Congratulations! You've defeated the enemy. Performing post-defeat actions...");
     if (Enemystats.type === 'Boss'){
+      let HpMissing = characterStats.MaxHp - characterStats.Hp
+      let ManaMissing = characterStats.MaxMana - characterStats.Mana
       const updatedStats = {
         ...characterStats,
+        Hp: characterStats.Hp + HpMissing,
+        Mana: characterStats.Mana + ManaMissing,
         LVL: characterStats.LVL + 1,
         Nils: characterStats.Nils + 25,
       };
