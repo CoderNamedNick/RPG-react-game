@@ -39,6 +39,7 @@ const GamePartOne = ({ playerName, characterStats, updateCharacterStats, FinishP
     Atk: 16,
     Def: 7,
     Mana: 8,
+    type: 'Boss',
   });
   const updatebossStats = (updatedEnStats) => {
     // Wrap the state update in a setTimeout to defer it to the next tick

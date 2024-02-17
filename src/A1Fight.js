@@ -51,7 +51,27 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn, E
   const EnemyTurn = () => {
     if (FirstAction) {
       combatstart(Enemystats);
+      return
     } else {
+      const randomNumber = Math.floor(Math.random() * 5 + 1);
+      if (randomNumber === 5) {
+        alert('Enemy Used Skill')
+        if (Enemystats.Mana < 5) { 
+          alert('Enemy Skill failed')
+          let DMGdealt = 0
+          return DMGdealt;
+        }
+        const updatedStats = {
+          ...Enemystats,
+          Mana: Enemystats.Mana - 5,
+        };
+        updateEnemyStats(updatedStats);
+        let EnemyAtk = Enemystats.Atk + 10;
+        let CharacterDef = characterStats.Def / 1.5;
+        let DmgDealt = Math.max(0, EnemyAtk - CharacterDef);
+        let DMGdealt = Math.round(DmgDealt)
+        return DMGdealt;
+      }
       let EnemyAtk = Enemystats.Atk;
       let CharacterDef = characterStats.Def / 1.5;
       let DmgDealt = Math.max(0, EnemyAtk - CharacterDef);
@@ -235,12 +255,22 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn, E
   const handleAfterEnemyDefeated = () => {
     // Your logic for what should happen after the enemy is defeated
     alert("Congratulations! You've defeated the enemy. Performing post-defeat actions...");
-    const updatedStats = {
-      ...characterStats,
-      LVL: characterStats.LVL + 1,
-      Nils: characterStats.Nils + 10,
-    };
-    updateCharacterStats(updatedStats);
+    if (Enemystats.type === 'Boss'){
+      const updatedStats = {
+        ...characterStats,
+        LVL: characterStats.LVL + 1,
+        Nils: characterStats.Nils + 25,
+      };
+      updateCharacterStats(updatedStats);
+    }
+    else{
+      const updatedStats = {
+        ...characterStats,
+        LVL: characterStats.LVL + 1,
+        Nils: characterStats.Nils + 10,
+      };
+      updateCharacterStats(updatedStats);
+    }
   };
 
   const handleRewardDivs = (param) => {
