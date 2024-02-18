@@ -427,7 +427,7 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn, E
             )}
           </div>
           <div className="goblin-div">
-            <img className="Goblin-PNG" src={enemyImage} alt="Enemy"></img>
+            <img className="Enemy-PNG" src={enemyImage} alt="Enemy"></img>
             {ShowSlash && (
               <img className="Slash-PNG" src={slash} alt="Slash"></img>
             )}

@@ -5,6 +5,7 @@ import CharacterData from "./CharacterData";
 import A1Encounter from "./A1Encounter";
 import A1Town from "./A1Town";
 import goblin from './images/goblin-18.png'
+import spirit from './images/4-2-ghost-png-image.png'
 
 const GamePartTwoComponent = ({ playerName, characterStats, updateCharacterStats }) => {
   const [showCharacterData, setShowCharacterData] = useState(false);
@@ -17,11 +18,11 @@ const GamePartTwoComponent = ({ playerName, characterStats, updateCharacterStats
   const [showTown, setShowTown] = useState(false);
   const [TownDone, setTownDone] = useState(false);
   const [Act2EnemyStats, setAct2EnemyStats] = useState({
-    name: 'Goblin',
-    Hp: 110,
-    Atk: 14,
-    Def: 6,
-    Mana: 5,
+    name: 'Spirit',
+    Hp: 120,
+    Atk: 20,
+    Def: 1,
+    Mana: 10,
   });
   const updateEnemyStats = (updatedEnStats) => {
     // Wrap the state update in a setTimeout to defer it to the next tick
@@ -149,7 +150,7 @@ const GamePartTwoComponent = ({ playerName, characterStats, updateCharacterStats
             Enemystats={Act2EnemyStats}
             updateEnemyStats={updateEnemyStats}
             playerName={playerName}
-            enemyImage={goblin}
+            enemyImage={spirit}
             updateCharacterStats={updateCharacterStats}
             characterStats={characterStats}
           />

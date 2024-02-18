@@ -301,9 +301,10 @@ h1{
   position: absolute;
   bottom: 32%;
 }
-.Goblin-PNG{
+.Enemy-PNG{
   width: 400px;
-  margin-left: 70px;
+  height: 500px;
+  margin-left: 0px;
 }
 .Slash-PNG{
   position: absolute;
