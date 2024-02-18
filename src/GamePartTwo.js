@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import A1HealthManaBars from "./A1HealthManaBars";
 import A1Fight from "./A1Fight";
 import CharacterData from "./CharacterData";
-import arrow from './images/up-arrow.png';
 import A1Encounter from "./A1Encounter";
 import A1Town from "./A1Town";
 import goblin from './images/goblin-18.png'
@@ -17,17 +16,17 @@ const GamePartTwoComponent = ({ playerName, characterStats, updateCharacterStats
   const [EncounterDone, setEncounterDone] = useState(false);
   const [showTown, setShowTown] = useState(false);
   const [TownDone, setTownDone] = useState(false);
-  const [Act1EnemyStats, setAct1EnemyStats] = useState({
+  const [Act2EnemyStats, setAct2EnemyStats] = useState({
     name: 'Goblin',
-    Hp: 80,
-    Atk: 12,
-    Def: 4,
+    Hp: 110,
+    Atk: 14,
+    Def: 6,
     Mana: 5,
   });
   const updateEnemyStats = (updatedEnStats) => {
     // Wrap the state update in a setTimeout to defer it to the next tick
     setTimeout(() => {
-      setAct1EnemyStats(updatedEnStats);
+      setAct2EnemyStats(updatedEnStats);
     }, 0);
   };
 
@@ -76,7 +75,7 @@ const GamePartTwoComponent = ({ playerName, characterStats, updateCharacterStats
                   {!showFight && (
                     <div>
                       <h1>
-                        PartTwo
+                        Act Two: Forest
                       </h1>
                       <div className="Inv-div">
                         <button className="Inv-btn" onClick={handleInventoryClick}>
@@ -88,18 +87,6 @@ const GamePartTwoComponent = ({ playerName, characterStats, updateCharacterStats
                           playerName={playerName}
                           characterStats={characterStats}
                         />
-                      </div>
-                      <div className="current-position">
-                        <img className={
-                          (!fightDone && !EncounterDone) ? "Arrow2" :
-                          (fightDone && !EncounterDone) ? "Arrow3" :
-                          (EncounterDone ? "Arrow4" : "Arrow")
-                        } src={arrow} alt="Start From bottom go up" />
-                        <p className={
-                          (!fightDone && !EncounterDone) ? "here2" :
-                          (fightDone && !EncounterDone) ? "here3" :
-                          (EncounterDone ? "here4" : "Here-p")
-                        }>you are here</p>
                       </div>
                       {showCharacterData && (
                         <div className="CharacterData">
@@ -159,7 +146,7 @@ const GamePartTwoComponent = ({ playerName, characterStats, updateCharacterStats
           <h1>FIGHT</h1>
           <A1Fight
             onReturn={handleReturnToGame}
-            Enemystats={Act1EnemyStats}
+            Enemystats={Act2EnemyStats}
             updateEnemyStats={updateEnemyStats}
             playerName={playerName}
             enemyImage={goblin}
@@ -173,7 +160,7 @@ const GamePartTwoComponent = ({ playerName, characterStats, updateCharacterStats
           <h1>FIGHT</h1>
           <A1Fight
             onReturn={handleReturnToGame}
-            Enemystats={Act1EnemyStats}
+            Enemystats={Act2EnemyStats}
             updateEnemyStats={updateEnemyStats}
             playerName={playerName}
             enemyImage={goblin}
