@@ -4,7 +4,7 @@ import A1Fight from "./A1Fight";
 import CharacterData from "./CharacterData";
 import A1Encounter from "./A1Encounter";
 import A1Town from "./A1Town";
-import goblin from './images/goblin-18.png'
+import zombie from './images/9-2-zombie-high-quality-png_400x400.png'
 import spirit from './images/4-2-ghost-png-image.png'
 
 const GamePartTwoComponent = ({ playerName, characterStats, updateCharacterStats }) => {
@@ -30,9 +30,23 @@ const GamePartTwoComponent = ({ playerName, characterStats, updateCharacterStats
       setAct2EnemyStats(updatedEnStats);
     }, 0);
   };
+  const [Act2F2EnemyStats, setAct2F2EnemyStats] = useState({
+    name: 'Zombie',
+    Hp: 140,
+    Atk: 13,
+    Def: 6,
+    Mana: 5,
+  });
+  const updateA2F2EnemyStats = (updatedEnStats2) => {
+    // Wrap the state update in a setTimeout to defer it to the next tick
+    setTimeout(() => {
+      setAct2F2EnemyStats(updatedEnStats2);
+    }, 0);
+  };
 
   const handleReturnToGame = () => {
     setShowFight(false);
+    setShowFight2(false)
     setShowEncounter(false);
     setShowTown(false);
   };
@@ -161,10 +175,10 @@ const GamePartTwoComponent = ({ playerName, characterStats, updateCharacterStats
           <h1>FIGHT</h1>
           <A1Fight
             onReturn={handleReturnToGame}
-            Enemystats={Act2EnemyStats}
-            updateEnemyStats={updateEnemyStats}
+            Enemystats={Act2F2EnemyStats}
+            updateEnemyStats={updateA2F2EnemyStats}
             playerName={playerName}
-            enemyImage={goblin}
+            enemyImage={zombie}
             updateCharacterStats={updateCharacterStats}
             characterStats={characterStats}
           />
