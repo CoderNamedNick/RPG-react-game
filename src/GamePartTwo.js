@@ -80,7 +80,7 @@ const GamePartTwoComponent = ({ playerName, characterStats, updateCharacterStats
 
 
   return (
-    <div className="map-main-div">
+    <div className="Forest-Map-main-div">
       {!showTown && (
         <div>
           {!showEncounter && (
@@ -97,7 +97,7 @@ const GamePartTwoComponent = ({ playerName, characterStats, updateCharacterStats
                           Player Stats
                         </button>
                       </div>
-                      <div className="Map-bars">
+                      <div className="Act2-Map-bars">
                         <A1HealthManaBars 
                           playerName={playerName}
                           characterStats={characterStats}
@@ -112,7 +112,7 @@ const GamePartTwoComponent = ({ playerName, characterStats, updateCharacterStats
                           />
                         </div>
                       )}
-                      <div className="GameBoard">
+                      <div className="Act2-GameBoard">
                         <div className="Swamp-water"><p className="swamp-p">SWAMP</p></div>
                         <div className="Swamp-water2"><p className="swamp-p2">SWAMP</p></div>
                         <div className="map-Path"></div>
@@ -134,7 +134,7 @@ const GamePartTwoComponent = ({ playerName, characterStats, updateCharacterStats
                         )}
                         {!TownDone && (
                           <div
-                          onClick={!EncounterDone && fightDone ? handleEncounterClick : null}
+                          onClick={!EncounterDone && fightDone2 ? handleEncounterClick : null}
                           className={`Map-places P1A3 ${EncounterDone || !fightDone ? "disabled" : ""}`}
                         >
                           Encounter

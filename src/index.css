@@ -50,6 +50,20 @@ code {
   width: 100%;
   height: 98vh;
 }
+.Forest-Map-main-div{
+  background-color: rgb(8, 56, 4);
+  width: 100%;
+  height: 98vh;
+}
+.Act2-GameBoard{
+  background-color: rgb(8, 56, 4);
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .Swamp-water{
   background-color: #54aaa6;
   height: 600px;
@@ -109,6 +123,16 @@ code {
   top: 14%;
   right: 0%;
   z-index: 20;
+}
+.Act2-Map-bars{
+  position: absolute;
+  top: 10%;
+  right: 0%;
+  z-index: 20;
+  width: 320px;
+  height: 240px;
+  background-color: rgba(0, 0, 0, 0.438);
+  border-radius: 20px;
 }
 
 .Map-places{
@@ -470,6 +494,8 @@ h1{
 }
 .DPS-num{
   color: red;
+  font-size: 20px;
+  z-index: 2000;
 }
 .Main-gob-div{
   width: 100%;
