@@ -16,6 +16,19 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn, E
   const [FirstActionCompleted, setFirstActionCompleted] = useState(false);
   const [observation, setobservation] = useState(false);
   const [trueDamageDealt, setTrueDamageDealt] = useState(null);
+  const [isCharacterDead, setIsCharacterDead] = useState(false);
+  useEffect(() => {
+    if (Enemystats.Hp <= 0) {
+      // Call the function you want to execute after the enemy is defeated
+      handleAfterEnemyDefeated();
+    }
+  }, [EnemyDefeated]);
+  useEffect(() => {
+    if (characterStats.Hp <= 0) {
+      // Call the function you want to execute after the character dies
+      handleCharacterDeath();
+    }
+  }, [characterStats.Hp]);
 
   const handleReturn = () => {
     onReturn(); //return function
@@ -245,13 +258,25 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn, E
     alert(playerName + ' can not escape')
   }
 
+  const handleCharacterDeath = () => {
+    // Your logic for what should happen when the character dies
+    alert("YOU DIED");
+    setIsCharacterDead(true);
+    // You might want to perform additional actions, such as resetting the game or navigating to a game-over screen.
+  };
+
+  if (isCharacterDead) {
+    return (
+      <div className="YouDiedScreen">
+        <h1>YOU DIED</h1>
+        <h2>{`${playerName} was a Hero And Died while fighting a ${Enemystats.name}`}</h2>
+        <p>Refresh Page to restart</p>
+      </div>
+    );
+  }
+
   //after Fight
-  useEffect(() => {
-    if (Enemystats.Hp <= 0) {
-      // Call the function you want to execute after the enemy is defeated
-      handleAfterEnemyDefeated();
-    }
-  }, [EnemyDefeated]); // The effect will re-run whenever EnemyDefeated changes
+ // The effect will re-run whenever EnemyDefeated changes
   const handleAfterEnemyDefeated = () => {
     // Your logic for what should happen after the enemy is defeated
     alert("Congratulations! You've defeated the enemy. Performing post-defeat actions...");

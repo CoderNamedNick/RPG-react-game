@@ -130,15 +130,15 @@ const GamePartTwoComponent = ({ playerName, characterStats, updateCharacterStats
                               onClick={!fightDone ? handleFightClick : null}
                               className={`Map-places Start ${fightDone ? "disabled" : ""}`}
                             >
-                              Fight
+                              Fight1
                             </div>
                             )}
                             {!fightDone2 && (
                             <div
-                              onClick={!fightDone2 ? handleFight2Click : null}
+                              onClick={!fightDone2 && fightDone ? handleFight2Click : null}
                               className={`Map-places P1A1 ${fightDone2 ? "disabled" : ""}`}
                             >
-                              Fight
+                              Fight2
                             </div>
                             )}
                             {!EncounterDone && (
