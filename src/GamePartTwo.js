@@ -6,6 +6,7 @@ import A1Encounter from "./A1Encounter";
 import A1Town from "./A1Town";
 import zombie from './images/9-2-zombie-high-quality-png_400x400.png'
 import spirit from './images/4-2-ghost-png-image.png'
+import RestPoint from './RestPoint'
 
 const GamePartTwoComponent = ({ playerName, characterStats, updateCharacterStats }) => {
   const [showCharacterData, setShowCharacterData] = useState(false);
@@ -15,6 +16,8 @@ const GamePartTwoComponent = ({ playerName, characterStats, updateCharacterStats
   const [fightDone2, setFight2Done] = useState(false);
   const [showEncounter, setShowEncounter] = useState(false);
   const [EncounterDone, setEncounterDone] = useState(false);
+  const [showRestPoint, setShowRestPoint] = useState(false);
+  const [RestPointDone, setRestPointDone] = useState(false);
   const [showTown, setShowTown] = useState(false);
   const [TownDone, setTownDone] = useState(false);
   const [Act2EnemyStats, setAct2EnemyStats] = useState({
@@ -49,11 +52,13 @@ const GamePartTwoComponent = ({ playerName, characterStats, updateCharacterStats
     setShowFight2(false)
     setShowEncounter(false);
     setShowTown(false);
+    setShowRestPoint(false)
   };
   const handleTownReturn = () => {
     setShowFight(false);
     setShowEncounter(false);
     setShowTown(false);
+    setShowRestPoint(false)
   }
 
   const handleInventoryClick = () => {
@@ -77,7 +82,10 @@ const GamePartTwoComponent = ({ playerName, characterStats, updateCharacterStats
     setShowTown(true);
     setTownDone(true);
   }
-
+  const handleRestPointClick = () => {
+    setShowRestPoint(true);
+    setRestPointDone(true);
+  }
 
   return (
     <div className="Forest-Map-main-div">
@@ -85,67 +93,79 @@ const GamePartTwoComponent = ({ playerName, characterStats, updateCharacterStats
         <div>
           {!showEncounter && (
             <div>
-              {!showFight2 && (
+              {!showRestPoint && (
                 <div>
-                  {!showFight && (
+                  {!showFight2 && (
                     <div>
-                      <h1>
-                        Act Two: Forest
-                      </h1>
-                      <div className="Inv-div">
-                        <button className="Inv-btn" onClick={handleInventoryClick}>
-                          Player Stats
-                        </button>
-                      </div>
-                      <div className="Act2-Map-bars">
-                        <A1HealthManaBars 
-                          playerName={playerName}
-                          characterStats={characterStats}
-                        />
-                      </div>
-                      {showCharacterData && (
-                        <div className="CharacterData">
-                          <CharacterData
-                            playerName={playerName}
-                            updateCharacterStats={updateCharacterStats}
-                            characterStats={characterStats}
-                          />
+                      {!showFight && (
+                        <div>
+                          <h1>
+                            Act Two: Forest
+                          </h1>
+                          <div className="Inv-div">
+                            <button className="Inv-btn" onClick={handleInventoryClick}>
+                              Player Stats
+                            </button>
+                          </div>
+                          <div className="Act2-Map-bars">
+                            <A1HealthManaBars 
+                              playerName={playerName}
+                              characterStats={characterStats}
+                            />
+                          </div>
+                          {showCharacterData && (
+                            <div className="CharacterData">
+                              <CharacterData
+                                playerName={playerName}
+                                updateCharacterStats={updateCharacterStats}
+                                characterStats={characterStats}
+                              />
+                            </div>
+                          )}
+                          <div className="Act2-GameBoard">
+                            <div className="Forest"><p className="Forest-p">Forest</p></div>
+                            <div className="Forest2"><p className="Forest-p2">Forest</p></div>
+                            {!fightDone && (
+                            <div
+                              onClick={!fightDone ? handleFightClick : null}
+                              className={`Map-places Start ${fightDone ? "disabled" : ""}`}
+                            >
+                              Fight
+                            </div>
+                            )}
+                            {!fightDone2 && (
+                            <div
+                              onClick={!fightDone2 ? handleFight2Click : null}
+                              className={`Map-places P1A1 ${fightDone2 ? "disabled" : ""}`}
+                            >
+                              Fight
+                            </div>
+                            )}
+                            {!EncounterDone && (
+                              <div
+                              onClick={!EncounterDone && fightDone2 ? handleRestPointClick : null}
+                              className={`Map-places P1A2 ${EncounterDone || !fightDone ? "disabled" : ""}`}
+                            >
+                              Rest Point
+                            </div>
+                            )}
+                            {!TownDone && (
+                              <div
+                              onClick={!EncounterDone && fightDone2 ? handleEncounterClick : null}
+                              className={`Map-places P1A3 ${EncounterDone || !fightDone ? "disabled" : ""}`}
+                            >
+                              Encounter
+                            </div>
+                            )}
+                            <div 
+                              onClick={!TownDone && EncounterDone && fightDone ? handleTownClick : null}
+                              className={`Map-places P1A4 ${TownDone || !EncounterDone || !fightDone ? "disabled" : ""}`}
+                            >
+                              Town1
+                            </div>
+                          </div>
                         </div>
                       )}
-                      <div className="Act2-GameBoard">
-                        <div className="Forest"><p className="Forest-p">Forest</p></div>
-                        <div className="Forest2"><p className="Forest-p2">Forest</p></div>
-                        {!fightDone && (
-                        <div
-                          onClick={!fightDone ? handleFightClick : null}
-                          className={`Map-places P1A1 ${fightDone ? "disabled" : ""}`}
-                        >
-                          Fight
-                        </div>
-                        )}
-                        {!fightDone2 && (
-                        <div
-                          onClick={!fightDone2 ? handleFight2Click : null}
-                          className={`Map-places P1A2 ${fightDone2 ? "disabled" : ""}`}
-                        >
-                          Fight
-                        </div>
-                        )}
-                        {!TownDone && (
-                          <div
-                          onClick={!EncounterDone && fightDone2 ? handleEncounterClick : null}
-                          className={`Map-places P1A3 ${EncounterDone || !fightDone ? "disabled" : ""}`}
-                        >
-                          Encounter
-                        </div>
-                        )}
-                        <div 
-                          onClick={!TownDone && EncounterDone && fightDone ? handleTownClick : null}
-                          className={`Map-places P1A4 ${TownDone || !EncounterDone || !fightDone ? "disabled" : ""}`}
-                        >
-                          Town1
-                        </div>
-                      </div>
                     </div>
                   )}
                 </div>
@@ -182,6 +202,14 @@ const GamePartTwoComponent = ({ playerName, characterStats, updateCharacterStats
             characterStats={characterStats}
           />
         </div>
+      )}
+      {showRestPoint && (
+        <RestPoint
+          onReturn={handleReturnToGame}
+          playerName={playerName}
+          updateCharacterStats={updateCharacterStats}
+          characterStats={characterStats}
+        />
       )}
       {showEncounter && (
         <A1Encounter
