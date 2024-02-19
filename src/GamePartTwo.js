@@ -113,9 +113,8 @@ const GamePartTwoComponent = ({ playerName, characterStats, updateCharacterStats
                         </div>
                       )}
                       <div className="Act2-GameBoard">
-                        <div className="Swamp-water"><p className="swamp-p">SWAMP</p></div>
-                        <div className="Swamp-water2"><p className="swamp-p2">SWAMP</p></div>
-                        <div className="map-Path"></div>
+                        <div className="Forest"><p className="Forest-p">Forest</p></div>
+                        <div className="Forest2"><p className="Forest-p2">Forest</p></div>
                         {!fightDone && (
                         <div
                           onClick={!fightDone ? handleFightClick : null}

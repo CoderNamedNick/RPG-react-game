@@ -64,6 +64,32 @@ code {
   flex-direction: column;
   align-items: center;
 }
+.Forest{
+  background-color: #041b0c;
+  height: 97vh;
+  width: 30%;
+  position: fixed;
+  left: 0;
+  bottom: 0%;
+  border-radius: 10px;
+  border-top-right-radius: 10%;
+  border-bottom-right-radius: 10%;
+  border: solid 5px  #0b4e09;
+  opacity: .5;
+}
+.Forest2{
+  background-color: #041b0c;
+  height: 97vh;
+  width: 30%;
+  position: fixed;
+  right: 0;
+  bottom: 0%;
+  border-radius: 10px;
+  border-top-left-radius: 10%;
+  border-bottom-left-radius: 10%;
+  border: solid 5px  #0b4e09;
+  opacity: .5;
+}
 .Swamp-water{
   background-color: #54aaa6;
   height: 600px;
@@ -90,13 +116,15 @@ code {
   border: solid 5px  #305250;
   opacity: .4;
 }
-.swamp-p{
+.swamp-p,
+.Forest-p{
   position: fixed;
   left: 20px;
   bottom: 25%;
   font-size: 30px;
 }
-.swamp-p2{
+.swamp-p2,
+.Forest-p2{
   position: fixed;
   right: 20px;
   bottom: 25%;
@@ -196,6 +224,7 @@ code {
   border: solid white;
   margin-left: 4%;
   cursor: pointer;
+  z-index: 1000000;
 }
 .Inv-data{
   position: fixed;
