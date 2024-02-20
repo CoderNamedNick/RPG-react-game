@@ -24,7 +24,7 @@ const A1Chest = ({ playerName, onReturn, updateCharacterStats, characterStats })
     const selectedItem = items.find(item => randomNum >= item.range[0] && randomNum < item.range[1]);
 
     if (selectedItem) {
-      alert(`You got a ${selectedItem.item}`);
+      alert(`You got a ${selectedItem.item} and 3 potions`);
       
       const updatedStats = {
         ...characterStats,
@@ -50,6 +50,11 @@ const A1Chest = ({ playerName, onReturn, updateCharacterStats, characterStats })
       // Call the updateCharacterStats function passed as a prop
       updateCharacterStats(updatedStats);
       console.log(updatedStats);
+      const updatedStats2 = {
+        ...characterStats,
+        Potions: characterStats.Potions + 3,
+      };
+      updateCharacterStats(updatedStats2);
     }
 
     setRewardDone(true);

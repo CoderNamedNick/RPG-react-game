@@ -16,6 +16,7 @@ function App() {
     Skills: [],
     Inventory: [],
     Nils: 0,
+    Potions: 0,
   });
   const [gameStarted, setGameStarted] = useState(false);
   const [GamePartTwo, setGamePartTwo] = useState(false); // Rename the state variable

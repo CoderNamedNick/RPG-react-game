@@ -13,6 +13,8 @@ const CharacterData = ({ playerName, characterStats, skills }) => {
     MaxMana: characterStats.MaxMana,
     Skills: characterStats.Skills,
     Inventory: characterStats.Inventory,
+    Nils: characterStats.Nils,
+    Potions: characterStats.Potions,
   });
 
   // Update character data whenever characterStats prop changes
@@ -29,6 +31,7 @@ const CharacterData = ({ playerName, characterStats, skills }) => {
       Skills: characterStats.Skills,
       Inventory: characterStats.Inventory,
       Nils: characterStats.Nils,
+      Potions: characterStats.Potions,
     });
   }, [characterStats]);
 
@@ -54,6 +57,7 @@ const CharacterData = ({ playerName, characterStats, skills }) => {
       </div>
       <p>Inventory: {characterData.Inventory}</p>
       <p>Nils: {characterData.Nils}</p>
+      <p>Potions: {characterData.Potions}</p>
     </div>
   );
 };
