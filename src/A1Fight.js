@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import CharacterData from "./CharacterData";
 import A1HealthManaBars from "./A1HealthManaBars";
 import slash from './images/pixil-frame-0.png'
+import potion from './images/love-potion.png'
 
 const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn, Enemystats, updateEnemyStats, enemyImage }) => {
   const [FirstAction, setFirstAction] = useState(true);
@@ -486,6 +487,9 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn, E
          <p>Mana: {Enemystats.Mana}</p>
        </div>
       )}
+      <div className="potion-div">
+        <img className="potion-img" src={potion} alt="potion"></img>
+      </div>
       <div className="PlayerCombatMovesDiv">
         <div className="CombatMoves move1" onClick={handleBasicAttack}>
           <h2>Basic Attack</h2>

@@ -532,6 +532,22 @@ h1{
   flex-direction: column;
   align-items: center;
 }
+.potion-div{
+  position: absolute;
+  bottom: 32%;
+  left: 0%;
+  height: 90px;
+  width: 90px;
+  background-color: rgba(37, 37, 37, 0.479);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.potion-img{
+  height: 70px;
+  width: 70px;
+  padding-left: 10px;
+}
 .dps-div{
   width: 100%;
   position: absolute;

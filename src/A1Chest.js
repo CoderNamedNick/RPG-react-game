@@ -28,6 +28,7 @@ const A1Chest = ({ playerName, onReturn, updateCharacterStats, characterStats })
       
       const updatedStats = {
         ...characterStats,
+        Potions: characterStats.Potions + 3,
       };
 
       // Update each attribute and increase value
@@ -50,11 +51,6 @@ const A1Chest = ({ playerName, onReturn, updateCharacterStats, characterStats })
       // Call the updateCharacterStats function passed as a prop
       updateCharacterStats(updatedStats);
       console.log(updatedStats);
-      const updatedStats2 = {
-        ...characterStats,
-        Potions: characterStats.Potions + 3,
-      };
-      updateCharacterStats(updatedStats2);
     }
 
     setRewardDone(true);
