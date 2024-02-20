@@ -54,7 +54,7 @@ const A1Encounter = ({ playerName, characterStats, updateCharacterStats, onRetur
         alert('You WIn')
         const updatedStats = {
           ...characterStats,
-          Hp: characterStats.Hp + 10,
+          Def: characterStats.Def + 5,
           Atk: characterStats.Atk + 5,
         };
         updateCharacterStats(updatedStats);
@@ -64,7 +64,7 @@ const A1Encounter = ({ playerName, characterStats, updateCharacterStats, onRetur
         alert('You Lose')
         const updatedStats = {
           ...characterStats,
-          Hp: characterStats.Hp - 20,
+          MaxHp: characterStats.MaxHp - 10,
         };
         updateCharacterStats(updatedStats);
         setThirdGame(true)
@@ -76,7 +76,7 @@ const A1Encounter = ({ playerName, characterStats, updateCharacterStats, onRetur
         alert('You WIn')
         const updatedStats = {
           ...characterStats,
-          Hp: characterStats.Hp + 10,
+          Def: characterStats.Def + 5,
           Atk: characterStats.Atk + 5,
         };
         updateCharacterStats(updatedStats);
@@ -86,7 +86,7 @@ const A1Encounter = ({ playerName, characterStats, updateCharacterStats, onRetur
         alert('You Lose')
         const updatedStats = {
           ...characterStats,
-          Hp: characterStats.Hp - 20,
+          MaxHp: characterStats.MaxHp - 10,
         };
         updateCharacterStats(updatedStats);
         setThirdGame(true)
@@ -132,7 +132,7 @@ const A1Encounter = ({ playerName, characterStats, updateCharacterStats, onRetur
         If yOu WiN I ReWarD yOu!
         <br></br>
         <br></br>
-        <span>Current HP: {characterStats.Hp} + 10</span>
+        <span>Current Def: {characterStats.Def} + 5</span>
         <br></br>
         <span>and</span>
         <br></br>
@@ -142,7 +142,7 @@ const A1Encounter = ({ playerName, characterStats, updateCharacterStats, onRetur
         If yOu LoSe I HuRt yOu!
         <br></br>
         <br></br>
-        <span>Current HP: {characterStats.Hp} - 20</span>
+        <span>Current MaxHP: {characterStats.MaxHp} - 10</span>
       </p>
       <h1 className="Moms PLay">PLAY?</h1>
       <h2 onClick={handleyesclick2} className="h2yes">
@@ -166,7 +166,7 @@ const A1Encounter = ({ playerName, characterStats, updateCharacterStats, onRetur
         alert('You WIn')
         const updatedStats = {
           ...characterStats,
-          Hp: characterStats.Hp + 10,
+          Atk: characterStats.Atk + 5,
         };
         updateCharacterStats(updatedStats);
         setSecondGame(true)
@@ -187,7 +187,7 @@ const A1Encounter = ({ playerName, characterStats, updateCharacterStats, onRetur
         alert('You WIn')
         const updatedStats = {
           ...characterStats,
-          Hp: characterStats.Hp + 10,
+          Atk: characterStats.Atk + 5,
         };
         updateCharacterStats(updatedStats);
         setSecondGame(true)
@@ -237,10 +237,10 @@ const A1Encounter = ({ playerName, characterStats, updateCharacterStats, onRetur
         />
       </div>
       <p className="Wincon">
-        If yOu WiN I hEaL yOu!
+        If yOu WiN I HeLp yOu!
         <br></br>
         <br></br>
-        <span>Current HP: {characterStats.Hp} + 10</span>
+        <span>Current ATk: {characterStats.Atk} + 5</span>
       </p>
       <p className="Losecon">
         If yOu LoSe I HuRt yOu!
