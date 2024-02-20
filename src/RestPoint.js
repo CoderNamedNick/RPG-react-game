@@ -1,6 +1,7 @@
 import React from "react";
 import A1HealthManaBars from "./A1HealthManaBars";
 import leftarrow from './images/arrow-pointing-to-left.png'
+import campfire from './images/campfire-clipart-md.png'
 
 const RestPoint = ({ playerName, characterStats, updateCharacterStats, onReturn }) => {
   const ExitArrow = () => {
@@ -18,7 +19,6 @@ const RestPoint = ({ playerName, characterStats, updateCharacterStats, onReturn 
       ...characterStats,
       Hp: characterStats.Hp + HpMissing,
       Mana: characterStats.Mana + ManaMissing,
-      Nils: characterStats.Nils - 2
     };
     updateCharacterStats(updatedStats);
   }
@@ -33,10 +33,9 @@ const RestPoint = ({ playerName, characterStats, updateCharacterStats, onReturn 
           characterStats={characterStats}
         />
       </div>
-      <div className="Bed">
-        <div className="Blanket"></div>
-        <div className="Pillow"></div>
-      </div>
+        <img className="Fire" src={campfire} alt="campfire"></img>
+        <div className="Fire-shadow"></div>
+        <div className="Fire-shadow2"></div>
     </div>
   );
 }

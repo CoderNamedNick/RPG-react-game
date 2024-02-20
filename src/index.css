@@ -756,3 +756,37 @@ h1{
   background-color: rgb(243, 241, 241);
   z-index: 1;
 }
+.Fire{
+  height: 40%;
+  width: 40%;
+  position: absolute;
+  bottom: 0;
+  left: 30%;
+  z-index: 4;
+}
+.Fire-shadow{
+  height: 40%;
+  width: 35%;
+  border-radius: 50%;
+  border-top-right-radius: 42%;
+  border-top-left-radius: 42%;
+  bottom: 10%;
+  left: 33%;
+  background-color: #2c2c2c;
+  border: solid rgb(29, 29, 29) 5px;
+  position: absolute;
+  z-index: 2;
+}
+.Fire-shadow2{
+  height: 40%;
+  width: 75%;
+  border-radius: 8%;
+  border-top-right-radius: 42%;
+  border-top-left-radius: 42%;
+  bottom: 0%;
+  left: 12%;
+  background-color: #1b1b1b;
+  border: solid rgb(29, 29, 29) 5px;
+  position: absolute;
+  z-index: 1;
+}
