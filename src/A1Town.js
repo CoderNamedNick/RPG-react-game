@@ -86,6 +86,17 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
         setShowInnDescription(false)
         return
       }
+      if (characterStats.Hp >= characterStats.MaxHp && characterStats.Mana <= characterStats.MaxMana){
+        let ManaMissing = characterStats.MaxMana - characterStats.Mana
+        const updatedStats = {
+          ...characterStats,
+          Mana: characterStats.Mana + ManaMissing,
+        };
+        updateCharacterStats(updatedStats);
+        setShowInn(false);
+        setShowInnDescription(false)
+        return
+      }
       let HpMissing = characterStats.MaxHp - characterStats.Hp
       let ManaMissing = characterStats.MaxMana - characterStats.Mana
       const updatedStats = {

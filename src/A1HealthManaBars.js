@@ -7,7 +7,9 @@ const A1HealthManaBars = ({ playerName, characterStats }) => {
   useEffect(() => {
     const calculateBarWidth = (currentValue, maxValue) => {
       const percentage = (currentValue / maxValue) * 100;
-      return `${percentage}%`;
+      // Ensure the width doesn't exceed 100%
+      const width = percentage > 100 ? "100%" : `${percentage}%`;
+      return width;
     };
 
     setHealthBarWidth(calculateBarWidth(characterStats.Hp, characterStats.MaxHp));
@@ -26,9 +28,7 @@ const A1HealthManaBars = ({ playerName, characterStats }) => {
         <div className="bar2" style={{ width: manaBarWidth }}></div>
       </div>
       <br></br>
-      <div>
-        Nils: {characterStats.Nils}
-      </div>
+      <div>Nils: {characterStats.Nils}</div>
     </div>
   );
 };

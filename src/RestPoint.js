@@ -14,6 +14,15 @@ const RestPoint = ({ playerName, characterStats, updateCharacterStats, onReturn 
       alert(`you already have max Mana and Health`)
       return
     }
+    if (characterStats.Hp >= characterStats.MaxHp && characterStats.Mana <= characterStats.MaxMana){
+      let ManaMissing = characterStats.MaxMana - characterStats.Mana
+      const updatedStats = {
+        ...characterStats,
+        Mana: characterStats.Mana + ManaMissing,
+      };
+      updateCharacterStats(updatedStats);
+      return
+    }
     let HpMissing = characterStats.MaxHp - characterStats.Hp
     let ManaMissing = characterStats.MaxMana - characterStats.Mana
     const updatedStats = {
