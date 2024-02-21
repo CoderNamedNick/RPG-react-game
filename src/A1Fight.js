@@ -344,8 +344,9 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn, E
         { range: [2], item: 'Skill Pendant, ', attributes: ['Skills.damage'], increases: [10] },
         { range: [3], item: 'Mana Ring, ', attributes: ['MaxMana'], increases: [10] },
         { range: [4], item: 'Pouch of Nil, ', attributes: ['Nils'], increases: [20] },
+        { range: [5], item: 'Pair of Potions, ', attributes: ['Potions'], increases: [2] },
       ];
-      const ItemNumb = Math.floor(Math.random() * 4) + 1; // Adjust range to cover 1, 2, and 3
+      const ItemNumb = Math.floor(Math.random() * 5) + 1; // Adjust range to cover 1, 2, and 3
       const selectedItem = items.find((item) => ItemNumb === item.range[0]);
   
       if (selectedItem) {

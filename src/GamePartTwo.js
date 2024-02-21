@@ -22,7 +22,7 @@ const GamePartTwoComponent = ({ playerName, characterStats, updateCharacterStats
   const [TownDone, setTownDone] = useState(false);
   const [Act2EnemyStats, setAct2EnemyStats] = useState({
     name: 'Spirit',
-    Hp: 120,
+    Hp: 130,
     Atk: 20,
     Def: 1,
     Mana: 10,
@@ -35,7 +35,7 @@ const GamePartTwoComponent = ({ playerName, characterStats, updateCharacterStats
   };
   const [Act2F2EnemyStats, setAct2F2EnemyStats] = useState({
     name: 'Zombie',
-    Hp: 140,
+    Hp: 160,
     Atk: 13,
     Def: 6,
     Mana: 5,
