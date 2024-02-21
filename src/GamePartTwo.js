@@ -20,6 +20,7 @@ const GamePartTwoComponent = ({ playerName, characterStats, updateCharacterStats
   const [RestPointDone, setRestPointDone] = useState(false);
   const [showTown, setShowTown] = useState(false);
   const [TownDone, setTownDone] = useState(false);
+  const [showA2BossFight, setA2BossFight] = useState(false);
   const [Act2EnemyStats, setAct2EnemyStats] = useState({
     name: 'Spirit',
     Hp: 130,
@@ -40,6 +41,19 @@ const GamePartTwoComponent = ({ playerName, characterStats, updateCharacterStats
     Def: 6,
     Mana: 5,
   });
+  const [A2BossEnemyStats, setA2BossEnemyStats] = useState({
+    name: 'Treant',
+    Hp: 220,
+    Atk: 40,
+    Def: 10,
+    Mana: 20,
+  });
+  const updateA2BossEnemyStats = (updatedEnStats3) => {
+    // Wrap the state update in a setTimeout to defer it to the next tick
+    setTimeout(() => {
+      setA2BossEnemyStats(updatedEnStats3);
+    }, 0);
+  };
   const updateA2F2EnemyStats = (updatedEnStats2) => {
     // Wrap the state update in a setTimeout to defer it to the next tick
     setTimeout(() => {
@@ -59,6 +73,7 @@ const GamePartTwoComponent = ({ playerName, characterStats, updateCharacterStats
     setShowEncounter(false);
     setShowTown(false);
     setShowRestPoint(false)
+    setA2BossFight(true);
   }
 
   const handleInventoryClick = () => {
@@ -85,6 +100,22 @@ const GamePartTwoComponent = ({ playerName, characterStats, updateCharacterStats
   const handleRestPointClick = () => {
     setShowRestPoint(true);
     setRestPointDone(true);
+  }
+  if (showA2BossFight) {
+    return (
+      <div>
+          <h1>Act 2 BOSS FIGHT</h1>
+          <A1Fight
+            onReturn={handleReturnToGame}
+            Enemystats={A2BossEnemyStats}
+            updateEnemyStats={updateA2BossEnemyStats}
+            playerName={playerName}
+            enemyImage={spirit}
+            updateCharacterStats={updateCharacterStats}
+            characterStats={characterStats}
+          />
+        </div>
+    )
   }
 
   return (
