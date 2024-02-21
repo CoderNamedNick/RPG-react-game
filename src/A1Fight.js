@@ -302,6 +302,18 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn, E
       updateCharacterStats(updatedStats);
     }
   };
+  const handlepotionclick = () => {
+    if (characterStats.Potions <= 0) {
+      alert(`you have no Potions`)
+      return
+    }
+    const updatedStats = {
+      ...characterStats,
+      Hp: characterStats.Hp + 50,
+      Potions: characterStats.Potions - 1,
+    };
+    updateCharacterStats(updatedStats);
+  }
 
   const handleRewardDivs = (param) => {
     if (RewardBtnDisabled) {
@@ -487,7 +499,7 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn, E
          <p>Mana: {Enemystats.Mana}</p>
        </div>
       )}
-      <div className="potion-div">
+      <div className="potion-div" onClick={handlepotionclick}>
         <img className="potion-img" src={potion} alt="potion"></img>
       </div>
       <div className="PlayerCombatMovesDiv">

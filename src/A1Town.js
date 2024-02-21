@@ -17,6 +17,8 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
   const [hoveredArmorItem, setHoveredArmorItem] = useState(null);
   const [hoveredWeaponItem, setHoveredWeaponItem] = useState(null);
   const [hoveredAssesoryItem, setHoveredAssesoryItem] = useState(null);
+  
+  //MAKE REST NOT CHNAGE OVERHEAL
 
   const handleLeaveclick =() => {
     onReturn()
