@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import StartGame from "./StartGame";
 import GamePartOne from "./GamePartOne";
 import GamePartTwoComponent from "./GamePartTwo";
+import GamePartThreeComponent from "./GamePartThree";
 
 function App() {
   const [playerName, setPlayerName] = useState('');
@@ -20,6 +21,7 @@ function App() {
   });
   const [gameStarted, setGameStarted] = useState(false);
   const [GamePartTwo, setGamePartTwo] = useState(false); // Rename the state variable
+  const [GamePartThree, setGamePartThree] = useState(false); 
 
   const updateCharacterStats = (updatedStats) => {
     setCharacterStats(updatedStats);
@@ -27,6 +29,9 @@ function App() {
 
   const finishPartOne = () => {
     setGamePartTwo(true); // Use the correct state variable
+  }
+  const finishPartTwo = () => {
+    setGamePartThree(true); // Use the correct state variable
   }
 
   const handleStartGame = () => {
@@ -39,7 +44,8 @@ function App() {
     <div>
       {!gameStarted && <StartGame updatePlayerName={setPlayerName} onFinish={handleStartGame} />}
       {!GamePartTwo && gameStarted && <GamePartOne FinishP1={finishPartOne} playerName={playerName} characterStats={characterStats} updateCharacterStats={updateCharacterStats} />}
-      {GamePartTwo && gameStarted && <GamePartTwoComponent playerName={playerName} characterStats={characterStats} updateCharacterStats={updateCharacterStats} />}
+      {!GamePartThree && GamePartTwo && gameStarted && <GamePartTwoComponent FinishP2={finishPartTwo} playerName={playerName} characterStats={characterStats} updateCharacterStats={updateCharacterStats} />}
+      {GamePartThree && GamePartTwo && gameStarted && <GamePartThreeComponent playerName={playerName} characterStats={characterStats} updateCharacterStats={updateCharacterStats} />}
     </div>
   );
 }

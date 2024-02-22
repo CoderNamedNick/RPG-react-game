@@ -9,7 +9,7 @@ import spirit from './images/4-2-ghost-png-image.png'
 import treant from './images/5ca4c3fa1cf23004f2836882.png'
 import RestPoint from './RestPoint'
 
-const GamePartTwoComponent = ({ playerName, characterStats, updateCharacterStats, FinishP2 }) => {
+const GamePartThreeComponent = ({ playerName, characterStats, updateCharacterStats }) => {
   const [showCharacterData, setShowCharacterData] = useState(false);
   const [showFight, setShowFight] = useState(false);
   const [fightDone, setFightDone] = useState(false);
@@ -109,7 +109,7 @@ const GamePartTwoComponent = ({ playerName, characterStats, updateCharacterStats
       <div>
           <h1>Act 2 BOSS FIGHT</h1>
           <A1Fight
-            onReturn={FinishP2}
+            onReturn={handleReturnToGame}
             Enemystats={A2BossEnemyStats}
             updateEnemyStats={updateA2BossEnemyStats}
             playerName={playerName}
@@ -134,7 +134,7 @@ const GamePartTwoComponent = ({ playerName, characterStats, updateCharacterStats
                       {!showFight && (
                         <div>
                           <h1>
-                            Act Two: Forest
+                            Act Three: Forest Cave
                           </h1>
                           <div className="Inv-div">
                             <button className="Inv-btn" onClick={handleInventoryClick}>
@@ -265,4 +265,5 @@ const GamePartTwoComponent = ({ playerName, characterStats, updateCharacterStats
     </div>
   );
 }
-export default GamePartTwoComponent;
+
+export default GamePartThreeComponent;
