@@ -6,6 +6,7 @@ import A1Encounter from "./A1Encounter";
 import A1Town from "./A1Town";
 import zombie from './images/9-2-zombie-high-quality-png_400x400.png'
 import spirit from './images/4-2-ghost-png-image.png'
+import treant from './images/5ca4c3fa1cf23004f2836882.png'
 import RestPoint from './RestPoint'
 
 const GamePartTwoComponent = ({ playerName, characterStats, updateCharacterStats }) => {
@@ -101,6 +102,8 @@ const GamePartTwoComponent = ({ playerName, characterStats, updateCharacterStats
     setShowRestPoint(true);
     setRestPointDone(true);
   }
+
+  //get png
   if (showA2BossFight) {
     return (
       <div>
@@ -110,7 +113,7 @@ const GamePartTwoComponent = ({ playerName, characterStats, updateCharacterStats
             Enemystats={A2BossEnemyStats}
             updateEnemyStats={updateA2BossEnemyStats}
             playerName={playerName}
-            enemyImage={spirit}
+            enemyImage={treant}
             updateCharacterStats={updateCharacterStats}
             characterStats={characterStats}
           />
