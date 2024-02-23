@@ -12,6 +12,8 @@ const A1Encounter = ({ playerName, characterStats, updateCharacterStats, onRetur
   const [ThirdGame, setThirdGame] = useState(false);
   const [ShowCharacterStats, setShowCharacterStats] = useState(false)
 
+  //FIX THIS
+
   const handleReturn = () => {
     onReturn(); // return function
   };
@@ -19,17 +21,7 @@ const A1Encounter = ({ playerName, characterStats, updateCharacterStats, onRetur
     setShowCharacterStats(!ShowCharacterStats)
   }
 
-  const handleyesclick = () => {
-    coinflip();
-    setPlayingGame(true);
-  };
-
-  const handleyesclick2 = () => {
-    coinflip();
-    setSecondPlayingGame(true);
-  };
-
-  const coinflip = () => {
+  const coinflip = (callback) => {
     const randomNum = Math.ceil(Math.random() * 2);
     if (randomNum === 1) {
       setHeads('yes');
@@ -38,6 +30,27 @@ const A1Encounter = ({ playerName, characterStats, updateCharacterStats, onRetur
       setHeads('no');
       setTails('yes');
     }
+
+    // Execute the callback with the updated values
+    if (callback) {
+      callback();
+    }
+  };
+
+  const handleyesclick = () => {
+    coinflip(() => setPlayingGame(true));
+  };
+
+  const handleyesclick2 = () => {
+    coinflip(() => setSecondPlayingGame(true));
+  };
+
+  const handleyesclick3 = () => {
+    coinflip(() => setPlayingGame(true));
+  };
+
+  const handleyesclick4 = () => {
+    coinflip(() => setSecondPlayingGame(true));
   };
 
   const randomnum = Math.ceil(Math.random() * 2);
@@ -62,46 +75,44 @@ const A1Encounter = ({ playerName, characterStats, updateCharacterStats, onRetur
       const handlHeadsclick3 = () => {
         if (Heads === 'yes') {
           alert('You WIn')
-          const updatedStats = {
+          const updatedStats5 = {
             ...characterStats,
             Nils: characterStats.Nils + 15,
             Potions: characterStats.Potions + 1,
           };
-          updateCharacterStats(updatedStats);
+          updateCharacterStats(updatedStats5);
           setThirdGame(true)
         }
         if (Heads === 'no') {
           alert('You Lose')
-          const updatedStats = {
+          const updatedStats6 = {
             ...characterStats,
             MaxMana: characterStats.MaxMana - 10,
           };
-          updateCharacterStats(updatedStats);
+          updateCharacterStats(updatedStats6);
           setThirdGame(true)
         }
-        coinflip();
       }
       const handlTailsclick3 = () => {
         if (Tails === 'yes') {
           alert('You WIn')
-          const updatedStats = {
+          const updatedStats7 = {
             ...characterStats,
             Nils: characterStats.Nils + 15,
             Potions: characterStats.Potions + 1,
           };
-          updateCharacterStats(updatedStats);
+          updateCharacterStats(updatedStats7);
           setThirdGame(true)
         }
         if (Tails === 'no') {
           alert('You Lose')
-          const updatedStats = {
+          const updatedStats8 = {
             ...characterStats,
             MaxMana: characterStats.MaxMana - 10,
           };
-          updateCharacterStats(updatedStats);
+          updateCharacterStats(updatedStats8);
           setThirdGame(true)
         }
-        coinflip();
       }
 
 
@@ -167,7 +178,7 @@ const A1Encounter = ({ playerName, characterStats, updateCharacterStats, onRetur
           <span>Current MaxMana: {characterStats.MaxMana} - 10</span>
         </p>
         <h1 className="Moms PLay">PLAY?</h1>
-        <h2 onClick={handleyesclick2} className="h2yes">
+        <h2 onClick={handleyesclick4} className="h2yes">
           YES
         </h2>
         <h2 onClick={handleReturn} className="h2no">
@@ -186,44 +197,42 @@ const A1Encounter = ({ playerName, characterStats, updateCharacterStats, onRetur
       const handlHeadsclick4 = () => {
         if (Heads === 'yes') {
           alert('You WIn')
-          const updatedStats = {
+          const updatedStats9 = {
             ...characterStats,
             Def: characterStats.Def + 5,
           };
-          updateCharacterStats(updatedStats);
+          updateCharacterStats(updatedStats9);
           setSecondGame(true)
         }
         if (Heads === 'no') {
           alert('You Lose')
-          const updatedStats = {
+          const updatedStats0 = {
             ...characterStats,
             Hp: characterStats.Hp - 10,
           };
-          updateCharacterStats(updatedStats);
+          updateCharacterStats(updatedStats0);
           setSecondGame(true)
         }
-        coinflip();
       }
       const handlTailsclick4 = () => {
         if (Tails === 'yes') {
           alert('You WIn')
-          const updatedStats = {
+          const updatedStats11 = {
             ...characterStats,
             Def: characterStats.Def + 5,
           };
-          updateCharacterStats(updatedStats);
+          updateCharacterStats(updatedStats11);
           setSecondGame(true)
         }
         if (Tails === 'no') {
           alert('You Lose')
-          const updatedStats = {
+          const updatedStats12 = {
             ...characterStats,
             Hp: characterStats.Hp - 10,
           };
-          updateCharacterStats(updatedStats);
+          updateCharacterStats(updatedStats12);
           setSecondGame(true)
         }
-        coinflip();
       }
 
 
@@ -283,7 +292,7 @@ const A1Encounter = ({ playerName, characterStats, updateCharacterStats, onRetur
           <span>Current HP: {characterStats.Hp} - 10</span>
         </p>
         <h1 className="Moms PLay">PLAY?</h1>
-        <h2 onClick={handleyesclick} className="h2yes">
+        <h2 onClick={handleyesclick3} className="h2yes">
           YES
         </h2>
         <h2 onClick={handleReturn} className="h2no">
@@ -313,46 +322,44 @@ const A1Encounter = ({ playerName, characterStats, updateCharacterStats, onRetur
       const handlHeadsclick2 = () => {
         if (Heads === 'yes') {
           alert('You WIn')
-          const updatedStats = {
+          const updatedStats13 = {
             ...characterStats,
             Def: characterStats.Def + 5,
             Atk: characterStats.Atk + 5,
           };
-          updateCharacterStats(updatedStats);
+          updateCharacterStats(updatedStats13);
           setThirdGame(true)
         }
         if (Heads === 'no') {
           alert('You Lose')
-          const updatedStats = {
+          const updatedStats14 = {
             ...characterStats,
             MaxHp: characterStats.MaxHp - 10,
           };
-          updateCharacterStats(updatedStats);
+          updateCharacterStats(updatedStats14);
           setThirdGame(true)
         }
-        coinflip();
       }
       const handlTailsclick2 = () => {
         if (Tails === 'yes') {
           alert('You WIn')
-          const updatedStats = {
+          const updatedStats15 = {
             ...characterStats,
             Def: characterStats.Def + 5,
             Atk: characterStats.Atk + 5,
           };
-          updateCharacterStats(updatedStats);
+          updateCharacterStats(updatedStats15);
           setThirdGame(true)
         }
         if (Tails === 'no') {
           alert('You Lose')
-          const updatedStats = {
+          const updatedStats16 = {
             ...characterStats,
             MaxHp: characterStats.MaxHp - 10,
           };
-          updateCharacterStats(updatedStats);
+          updateCharacterStats(updatedStats16);
           setThirdGame(true)
         }
-        coinflip();
       }
 
 
@@ -437,44 +444,42 @@ const A1Encounter = ({ playerName, characterStats, updateCharacterStats, onRetur
       const handlHeadsclick = () => {
         if (Heads === 'yes') {
           alert('You WIn')
-          const updatedStats = {
+          const updatedStats17 = {
             ...characterStats,
             Atk: characterStats.Atk + 5,
           };
-          updateCharacterStats(updatedStats);
+          updateCharacterStats(updatedStats17);
           setSecondGame(true)
         }
         if (Heads === 'no') {
           alert('You Lose')
-          const updatedStats = {
+          const updatedStats18 = {
             ...characterStats,
             Hp: characterStats.Hp - 10,
           };
-          updateCharacterStats(updatedStats);
+          updateCharacterStats(updatedStats18);
           setSecondGame(true)
         }
-        coinflip();
       }
       const handlTailsclick = () => {
         if (Tails === 'yes') {
           alert('You WIn')
-          const updatedStats = {
+          const updatedStats19 = {
             ...characterStats,
             Atk: characterStats.Atk + 5,
           };
-          updateCharacterStats(updatedStats);
+          updateCharacterStats(updatedStats19);
           setSecondGame(true)
         }
         if (Tails === 'no') {
           alert('You Lose')
-          const updatedStats = {
+          const updatedStats20 = {
             ...characterStats,
             Hp: characterStats.Hp - 10,
           };
-          updateCharacterStats(updatedStats);
+          updateCharacterStats(updatedStats20);
           setSecondGame(true)
         }
-        coinflip();
       }
 
 

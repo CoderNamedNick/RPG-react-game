@@ -213,7 +213,15 @@ code {
   font-size: 20px;
   font-weight: 800;
   color: black;
-  bottom: 68%;
+  bottom: 64%;
+}
+.P1A5{
+  position: absolute;
+  background-color: rgb(207, 37, 170);
+  font-size: 20px;
+  font-weight: 800;
+  color: black;
+  bottom: 81%;
 }
 .Inv-btn{
   padding: 4px;
