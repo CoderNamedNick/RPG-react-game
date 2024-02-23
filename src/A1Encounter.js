@@ -118,13 +118,6 @@ const A1Encounter = ({ playerName, characterStats, updateCharacterStats, onRetur
         <h2 onClick={handlTailsclick3} className="h2Tail">
           Tails
         </h2>
-        <div className="CharacterData">
-          <CharacterData
-            playerName={playerName}
-            updateCharacterStats={updateCharacterStats}
-            characterStats={characterStats}
-          />
-        </div>
         </div>
       );
     }
@@ -235,13 +228,6 @@ const A1Encounter = ({ playerName, characterStats, updateCharacterStats, onRetur
         <h2 onClick={handlTailsclick4} className="h2Tail">
           Tails
         </h2>
-        <div className="CharacterData">
-          <CharacterData
-            playerName={playerName}
-            updateCharacterStats={updateCharacterStats}
-            characterStats={characterStats}
-          />
-        </div>
         </div>
       );
     }
@@ -359,13 +345,6 @@ const A1Encounter = ({ playerName, characterStats, updateCharacterStats, onRetur
         <h2 onClick={handlTailsclick2} className="h2Tail">
           Tails
         </h2>
-        <div className="CharacterData">
-          <CharacterData
-            playerName={playerName}
-            updateCharacterStats={updateCharacterStats}
-            characterStats={characterStats}
-          />
-        </div>
         </div>
       );
     }
@@ -476,13 +455,6 @@ const A1Encounter = ({ playerName, characterStats, updateCharacterStats, onRetur
         <h2 onClick={handlTailsclick} className="h2Tail">
           Tails
         </h2>
-        <div className="CharacterData">
-          <CharacterData
-            playerName={playerName}
-            updateCharacterStats={updateCharacterStats}
-            characterStats={characterStats}
-          />
-        </div>
         </div>
       );
     }
