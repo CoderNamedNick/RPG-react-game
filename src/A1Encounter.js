@@ -10,10 +10,14 @@ const A1Encounter = ({ playerName, characterStats, updateCharacterStats, onRetur
   const [SecondGame, setSecondGame] = useState(false);
   const [SecondPlayingGame, setSecondPlayingGame] = useState(false);
   const [ThirdGame, setThirdGame] = useState(false);
+  const [ShowCharacterStats, setShowCharacterStats] = useState(false)
 
   const handleReturn = () => {
     onReturn(); // return function
   };
+  const handleCharacterstats = () => {
+    setShowCharacterStats(!ShowCharacterStats)
+  }
 
   const handleyesclick = () => {
     coinflip();
@@ -134,6 +138,18 @@ const A1Encounter = ({ playerName, characterStats, updateCharacterStats, onRetur
             characterStats={characterStats}
           />
         </div>
+        <div className="C-div">
+          {ShowCharacterStats &&(
+            <div>
+              <CharacterData
+                playerName={playerName}
+                updateCharacterStats={updateCharacterStats}
+                characterStats={characterStats}
+              />
+            </div>
+          )}
+          <button className="Inv-btn" onClick={handleCharacterstats}>Player Stats</button>
+        </div>
         <p className="Wincon">
           If yOu WiN I ReWarD yOu!
           <br></br>
@@ -241,6 +257,18 @@ const A1Encounter = ({ playerName, characterStats, updateCharacterStats, onRetur
             playerName={playerName}
             characterStats={characterStats}
           />
+        </div>
+        <div className="C-div">
+          {ShowCharacterStats &&(
+            <div>
+              <CharacterData
+                playerName={playerName}
+                updateCharacterStats={updateCharacterStats}
+                characterStats={characterStats}
+              />
+            </div>
+          )}
+          <button className="Inv-btn" onClick={handleCharacterstats}>Player Stats</button>
         </div>
         <p className="Wincon">
           If yOu WiN I HeLp yOu!
@@ -361,6 +389,18 @@ const A1Encounter = ({ playerName, characterStats, updateCharacterStats, onRetur
             characterStats={characterStats}
           />
         </div>
+        <div className="C-div">
+          {ShowCharacterStats &&(
+            <div>
+              <CharacterData
+                playerName={playerName}
+                updateCharacterStats={updateCharacterStats}
+                characterStats={characterStats}
+              />
+            </div>
+          )}
+          <button className="Inv-btn" onClick={handleCharacterstats}>Player Stats</button>
+        </div>
         <p className="Wincon">
           If yOu WiN I ReWarD yOu!
           <br></br>
@@ -468,6 +508,18 @@ const A1Encounter = ({ playerName, characterStats, updateCharacterStats, onRetur
             playerName={playerName}
             characterStats={characterStats}
           />
+        </div>
+        <div className="C-div">
+          {ShowCharacterStats &&(
+            <div>
+              <CharacterData
+                playerName={playerName}
+                updateCharacterStats={updateCharacterStats}
+                characterStats={characterStats}
+              />
+            </div>
+          )}
+          <button className="Inv-btn" onClick={handleCharacterstats}>Player Stats</button>
         </div>
         <p className="Wincon">
           If yOu WiN I HeLp yOu!
