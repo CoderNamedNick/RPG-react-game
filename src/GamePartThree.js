@@ -22,44 +22,58 @@ const GamePartThreeComponent = ({ playerName, characterStats, updateCharacterSta
   const [Encounter2Done, setEncounter2Done] = useState(false);
   const [showTown, setShowTown] = useState(false);
   const [TownDone, setTownDone] = useState(false);
-  const [showA2BossFight, setA2BossFight] = useState(false);
-  const [Act2EnemyStats, setAct2EnemyStats] = useState({
-    name: 'Spirit',
-    Hp: 130,
-    Atk: 20,
-    Def: 1,
+  const [showA3BossFight, setA3BossFight] = useState(false);
+  const [Act3EnemyStats, setAct3EnemyStats] = useState({
+    name: 'Enemy 1',
+    Hp: 200,
+    Atk: 35,
+    Def: 20,
     Mana: 10,
   });
   const updateEnemyStats = (updatedEnStats) => {
     // Wrap the state update in a setTimeout to defer it to the next tick
     setTimeout(() => {
-      setAct2EnemyStats(updatedEnStats);
+      setAct3EnemyStats(updatedEnStats);
     }, 0);
   };
-  const [Act2F2EnemyStats, setAct2F2EnemyStats] = useState({
-    name: 'Zombie',
-    Hp: 160,
-    Atk: 13,
-    Def: 6,
-    Mana: 5,
-  });
-  const [A2BossEnemyStats, setA2BossEnemyStats] = useState({
-    name: 'Treant',
+  const [Act3F2EnemyStats, setAct3F2EnemyStats] = useState({
+    name: 'Enemy 2',
     Hp: 220,
-    Atk: 40,
-    Def: 10,
-    Mana: 20,
+    Atk: 10,
+    Def: 40,
+    Mana: 25,
   });
-  const updateA2BossEnemyStats = (updatedEnStats3) => {
+  const [Act3F3EnemyStats, setAct3F3EnemyStats] = useState({
+    name: 'Enemy 3',
+    Hp: 210,
+    Atk: 38,
+    Def: 25,
+    Mana: 15,
+  });
+  const [A3BossEnemyStats, setA3BossEnemyStats] = useState({
+    name: 'BOSS',
+    Hp: 320,
+    Atk: 65,
+    Def: 40,
+    Mana: 20,
+    type: 'Boss',
+  });
+  const updateA3BossEnemyStats = (updatedEnStats3) => {
     // Wrap the state update in a setTimeout to defer it to the next tick
     setTimeout(() => {
-      setA2BossEnemyStats(updatedEnStats3);
+      setA3BossEnemyStats(updatedEnStats3);
     }, 0);
   };
-  const updateA2F2EnemyStats = (updatedEnStats2) => {
+  const updateA3F2EnemyStats = (updatedEnStats2) => {
     // Wrap the state update in a setTimeout to defer it to the next tick
     setTimeout(() => {
-      setAct2F2EnemyStats(updatedEnStats2);
+      setAct3F2EnemyStats(updatedEnStats2);
+    }, 0);
+  };
+  const updateA3F3EnemyStats = (updatedEnStats2) => {
+    // Wrap the state update in a setTimeout to defer it to the next tick
+    setTimeout(() => {
+      setAct3F3EnemyStats(updatedEnStats2);
     }, 0);
   };
 
@@ -78,7 +92,7 @@ const GamePartThreeComponent = ({ playerName, characterStats, updateCharacterSta
     setShowFight3(false);
     setShowEncounter2(false);
     setShowTown(false);
-    setA2BossFight(true);
+    setA3BossFight(true);
   }
 
   const handleInventoryClick = () => {
@@ -113,14 +127,14 @@ const GamePartThreeComponent = ({ playerName, characterStats, updateCharacterSta
 
 
   //get png
-  if (showA2BossFight) {
+  if (showA3BossFight) {
     return (
       <div>
           <h1>Act 3 BOSS FIGHT</h1>
           <A1Fight
             onReturn={handleReturnToGame}
-            Enemystats={A2BossEnemyStats}
-            updateEnemyStats={updateA2BossEnemyStats}
+            Enemystats={A3BossEnemyStats}
+            updateEnemyStats={updateA3BossEnemyStats}
             playerName={playerName}
             enemyImage={treant}
             updateCharacterStats={updateCharacterStats}
@@ -235,7 +249,7 @@ const GamePartThreeComponent = ({ playerName, characterStats, updateCharacterSta
           <h1>FIGHT</h1>
           <A1Fight
             onReturn={handleReturnToGame}
-            Enemystats={Act2EnemyStats}
+            Enemystats={Act3EnemyStats}
             updateEnemyStats={updateEnemyStats}
             playerName={playerName}
             enemyImage={spirit}
@@ -249,8 +263,8 @@ const GamePartThreeComponent = ({ playerName, characterStats, updateCharacterSta
           <h1>FIGHT 2</h1>
           <A1Fight
             onReturn={handleReturnToGame}
-            Enemystats={Act2F2EnemyStats}
-            updateEnemyStats={updateA2F2EnemyStats}
+            Enemystats={Act3F2EnemyStats}
+            updateEnemyStats={updateA3F2EnemyStats}
             playerName={playerName}
             enemyImage={zombie}
             updateCharacterStats={updateCharacterStats}
@@ -263,8 +277,8 @@ const GamePartThreeComponent = ({ playerName, characterStats, updateCharacterSta
           <h1>FIGHT 3</h1>
           <A1Fight
             onReturn={handleReturnToGame}
-            Enemystats={Act2F2EnemyStats}
-            updateEnemyStats={updateA2F2EnemyStats}
+            Enemystats={Act3F3EnemyStats}
+            updateEnemyStats={updateA3F3EnemyStats}
             playerName={playerName}
             enemyImage={zombie}
             updateCharacterStats={updateCharacterStats}
