@@ -458,7 +458,7 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn, E
   }
 
   return (
-    <div>
+    <div className="Fight-main-Div">
       {/* make a cool fight scene with skills and think of an enemy to fight */}
       {ShowCharacterStats &&(
         <div>
@@ -513,6 +513,7 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn, E
       )}
       <div className="potion-div" onClick={handlepotionclick}>
         <img className="potion-img" src={potion} alt="potion"></img>
+        <p className="potion-p">x {characterStats.Potions}</p>
       </div>
       <div className="PlayerCombatMovesDiv">
         <div className="CombatMoves move1" onClick={handleBasicAttack}>

@@ -48,12 +48,14 @@ code {
 .map-main-div{
   background-color: rgb(53, 73, 51);
   width: 100%;
-  height: 98vh;
+  height: 100vh;
+  position: absolute;
 }
 .Forest-Map-main-div{
   background-color: rgb(8, 56, 4);
   width: 100%;
-  height: 98vh;
+  height: 100vh;
+  position: absolute;
 }
 .Act2-GameBoard{
   background-color: rgb(8, 56, 4);
@@ -133,7 +135,7 @@ code {
 .map-Path{
   background-color: rgb(75, 104, 72);
   width: 30%;
-  height: 88vh;
+  height: 81vh;
   border-radius: 20%;
   border: rgb(60, 85, 58) solid 10px;
 }
@@ -175,7 +177,7 @@ code {
   cursor: pointer;
 }
 .Start{
-  position: fixed;
+  position: absolute;
   font-size: 20px;
   font-weight: 800;
   color: black;
@@ -353,7 +355,7 @@ h1{
   padding: 20px;
   font-size: 22px;
   border-radius: 10px;
-  bottom: 42%;
+  bottom: 32%;
 }
 .goblin-div{
   width: 100%;
@@ -545,11 +547,24 @@ h1{
   bottom: 32%;
   left: 0%;
   height: 90px;
-  width: 90px;
+  width: 110px;
   background-color: rgba(37, 37, 37, 0.479);
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+.Fight-main-Div{
+  position: absolute;
+  width: 100%;
+  height: 95vh;
+  top: 0;
+  padding-top: 5vh;
+  background-color: rgb(102, 32, 32);
+}
+.potion-p{
+  position: absolute;
+  bottom: 0;
+  right: 8%;
 }
 .potion-img{
   height: 70px;
