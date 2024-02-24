@@ -12,7 +12,7 @@ const A1Chest = ({ playerName, onReturn, updateCharacterStats, characterStats })
       { range: [0, 10], item: 'Sword', attributes: ['MaxMana','Mana', 'Atk', 'Def'], increases: [10, 10, 12, 5], Skills: [{ name: 'Slash', damage: 26, manaCost: 5 }] },
       { range: [10, 20], item: 'Bow', attributes: ['MaxMana','Mana', 'Atk'], increases: [15, 15, 11], Skills: [{ name: 'Strong Shot', damage: 25, manaCost: 3 }] },
       { range: [20, 30], item: 'Shield', attributes: ['MaxHp', 'Hp', 'Def'], increases: [20, 20, 12], Skills: [{ name: 'Deflect', damage: 20, manaCost: 0 }] },
-      { range: [30, 40], item: 'Staff',attributes: ['MaxMana','Mana', 'Atk'], increases: [40, 40, 3], Skills: [{ name: 'Fireball', damage: 32, manaCost: 10 }] },
+      { range: [30, 40], item: 'Staff',attributes: ['MaxMana','Mana', 'Atk'], increases: [42, 42, 3], Skills: [{ name: 'Fireball', damage: 56, manaCost: 8 }] },
       { range: [40, 50], item: 'Dagger', attributes: ['MaxMana','Mana', 'Atk'], increases: [8, 8, 13], Skills: [{ name: 'Backstab', damage: 42, manaCost: 5 }] },
       { range: [50, 60], item: 'Spear', attributes: ['MaxMana','Mana', 'Atk'], increases: [10, 10, 10], Skills: [{ name: 'Thrust', damage: 28, manaCost: 5 }] },
       { range: [60, 70], item: 'Axe', attributes: ['MaxMana','Mana', 'Atk'], increases: [18, 18, 13], Skills: [{ name: 'Cleave', damage: 45, manaCost: 10 }] },

@@ -11,8 +11,13 @@ const A1Encounter = ({ playerName, characterStats, updateCharacterStats, onRetur
   const [SecondPlayingGame, setSecondPlayingGame] = useState(false);
   const [ThirdGame, setThirdGame] = useState(false);
   const [ShowCharacterStats, setShowCharacterStats] = useState(false)
+  const [PlayingGame1, setPlayingGame1] = useState(false);
+  const [SecondPlayingGame1, setSecondPlayingGame1] = useState(false);
+  const [SecondGame1, setSecondGame1] = useState(false);
+  const [ThirdGame1, setThirdGame1] = useState(false);
+  const [randomnum] = useState(() => Math.floor(Math.random() * 2) + 1);
 
-  //FIX THIS
+  //I FIXED IT
 
   const handleReturn = () => {
     onReturn(); // return function
@@ -46,17 +51,17 @@ const A1Encounter = ({ playerName, characterStats, updateCharacterStats, onRetur
   };
 
   const handleyesclick3 = () => {
-    coinflip(() => setPlayingGame(true));
+    coinflip(() => setPlayingGame1(true));
   };
 
   const handleyesclick4 = () => {
-    coinflip(() => setSecondPlayingGame(true));
+    coinflip(() => setSecondPlayingGame1(true));
   };
 
-  const randomnum = Math.ceil(Math.random() * 2);
+  
 
   if (randomnum === 1) {
-    if (ThirdGame) {
+    if (ThirdGame1) {
       return (
         <div className="Main-A1-Encounter-Div">
           <img className="mouth3" src={mouth} alt="mouth"></img>
@@ -68,7 +73,7 @@ const A1Encounter = ({ playerName, characterStats, updateCharacterStats, onRetur
       );
     }
 
-    if (SecondPlayingGame) {
+    if (SecondPlayingGame1) {
       // Add your game logic here
       // You can return different content or components based on the game state
       
@@ -81,7 +86,7 @@ const A1Encounter = ({ playerName, characterStats, updateCharacterStats, onRetur
             Potions: characterStats.Potions + 1,
           };
           updateCharacterStats(updatedStats5);
-          setThirdGame(true)
+          setThirdGame1(true)
         }
         if (Heads === 'no') {
           alert('You Lose')
@@ -90,7 +95,7 @@ const A1Encounter = ({ playerName, characterStats, updateCharacterStats, onRetur
             MaxMana: characterStats.MaxMana - 10,
           };
           updateCharacterStats(updatedStats6);
-          setThirdGame(true)
+          setThirdGame1(true)
         }
       }
       const handlTailsclick3 = () => {
@@ -102,7 +107,7 @@ const A1Encounter = ({ playerName, characterStats, updateCharacterStats, onRetur
             Potions: characterStats.Potions + 1,
           };
           updateCharacterStats(updatedStats7);
-          setThirdGame(true)
+          setThirdGame1(true)
         }
         if (Tails === 'no') {
           alert('You Lose')
@@ -111,7 +116,7 @@ const A1Encounter = ({ playerName, characterStats, updateCharacterStats, onRetur
             MaxMana: characterStats.MaxMana - 10,
           };
           updateCharacterStats(updatedStats8);
-          setThirdGame(true)
+          setThirdGame1(true)
         }
       }
 
@@ -138,7 +143,7 @@ const A1Encounter = ({ playerName, characterStats, updateCharacterStats, onRetur
     }
 
 
-    if (SecondGame) {
+    if (SecondGame1) {
       return (
       <div className="Main-A1-Encounter-Div">
         <img className="mouth2" src={mouth} alt="mouth"></img>
@@ -190,7 +195,7 @@ const A1Encounter = ({ playerName, characterStats, updateCharacterStats, onRetur
 
 
 
-    if (PlayingGame) {
+    if (PlayingGame1) {
       // Add your game logic here
       // You can return different content or components based on the game state
       
@@ -202,7 +207,7 @@ const A1Encounter = ({ playerName, characterStats, updateCharacterStats, onRetur
             Def: characterStats.Def + 5,
           };
           updateCharacterStats(updatedStats9);
-          setSecondGame(true)
+          setSecondGame1(true)
         }
         if (Heads === 'no') {
           alert('You Lose')
@@ -211,7 +216,7 @@ const A1Encounter = ({ playerName, characterStats, updateCharacterStats, onRetur
             Hp: characterStats.Hp - 10,
           };
           updateCharacterStats(updatedStats0);
-          setSecondGame(true)
+          setSecondGame1(true)
         }
       }
       const handlTailsclick4 = () => {
@@ -222,7 +227,7 @@ const A1Encounter = ({ playerName, characterStats, updateCharacterStats, onRetur
             Def: characterStats.Def + 5,
           };
           updateCharacterStats(updatedStats11);
-          setSecondGame(true)
+          setSecondGame1(true)
         }
         if (Tails === 'no') {
           alert('You Lose')
@@ -231,7 +236,7 @@ const A1Encounter = ({ playerName, characterStats, updateCharacterStats, onRetur
             Hp: characterStats.Hp - 10,
           };
           updateCharacterStats(updatedStats12);
-          setSecondGame(true)
+          setSecondGame1(true)
         }
       }
 
@@ -302,8 +307,16 @@ const A1Encounter = ({ playerName, characterStats, updateCharacterStats, onRetur
     );
   }
 
-  if (randomnum === 2) {
+  //I ONLY WHANT THIS TO PLAY IF RANDOMNUM IS 2
+
+  else if (randomnum === 2) {
+    if (randomnum === 1) {
+      alert('ERROR')
+    }
     if (ThirdGame) {
+      if (randomnum === 1) {
+        alert('ERROR')
+      }
       return (
         <div className="Main-A1-Encounter-Div">
           <img className="mouth3" src={mouth} alt="mouth"></img>
@@ -318,6 +331,9 @@ const A1Encounter = ({ playerName, characterStats, updateCharacterStats, onRetur
     if (SecondPlayingGame) {
       // Add your game logic here
       // You can return different content or components based on the game state
+      if (randomnum === 1) {
+        alert('ERROR')
+      }
       
       const handlHeadsclick2 = () => {
         if (Heads === 'yes') {
@@ -386,6 +402,9 @@ const A1Encounter = ({ playerName, characterStats, updateCharacterStats, onRetur
 
 
     if (SecondGame) {
+      if (randomnum === 1) {
+        return
+      }
       return (
       <div className="Main-A1-Encounter-Div">
         <img className="mouth2" src={mouth} alt="mouth"></img>
