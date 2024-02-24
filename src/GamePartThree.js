@@ -145,7 +145,7 @@ const GamePartThreeComponent = ({ playerName, characterStats, updateCharacterSta
   }
 
   return (
-    <div className="Forest-Map-main-div">
+    <div className="Cave-Map-main-div">
       {!showTown && (
         <div>
           {!showFight3 && (
@@ -182,8 +182,8 @@ const GamePartThreeComponent = ({ playerName, characterStats, updateCharacterSta
                                 </div>
                               )}
                               <div className="Act2-GameBoard">
-                                <div className="Forest"><p className="Forest-p">Forest</p></div>
-                                <div className="Forest2"><p className="Forest-p2">Forest</p></div>
+                                <div className="stone"></div>
+                                <div className="stone2"></div>
                                 {!EncounterDone && (
                                   <div
                                   onClick={!EncounterDone ? handleEncounterClick : null}
