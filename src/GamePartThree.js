@@ -4,9 +4,10 @@ import A1Fight from "./A1Fight";
 import CharacterData from "./CharacterData";
 import A1Encounter from "./A1Encounter";
 import A1Town from "./A1Town";
-import zombie from './images/9-2-zombie-high-quality-png_400x400.png'
-import spirit from './images/4-2-ghost-png-image.png'
-import treant from './images/5ca4c3fa1cf23004f2836882.png'
+import Werewolf from './images/pngimg.com - werewolf_PNG2.png'
+import DarkElf from './images/pngimg.com - elf_PNG7.png'
+import Orc from './images/pngimg.com - orc_PNG35.png'
+import Demon from './images/pngimg.com - demon_PNG45.png'
 
 const GamePartThreeComponent = ({ playerName, characterStats, updateCharacterStats }) => {
   const [showCharacterData, setShowCharacterData] = useState(false);
@@ -24,7 +25,7 @@ const GamePartThreeComponent = ({ playerName, characterStats, updateCharacterSta
   const [TownDone, setTownDone] = useState(false);
   const [showA3BossFight, setA3BossFight] = useState(false);
   const [Act3EnemyStats, setAct3EnemyStats] = useState({
-    name: 'Enemy 1',
+    name: 'Werewolf',
     Hp: 200,
     Atk: 35,
     Def: 20,
@@ -37,21 +38,21 @@ const GamePartThreeComponent = ({ playerName, characterStats, updateCharacterSta
     }, 0);
   };
   const [Act3F2EnemyStats, setAct3F2EnemyStats] = useState({
-    name: 'Enemy 2',
+    name: 'Dark Cave Elf',
     Hp: 220,
-    Atk: 10,
+    Atk: 20,
     Def: 40,
     Mana: 25,
   });
   const [Act3F3EnemyStats, setAct3F3EnemyStats] = useState({
-    name: 'Enemy 3',
+    name: 'Cave Dwelling Orc',
     Hp: 210,
     Atk: 38,
     Def: 25,
     Mana: 15,
   });
   const [A3BossEnemyStats, setA3BossEnemyStats] = useState({
-    name: 'BOSS',
+    name: 'Demon',
     Hp: 320,
     Atk: 65,
     Def: 40,
@@ -136,7 +137,7 @@ const GamePartThreeComponent = ({ playerName, characterStats, updateCharacterSta
             Enemystats={A3BossEnemyStats}
             updateEnemyStats={updateA3BossEnemyStats}
             playerName={playerName}
-            enemyImage={treant}
+            enemyImage={Demon}
             updateCharacterStats={updateCharacterStats}
             characterStats={characterStats}
           />
@@ -252,7 +253,7 @@ const GamePartThreeComponent = ({ playerName, characterStats, updateCharacterSta
             Enemystats={Act3EnemyStats}
             updateEnemyStats={updateEnemyStats}
             playerName={playerName}
-            enemyImage={spirit}
+            enemyImage={Werewolf}
             updateCharacterStats={updateCharacterStats}
             characterStats={characterStats}
           />
@@ -266,7 +267,7 @@ const GamePartThreeComponent = ({ playerName, characterStats, updateCharacterSta
             Enemystats={Act3F2EnemyStats}
             updateEnemyStats={updateA3F2EnemyStats}
             playerName={playerName}
-            enemyImage={zombie}
+            enemyImage={DarkElf}
             updateCharacterStats={updateCharacterStats}
             characterStats={characterStats}
           />
@@ -280,7 +281,7 @@ const GamePartThreeComponent = ({ playerName, characterStats, updateCharacterSta
             Enemystats={Act3F3EnemyStats}
             updateEnemyStats={updateA3F3EnemyStats}
             playerName={playerName}
-            enemyImage={zombie}
+            enemyImage={Orc}
             updateCharacterStats={updateCharacterStats}
             characterStats={characterStats}
           />
