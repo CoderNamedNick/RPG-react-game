@@ -26,10 +26,10 @@ const GamePartThreeComponent = ({ playerName, characterStats, updateCharacterSta
   const [showA3BossFight, setA3BossFight] = useState(false);
   const [Act3EnemyStats, setAct3EnemyStats] = useState({
     name: 'Werewolf',
-    Hp: 200,
-    Atk: 35,
-    Def: 20,
-    Mana: 10,
+    Hp: 300,
+    Atk: 55,
+    Def: 30,
+    Mana: 20,
   });
   const updateEnemyStats = (updatedEnStats) => {
     // Wrap the state update in a setTimeout to defer it to the next tick
@@ -39,24 +39,24 @@ const GamePartThreeComponent = ({ playerName, characterStats, updateCharacterSta
   };
   const [Act3F2EnemyStats, setAct3F2EnemyStats] = useState({
     name: 'Dark Cave Elf',
-    Hp: 220,
-    Atk: 20,
+    Hp: 310,
+    Atk: 56,
     Def: 40,
     Mana: 25,
   });
   const [Act3F3EnemyStats, setAct3F3EnemyStats] = useState({
     name: 'Cave Dwelling Orc',
-    Hp: 210,
-    Atk: 38,
-    Def: 25,
+    Hp: 300,
+    Atk: 58,
+    Def: 50,
     Mana: 15,
   });
   const [A3BossEnemyStats, setA3BossEnemyStats] = useState({
     name: 'Demon',
-    Hp: 320,
-    Atk: 65,
-    Def: 40,
-    Mana: 20,
+    Hp: 435,
+    Atk: 75,
+    Def: 60,
+    Mana: 30,
     type: 'Boss',
   });
   const updateA3BossEnemyStats = (updatedEnStats3) => {
@@ -211,7 +211,7 @@ const GamePartThreeComponent = ({ playerName, characterStats, updateCharacterSta
                                 )}
                                 {!Encounter2Done && (
                                   <div
-                                  onClick={!EncounterDone && fightDone2 ? handleEncounter2Click : null}
+                                  onClick={!Encounter2Done && fightDone2 ? handleEncounter2Click : null}
                                   className={`Map-places P1A3 ${EncounterDone || !fightDone ? "disabled" : ""}`}
                                 >
                                   Encounter2
