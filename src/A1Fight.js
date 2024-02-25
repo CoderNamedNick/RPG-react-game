@@ -270,7 +270,26 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn, E
     return (
       <div className="YouDiedScreen">
         <h1>YOU DIED</h1>
-        <h2>{`${playerName} was a Hero And Died while fighting a ${Enemystats.name}`}</h2>
+        <h2 className="h2-death">{`${playerName} was a Hero And Died while fighting a ${Enemystats.name}`}</h2>
+        <div className="deathdata">
+          <p>LVL: {characterStats.LVL}</p>
+          <p>MaxHP: {characterStats.MaxHp}</p>
+          <p>Attack: {characterStats.Atk}</p>
+          <p>Defense: {characterStats.Def}</p>
+          <p>MaxMana: {characterStats.MaxMana}</p>
+          <div>
+            <ul>
+              {characterStats.Skills.map((skill, index) => (
+                <li key={index}>
+                  {skill.name} - Damage: {skill.damage}, ManaCost: {skill.manaCost}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <p>Inventory: {characterStats.Inventory}</p>
+          <p>Nils: {characterStats.Nils}</p>
+          <p>Potions: {characterStats.Potions}</p>
+        </div>
         <p>Refresh Page to restart</p>
       </div>
     );
