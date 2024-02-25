@@ -32,7 +32,6 @@ const StartGame = ({ updatePlayerName, onFinish }) => {
     } else {
       setError(''); // Clear any existing error messages
       // You can do something with the name here, like save it to local storage or pass it to another component
-      console.log("Name submitted:", name);
       updatePlayerName(name);
       onFinish(); // Call onFinish when the form is submitted
     }

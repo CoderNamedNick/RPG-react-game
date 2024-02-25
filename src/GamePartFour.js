@@ -9,7 +9,7 @@ import DarkElf from './images/pngimg.com - elf_PNG7.png'
 import Orc from './images/pngimg.com - orc_PNG35.png'
 import Demon from './images/pngimg.com - demon_PNG45.png'
 
-const GamePartThreeComponent = ({ playerName, characterStats, updateCharacterStats, FinishP3 }) => {
+const GamePartFourComponent = ({ playerName, characterStats, updateCharacterStats, FinishP3 }) => {
   const [showCharacterData, setShowCharacterData] = useState(false);
   const [showFight, setShowFight] = useState(false);
   const [fightDone, setFightDone] = useState(false);
@@ -160,7 +160,7 @@ const GamePartThreeComponent = ({ playerName, characterStats, updateCharacterSta
                           {!showEncounter && (
                             <div>
                               <h1>
-                                Act Three: Forest Cave
+                                Act Four: Forest Cave
                               </h1>
                               <div className="Inv-div">
                                 <button className="Inv-btn" onClick={handleInventoryClick}>
@@ -316,4 +316,4 @@ const GamePartThreeComponent = ({ playerName, characterStats, updateCharacterSta
   );
 }
 
-export default GamePartThreeComponent;
+export default GamePartFourComponent;

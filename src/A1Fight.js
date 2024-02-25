@@ -290,7 +290,7 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn, E
           <p>Nils: {characterStats.Nils}</p>
           <p>Potions: {characterStats.Potions}</p>
         </div>
-        <p>Refresh Page to restart</p>
+        <h2>Refresh Page to restart</h2>
       </div>
     );
   }
