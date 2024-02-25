@@ -92,6 +92,9 @@ const GamePartTwoComponent = ({ playerName, characterStats, updateCharacterStats
   };
 
   const handleEncounterClick = () => {
+    if (!RestPointDone) {
+      return
+    }
     setShowEncounter(true);
     setEncounterDone(true);
   }
@@ -186,8 +189,8 @@ const GamePartTwoComponent = ({ playerName, characterStats, updateCharacterStats
                             )}
                             {!TownDone && (
                               <div
-                              onClick={!EncounterDone && fightDone2 ? handleEncounterClick : null}
-                              className={`Map-places P1A3 ${EncounterDone || !fightDone ? "disabled" : ""}`}
+                              onClick={!EncounterDone && fightDone2 && RestPoint ? handleEncounterClick : null}
+                              className={`Map-places P1A3 ${EncounterDone || !RestPoint || !fightDone ? "disabled" : ""}`}
                             >
                               Encounter
                             </div>
