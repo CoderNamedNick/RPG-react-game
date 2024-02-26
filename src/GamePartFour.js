@@ -25,7 +25,7 @@ const GamePartFourComponent = ({ playerName, characterStats, updateCharacterStat
   const [showTown, setShowTown] = useState(false);
   const [TownDone, setTownDone] = useState(false);
   const [showA3BossFight, setA3BossFight] = useState(false);
-  const [Act3EnemyStats, setAct3EnemyStats] = useState({
+  const [Act4EnemyStats, setAct4EnemyStats] = useState({
     name: 'Abomination',
     Hp: 390,
     Atk: 65,
@@ -35,24 +35,24 @@ const GamePartFourComponent = ({ playerName, characterStats, updateCharacterStat
   const updateEnemyStats = (updatedEnStats) => {
     // Wrap the state update in a setTimeout to defer it to the next tick
     setTimeout(() => {
-      setAct3EnemyStats(updatedEnStats);
+      setAct4EnemyStats(updatedEnStats);
     }, 0);
   };
-  const [Act3F2EnemyStats, setAct3F2EnemyStats] = useState({
+  const [Act4F2EnemyStats, setAct4F2EnemyStats] = useState({
     name: 'Wizard',
     Hp: 430,
     Atk: 96,
     Def: 38,
     Mana: 45,
   });
-  const [Act3F3EnemyStats, setAct3F3EnemyStats] = useState({
+  const [Act4F3EnemyStats, setAct4F3EnemyStats] = useState({
     name: 'Reaper',
     Hp: 380,
     Atk: 99,
     Def: 30,
     Mana: 15,
   });
-  const [A3BossEnemyStats, setA3BossEnemyStats] = useState({
+  const [A4BossEnemyStats, setA4BossEnemyStats] = useState({
     name: 'Shadow Knight',
     Hp: 575,
     Atk: 98,
@@ -60,22 +60,22 @@ const GamePartFourComponent = ({ playerName, characterStats, updateCharacterStat
     Mana: 30,
     type: 'Boss',
   });
-  const updateA3BossEnemyStats = (updatedEnStats3) => {
+  const updateA4BossEnemyStats = (updatedEnStats3) => {
     // Wrap the state update in a setTimeout to defer it to the next tick
     setTimeout(() => {
-      setA3BossEnemyStats(updatedEnStats3);
+      setA4BossEnemyStats(updatedEnStats3);
     }, 0);
   };
-  const updateA3F2EnemyStats = (updatedEnStats2) => {
+  const updateA4F2EnemyStats = (updatedEnStats2) => {
     // Wrap the state update in a setTimeout to defer it to the next tick
     setTimeout(() => {
-      setAct3F2EnemyStats(updatedEnStats2);
+      setAct4F2EnemyStats(updatedEnStats2);
     }, 0);
   };
-  const updateA3F3EnemyStats = (updatedEnStats2) => {
+  const updateA4F3EnemyStats = (updatedEnStats2) => {
     // Wrap the state update in a setTimeout to defer it to the next tick
     setTimeout(() => {
-      setAct3F3EnemyStats(updatedEnStats2);
+      setAct4F3EnemyStats(updatedEnStats2);
     }, 0);
   };
 
@@ -135,8 +135,8 @@ const GamePartFourComponent = ({ playerName, characterStats, updateCharacterStat
           <h1>Act 4 BOSS FIGHT</h1>
           <A1Fight
             onReturn={FinishP3}
-            Enemystats={A3BossEnemyStats}
-            updateEnemyStats={updateA3BossEnemyStats}
+            Enemystats={A4BossEnemyStats}
+            updateEnemyStats={updateA4BossEnemyStats}
             playerName={playerName}
             enemyImage={knight}
             updateCharacterStats={updateCharacterStats}
@@ -251,7 +251,7 @@ const GamePartFourComponent = ({ playerName, characterStats, updateCharacterStat
           <h1>FIGHT</h1>
           <A1Fight
             onReturn={handleReturnToGame}
-            Enemystats={Act3EnemyStats}
+            Enemystats={Act4EnemyStats}
             updateEnemyStats={updateEnemyStats}
             playerName={playerName}
             enemyImage={abomination}
@@ -265,8 +265,8 @@ const GamePartFourComponent = ({ playerName, characterStats, updateCharacterStat
           <h1>FIGHT 2</h1>
           <A1Fight
             onReturn={handleReturnToGame}
-            Enemystats={Act3F2EnemyStats}
-            updateEnemyStats={updateA3F2EnemyStats}
+            Enemystats={Act4F2EnemyStats}
+            updateEnemyStats={updateA4F2EnemyStats}
             playerName={playerName}
             enemyImage={wizard}
             updateCharacterStats={updateCharacterStats}
@@ -279,8 +279,8 @@ const GamePartFourComponent = ({ playerName, characterStats, updateCharacterStat
           <h1>FIGHT 3</h1>
           <A1Fight
             onReturn={handleReturnToGame}
-            Enemystats={Act3F3EnemyStats}
-            updateEnemyStats={updateA3F3EnemyStats}
+            Enemystats={Act4F3EnemyStats}
+            updateEnemyStats={updateA4F3EnemyStats}
             playerName={playerName}
             enemyImage={reaper}
             updateCharacterStats={updateCharacterStats}
