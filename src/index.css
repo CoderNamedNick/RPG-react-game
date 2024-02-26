@@ -63,6 +63,12 @@ code {
   height: 100vh;
   position: absolute;
 }
+.E-Cave-Map-main-div{
+  background: linear-gradient(to top, #121313, #6b1c99);
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+}
 .Act2-GameBoard{
   background-color: rgb(8, 56, 4);
   width: 100%;
@@ -123,6 +129,36 @@ code {
   border-bottom-left-radius: 30%;
   border: solid 5px  #000000;
   opacity: .8;
+}
+.stone3{
+  background: linear-gradient(to top, #121313, #381e47);
+  height: 100%;
+  width: 30%;
+  position: fixed;
+  left: 0;
+  bottom: 0%;
+  border-radius: 10px;
+  border-top-right-radius: -10%;
+  border-bottom-right-radius: 30%;
+  border: solid 5px  linear-gradient(to top, #121313, #381e47);
+  opacity: .6;
+}
+.stone4{
+  background: linear-gradient(to top, #121313, #381e47);
+  height: 100%;
+  width: 30%;
+  position: fixed;
+  right: 0;
+  bottom: 0%;
+  border-radius: 10px;
+  border-top-left-radius: -10%;
+  border-bottom-left-radius: 30%;
+  border: solid 5px  linear-gradient(to top, #121313, #381e47);
+  opacity: .6;
+}
+.h1-cave{
+  z-index: 200;
+  font-size: 28px;
 }
 .Swamp-water{
   background-color: #54aaa6;
