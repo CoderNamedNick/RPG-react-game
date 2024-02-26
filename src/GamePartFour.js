@@ -27,9 +27,9 @@ const GamePartFourComponent = ({ playerName, characterStats, updateCharacterStat
   const [showA3BossFight, setA3BossFight] = useState(false);
   const [Act3EnemyStats, setAct3EnemyStats] = useState({
     name: 'Abomination',
-    Hp: 420,
-    Atk: 85,
-    Def: 40,
+    Hp: 390,
+    Atk: 65,
+    Def: 60,
     Mana: 20,
   });
   const updateEnemyStats = (updatedEnStats) => {
@@ -41,22 +41,22 @@ const GamePartFourComponent = ({ playerName, characterStats, updateCharacterStat
   const [Act3F2EnemyStats, setAct3F2EnemyStats] = useState({
     name: 'Wizard',
     Hp: 430,
-    Atk: 86,
-    Def: 48,
+    Atk: 96,
+    Def: 38,
     Mana: 45,
   });
   const [Act3F3EnemyStats, setAct3F3EnemyStats] = useState({
     name: 'Reaper',
     Hp: 380,
-    Atk: 87,
-    Def: 50,
+    Atk: 99,
+    Def: 30,
     Mana: 15,
   });
   const [A3BossEnemyStats, setA3BossEnemyStats] = useState({
     name: 'Shadow Knight',
     Hp: 575,
-    Atk: 105,
-    Def: 70,
+    Atk: 98,
+    Def: 64,
     Mana: 30,
     type: 'Boss',
   });
@@ -138,7 +138,7 @@ const GamePartFourComponent = ({ playerName, characterStats, updateCharacterStat
             Enemystats={A3BossEnemyStats}
             updateEnemyStats={updateA3BossEnemyStats}
             playerName={playerName}
-            enemyImage={Demon}
+            enemyImage={knight}
             updateCharacterStats={updateCharacterStats}
             characterStats={characterStats}
           />
@@ -254,7 +254,7 @@ const GamePartFourComponent = ({ playerName, characterStats, updateCharacterStat
             Enemystats={Act3EnemyStats}
             updateEnemyStats={updateEnemyStats}
             playerName={playerName}
-            enemyImage={Werewolf}
+            enemyImage={abomination}
             updateCharacterStats={updateCharacterStats}
             characterStats={characterStats}
           />
@@ -268,7 +268,7 @@ const GamePartFourComponent = ({ playerName, characterStats, updateCharacterStat
             Enemystats={Act3F2EnemyStats}
             updateEnemyStats={updateA3F2EnemyStats}
             playerName={playerName}
-            enemyImage={DarkElf}
+            enemyImage={wizard}
             updateCharacterStats={updateCharacterStats}
             characterStats={characterStats}
           />
@@ -282,7 +282,7 @@ const GamePartFourComponent = ({ playerName, characterStats, updateCharacterStat
             Enemystats={Act3F3EnemyStats}
             updateEnemyStats={updateA3F3EnemyStats}
             playerName={playerName}
-            enemyImage={Orc}
+            enemyImage={reaper}
             updateCharacterStats={updateCharacterStats}
             characterStats={characterStats}
           />
