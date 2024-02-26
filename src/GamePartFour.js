@@ -5,10 +5,10 @@ import CharacterData from "./CharacterData";
 import A1Encounter from "./A1Encounter";
 import RestPoint from './RestPoint'
 import A1Town from "./A1Town";
-import Werewolf from './images/pngimg.com - werewolf_PNG2.png'
-import DarkElf from './images/pngimg.com - elf_PNG7.png'
-import Orc from './images/pngimg.com - orc_PNG35.png'
-import Demon from './images/pngimg.com - demon_PNG45.png'
+import abomination from './images/4-2-creature-png-file.png'
+import wizard from './images/3-2-wizard-picture.png'
+import reaper from './images/30101-4-grim-reaper-hd.png'
+import knight from './images/81638-armour-oni-for-no-knight-orochi-yamata.png'
 
 const GamePartFourComponent = ({ playerName, characterStats, updateCharacterStats, FinishP3 }) => {
   const [showCharacterData, setShowCharacterData] = useState(false);
@@ -26,10 +26,10 @@ const GamePartFourComponent = ({ playerName, characterStats, updateCharacterStat
   const [TownDone, setTownDone] = useState(false);
   const [showA3BossFight, setA3BossFight] = useState(false);
   const [Act3EnemyStats, setAct3EnemyStats] = useState({
-    name: 'Werewolf',
-    Hp: 300,
-    Atk: 55,
-    Def: 30,
+    name: 'Abomination',
+    Hp: 420,
+    Atk: 85,
+    Def: 40,
     Mana: 20,
   });
   const updateEnemyStats = (updatedEnStats) => {
@@ -39,24 +39,24 @@ const GamePartFourComponent = ({ playerName, characterStats, updateCharacterStat
     }, 0);
   };
   const [Act3F2EnemyStats, setAct3F2EnemyStats] = useState({
-    name: 'Dark Cave Elf',
-    Hp: 310,
-    Atk: 56,
-    Def: 40,
-    Mana: 25,
+    name: 'Wizard',
+    Hp: 430,
+    Atk: 86,
+    Def: 48,
+    Mana: 45,
   });
   const [Act3F3EnemyStats, setAct3F3EnemyStats] = useState({
-    name: 'Cave Dwelling Orc',
-    Hp: 300,
-    Atk: 58,
-    Def: 45,
+    name: 'Reaper',
+    Hp: 380,
+    Atk: 87,
+    Def: 50,
     Mana: 15,
   });
   const [A3BossEnemyStats, setA3BossEnemyStats] = useState({
-    name: 'Demon',
-    Hp: 435,
-    Atk: 75,
-    Def: 60,
+    name: 'Shadow Knight',
+    Hp: 575,
+    Atk: 105,
+    Def: 70,
     Mana: 30,
     type: 'Boss',
   });
@@ -132,7 +132,7 @@ const GamePartFourComponent = ({ playerName, characterStats, updateCharacterStat
   if (showA3BossFight) {
     return (
       <div>
-          <h1>Act 3 BOSS FIGHT</h1>
+          <h1>Act 4 BOSS FIGHT</h1>
           <A1Fight
             onReturn={FinishP3}
             Enemystats={A3BossEnemyStats}
@@ -204,8 +204,8 @@ const GamePartFourComponent = ({ playerName, characterStats, updateCharacterStat
                                 )}
                                 {!RestPointDone && (
                                 <div
-                                  onClick={!RestPoint && EncounterDone ? handleRestPointClick : null}
-                                  className={`Map-places P1A2 ${RestPoint ? "disabled" : ""}`}
+                                  onClick={!RestPointDone && EncounterDone ? handleRestPointClick : null}
+                                  className={`Map-places P1A2 ${RestPointDone ? "disabled" : ""}`}
                                 >
                                   RestPoint
                                 </div>
