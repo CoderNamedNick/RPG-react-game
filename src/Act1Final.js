@@ -3,14 +3,14 @@ import A1Fight from "./A1Fight";
 import knight from './images/81638-armour-oni-for-no-knight-orochi-yamata.png'
 
 const Act1Final = ({ playerName, characterStats, updateCharacterStats,}) => {
-  const [showFinalBossFight, setFinalBossFight] = useState(false);
+  const [showFinalBossFight, setshowFinalBossFight] = useState(false);
   const [FinalBossFightDone, setFinalBossFightDone] = useState(false);
   const [A1FinalBossEnemyStats, setA1FinalBossEnemyStats] = useState({
-    name: 'Shadow Knight',
-    Hp: 575,
-    Atk: 98,
-    Def: 64,
-    Mana: 30,
+    name: 'PART 1 Final Boss',
+    Hp: 655,
+    Atk: 115,
+    Def: 85,
+    Mana: 50,
     type: 'Boss',
   });
   const updateFinalBossEnemyStats = (updatedEnStats3) => {
@@ -21,8 +21,12 @@ const Act1Final = ({ playerName, characterStats, updateCharacterStats,}) => {
   };
   
   const onReturn = () => {
-    setFinalBossFight(false);
+    setshowFinalBossFight(false);
     setFinalBossFightDone(false);
+  }
+
+  const fightclick = () => {
+    setshowFinalBossFight(true);
   }
   
 
@@ -55,7 +59,7 @@ const Act1Final = ({ playerName, characterStats, updateCharacterStats,}) => {
     <div>
       <h2>Congratulations you have made it this far. But will you stop Now?</h2>
       <p>Walking out of the Enchanted cave you see statues surrounding you and you last foe. Will you fight??</p>
-      <h1>FIGHT</h1>
+      <h1 onClick={fightclick}>FIGHT</h1>
     </div>
   );
 }

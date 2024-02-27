@@ -41,7 +41,7 @@ function App() {
     setGamePartFour(true); // Use the correct state variable
   }
   const finishPartFour = () => {
-    Act1Final(true); // Use the correct state variable
+    setAct1Final(true); // Use the correct state variable
   }
 
   const handleStartGame = () => {
