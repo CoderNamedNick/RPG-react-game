@@ -153,9 +153,9 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
       Item: 4,
       Name: '  Ward Stone',
       Cost: 25,
-      Atk: 2,
-      Def: 22,
-      SkillAtk: 5,
+      Atk: 0,
+      Def: 15,
+      SkillAtk: 6,
       Description: `A protective Ward Stone that significantly boosts your defense. Perfect for those who prefer a resilient and sturdy approach in battles.`
     },
     {
@@ -164,7 +164,7 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
       Cost: 50,
       Atk: 5,
       Def: 2,
-      SkillAtk: 30,
+      SkillAtk: 40,
       Description: `An intricate charm that amplifies your skill attacks to an extraordinary level. Recommended for those who rely on their special abilities.`
     },
     {
