@@ -4,6 +4,7 @@ import GamePartOne from "./GamePartOne";
 import GamePartTwoComponent from "./GamePartTwo";
 import GamePartThreeComponent from "./GamePartThree";
 import GamePartFourComponent from './GamePartFour';
+import Act1Final from "./Act1Final";
 
 function App() {
   const [playerName, setPlayerName] = useState('');
@@ -24,6 +25,7 @@ function App() {
   const [GamePartTwo, setGamePartTwo] = useState(false); // Rename the state variable
   const [GamePartThree, setGamePartThree] = useState(false); 
   const [GamePartFour, setGamePartFour] = useState(false); 
+  const [Act1Final, setAct1Final] = useState(false);
 
   const updateCharacterStats = (updatedStats) => {
     setCharacterStats(updatedStats);
@@ -38,6 +40,9 @@ function App() {
   const finishPartThree = () => {
     setGamePartFour(true); // Use the correct state variable
   }
+  const finishPartFour = () => {
+    Act1Final(true); // Use the correct state variable
+  }
 
   const handleStartGame = () => {
     setGameStarted(true);
@@ -51,7 +56,8 @@ function App() {
       {!GamePartTwo && gameStarted && <GamePartOne FinishP1={finishPartOne} playerName={playerName} characterStats={characterStats} updateCharacterStats={updateCharacterStats} />}
       {!GamePartThree && GamePartTwo && gameStarted && <GamePartTwoComponent FinishP2={finishPartTwo} playerName={playerName} characterStats={characterStats} updateCharacterStats={updateCharacterStats} />}
       {!GamePartFour && GamePartThree && GamePartTwo && gameStarted && <GamePartThreeComponent FinishP3={finishPartThree} playerName={playerName} characterStats={characterStats} updateCharacterStats={updateCharacterStats} />}
-      {GamePartFour && GamePartThree && GamePartTwo && gameStarted && <GamePartFourComponent  playerName={playerName} characterStats={characterStats} updateCharacterStats={updateCharacterStats} />}
+      {!Act1Final && GamePartFour && GamePartThree && GamePartTwo && gameStarted && <GamePartFourComponent FinishP4={finishPartFour} playerName={playerName} characterStats={characterStats} updateCharacterStats={updateCharacterStats} />}
+      {Act1Final && GamePartFour && GamePartThree && GamePartTwo && gameStarted && <Act1Final playerName={playerName} characterStats={characterStats} updateCharacterStats={updateCharacterStats} />}
     </div>
   );
 }

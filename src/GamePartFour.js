@@ -10,7 +10,7 @@ import wizard from './images/3-2-wizard-picture.png'
 import reaper from './images/30101-4-grim-reaper-hd.png'
 import knight from './images/81638-armour-oni-for-no-knight-orochi-yamata.png'
 
-const GamePartFourComponent = ({ playerName, characterStats, updateCharacterStats, FinishP3 }) => {
+const GamePartFourComponent = ({ playerName, characterStats, updateCharacterStats, FinishP4 }) => {
   const [showCharacterData, setShowCharacterData] = useState(false);
   const [showFight, setShowFight] = useState(false);
   const [fightDone, setFightDone] = useState(false);
@@ -134,7 +134,7 @@ const GamePartFourComponent = ({ playerName, characterStats, updateCharacterStat
       <div>
           <h1>Act 4 BOSS FIGHT</h1>
           <A1Fight
-            onReturn={FinishP3}
+            onReturn={FinishP4}
             Enemystats={A4BossEnemyStats}
             updateEnemyStats={updateA4BossEnemyStats}
             playerName={playerName}
