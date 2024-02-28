@@ -22,7 +22,7 @@ const Act1FinalComponent = ({ playerName, characterStats, updateCharacterStats,}
   
   const onReturn = () => {
     setshowFinalBossFight(false);
-    setFinalBossFightDone(false);
+    setFinalBossFightDone(true);
   }
 
   const fightclick = () => {
@@ -62,14 +62,16 @@ const Act1FinalComponent = ({ playerName, characterStats, updateCharacterStats,}
     )
   }
 
-  return(
-    <div className="A1-Final-Div">
-      <h2 className="h1-top-final">Congratulations. But will you stop Now?</h2>
-      <p>or</p>
-      <p>Will you fight??</p>
-      <h1 onClick={fightclick} className="Moms final-fight">FIGHT</h1>
-    </div>
-  );
+  if (!FinalBossFightDone){
+    return(
+      <div className="A1-Final-Div">
+        <h2 className="h1-top-final">Congratulations. But will you stop Now?</h2>
+        <p>or</p>
+        <p>Will you fight??</p>
+        <h1 onClick={fightclick} className="Moms final-fight">FIGHT</h1>
+      </div>
+    );
+  }
 }
 
 export default Act1FinalComponent;
