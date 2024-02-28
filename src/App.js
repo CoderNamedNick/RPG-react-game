@@ -10,10 +10,10 @@ function App() {
   const [playerName, setPlayerName] = useState('');
   const [characterStats, setCharacterStats] = useState({
     LVL: 1,
-    Hp: 1000,
+    Hp: 100,
     MaxHp: 100,
-    Atk: 100,
-    Def: 100,
+    Atk: 10,
+    Def: 10,
     Mana: 0,
     MaxMana: 0,
     Skills: [],
@@ -32,16 +32,16 @@ function App() {
   };
 
   const finishPartOne = () => {
-    setGamePartTwo(true); // Use the correct state variable
+    setGamePartTwo(true); 
   }
   const finishPartTwo = () => {
-    setGamePartThree(true); // Use the correct state variable
+    setGamePartThree(true); 
   }
   const finishPartThree = () => {
-    setGamePartFour(true); // Use the correct state variable
+    setGamePartFour(true); 
   }
   const finishPartFour = () => {
-    setAct1Final(true); // Use the correct state variable
+    setAct1Final(true); 
   }
 
   const handleStartGame = () => {
