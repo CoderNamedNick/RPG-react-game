@@ -930,3 +930,13 @@ h1{
   bottom: 0;
   font-size: 70px;
 }
+.last-p-div{
+  width: 80%;
+  height: auto;
+  margin-left: 9%;
+  background-color: #362828;
+  border-radius: 20px;
+  border: solid black 1px;
+  font-size: 30px;
+  padding: 1%;
+}
