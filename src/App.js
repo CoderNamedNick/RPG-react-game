@@ -4,16 +4,16 @@ import GamePartOne from "./GamePartOne";
 import GamePartTwoComponent from "./GamePartTwo";
 import GamePartThreeComponent from "./GamePartThree";
 import GamePartFourComponent from './GamePartFour';
-import Act1Final from "./Act1Final";
+import Act1FinalComponent from "./Act1Final";
 
 function App() {
   const [playerName, setPlayerName] = useState('');
   const [characterStats, setCharacterStats] = useState({
     LVL: 1,
-    Hp: 100,
+    Hp: 1000,
     MaxHp: 100,
-    Atk: 10,
-    Def: 10,
+    Atk: 100,
+    Def: 100,
     Mana: 0,
     MaxMana: 0,
     Skills: [],
@@ -57,7 +57,7 @@ function App() {
       {!GamePartThree && GamePartTwo && gameStarted && <GamePartTwoComponent FinishP2={finishPartTwo} playerName={playerName} characterStats={characterStats} updateCharacterStats={updateCharacterStats} />}
       {!GamePartFour && GamePartThree && GamePartTwo && gameStarted && <GamePartThreeComponent FinishP3={finishPartThree} playerName={playerName} characterStats={characterStats} updateCharacterStats={updateCharacterStats} />}
       {!Act1Final && GamePartFour && GamePartThree && GamePartTwo && gameStarted && <GamePartFourComponent FinishP4={finishPartFour} playerName={playerName} characterStats={characterStats} updateCharacterStats={updateCharacterStats} />}
-      {Act1Final && GamePartFour && GamePartThree && GamePartTwo && gameStarted && <Act1Final playerName={playerName} characterStats={characterStats} updateCharacterStats={updateCharacterStats} />}
+      {Act1Final && GamePartFour && GamePartThree && GamePartTwo && gameStarted && <Act1FinalComponent playerName={playerName} characterStats={characterStats} updateCharacterStats={updateCharacterStats} />}
     </div>
   );
 }

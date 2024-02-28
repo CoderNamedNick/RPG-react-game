@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import A1Fight from "./A1Fight";
 import knight from './images/81638-armour-oni-for-no-knight-orochi-yamata.png'
 
-const Act1Final = ({ playerName, characterStats, updateCharacterStats,}) => {
+const Act1FinalComponent = ({ playerName, characterStats, updateCharacterStats,}) => {
   const [showFinalBossFight, setshowFinalBossFight] = useState(false);
   const [FinalBossFightDone, setFinalBossFightDone] = useState(false);
   const [A1FinalBossEnemyStats, setA1FinalBossEnemyStats] = useState({
@@ -63,12 +63,13 @@ const Act1Final = ({ playerName, characterStats, updateCharacterStats,}) => {
   }
 
   return(
-    <div>
-      <h2>Congratulations you have made it this far. But will you stop Now?</h2>
-      <p>Walking out of the Enchanted cave you see statues surrounding you and you last foe. Will you fight??</p>
-      <h1 onClick={fightclick}>FIGHT</h1>
+    <div className="A1-Final-Div">
+      <h2 className="h1-top-final">Congratulations. But will you stop Now?</h2>
+      <p>or</p>
+      <p>Will you fight??</p>
+      <h1 onClick={fightclick} className="Moms final-fight">FIGHT</h1>
     </div>
   );
 }
 
-export default Act1Final
+export default Act1FinalComponent;
