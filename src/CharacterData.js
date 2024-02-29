@@ -11,15 +11,25 @@ const CharacterData = ({ playerName, characterStats, updateCharacterStats }) => 
   useEffect(() => {
     // Check for skills and update damage based on current Atk attribute
     if (characterStats.Skills && characterStats.Skills.length > 0) {
-      const updatedSkills = characterStats.Skills.map(skill => ({
-        ...skill,
-        damage: Math.floor(characterStats.Skills[0].damage * 0.25 + characterStats.Atk),
-      }));
-
+      const updatedSkills = characterStats.Skills.map(skill => {
+        if (skill.name === 'Fireball') {
+          // Update damage for 'Fireball'
+          return {
+            ...skill,
+            damage: Math.floor(160 * 0.25 + characterStats.Atk),
+          };
+        }
+        // Update damage for other skills
+        return {
+          ...skill,
+          damage: Math.floor(skill.damage * 0.25 + characterStats.Atk),
+        };
+      });
+  
       // Update characterStats with the modified skills
       updateCharacterStats({ ...characterStats, Skills: updatedSkills });
     }
-
+  
     // Update character data
     setCharacterData({
       PlayerName: playerName,
