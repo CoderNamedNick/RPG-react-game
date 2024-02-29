@@ -22,7 +22,7 @@ function App() {
     Potions: 0,
   });
   const [gameStarted, setGameStarted] = useState(false);
-  const [GamePartTwo, setGamePartTwo] = useState(false); // Rename the state variable
+  const [GamePartTwo, setGamePartTwo] = useState(false); 
   const [GamePartThree, setGamePartThree] = useState(false); 
   const [GamePartFour, setGamePartFour] = useState(false); 
   const [Act1Final, setAct1Final] = useState(false);

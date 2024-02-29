@@ -1,12 +1,12 @@
 import React, { useState } from "react"; 
 import A1Fight from "./A1Fight";
-import knight from './images/81638-armour-oni-for-no-knight-orochi-yamata.png'
+import dragon from './images/2-2-dragon-png-4.png'
 
 const Act1FinalComponent = ({ playerName, characterStats, updateCharacterStats,}) => {
   const [showFinalBossFight, setshowFinalBossFight] = useState(false);
   const [FinalBossFightDone, setFinalBossFightDone] = useState(false);
   const [A1FinalBossEnemyStats, setA1FinalBossEnemyStats] = useState({
-    name: 'PART 1 Final Boss',
+    name: 'Felia the Shrine Goddess',
     Hp: 655,
     Atk: 115,
     Def: 85,
@@ -14,7 +14,6 @@ const Act1FinalComponent = ({ playerName, characterStats, updateCharacterStats,}
     type: 'Boss',
   });
   const updateFinalBossEnemyStats = (updatedEnStats3) => {
-    // Wrap the state update in a setTimeout to defer it to the next tick
     setTimeout(() => {
       setA1FinalBossEnemyStats(updatedEnStats3);
     }, 0);
@@ -56,7 +55,7 @@ const Act1FinalComponent = ({ playerName, characterStats, updateCharacterStats,}
             Enemystats={A1FinalBossEnemyStats}
             updateEnemyStats={updateFinalBossEnemyStats}
             playerName={playerName}
-            enemyImage={knight}
+            enemyImage={dragon}
             updateCharacterStats={updateCharacterStats}
             characterStats={characterStats}
           />
