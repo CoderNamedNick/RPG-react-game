@@ -48,7 +48,7 @@ function App() {
     setGameStarted(true);
   };
 
-  console.log("Character Stats:", characterStats);
+  //console.log("Character Stats:", characterStats);
 
   return (
     <div>

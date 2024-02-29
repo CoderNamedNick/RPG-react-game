@@ -1,39 +1,31 @@
 import React, { useState, useEffect } from "react";
 
-const CharacterData = ({ playerName, characterStats, skills }) => {
+const CharacterData = ({ playerName, characterStats, updateCharacterStats }) => {
   // Initialize character data using props
   const [characterData, setCharacterData] = useState({
     PlayerName: playerName,
-    LVL: characterStats.LVL,
-    Hp: characterStats.Hp,
-    MaxHp: characterStats.MaxHp,
-    Atk: characterStats.Atk,
-    Def: characterStats.Def,
-    Mana: characterStats.Mana,
-    MaxMana: characterStats.MaxMana,
-    Skills: characterStats.Skills,
-    Inventory: characterStats.Inventory,
-    Nils: characterStats.Nils,
-    Potions: characterStats.Potions,
+    ...characterStats,  // Directly spread characterStats for initialization
   });
 
   // Update character data whenever characterStats prop changes
   useEffect(() => {
+    // Check for skills and update damage based on current Atk attribute
+    if (characterStats.Skills && characterStats.Skills.length > 0) {
+      const updatedSkills = characterStats.Skills.map(skill => ({
+        ...skill,
+        damage: Math.floor(characterStats.Skills[0].damage * 0.25 + characterStats.Atk),
+      }));
+
+      // Update characterStats with the modified skills
+      updateCharacterStats({ ...characterStats, Skills: updatedSkills });
+    }
+
+    // Update character data
     setCharacterData({
-      ...characterData,
-      LVL: characterStats.LVL,
-      Hp: characterStats.Hp,
-      MaxHp: characterStats.MaxHp,
-      Atk: characterStats.Atk,
-      Def: characterStats.Def,
-      Mana: characterStats.Mana,
-      MaxMana: characterStats.MaxMana,
-      Skills: characterStats.Skills,
-      Inventory: characterStats.Inventory,
-      Nils: characterStats.Nils,
-      Potions: characterStats.Potions,
+      PlayerName: playerName,
+      ...characterStats,
     });
-  }, [characterStats]);
+  }, [characterStats, playerName, updateCharacterStats]);
 
   return (
     <div className="Inv-data">
