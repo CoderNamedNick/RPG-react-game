@@ -41,14 +41,14 @@ const GamePartFourComponent = ({ playerName, characterStats, updateCharacterStat
   const [Act4F2EnemyStats, setAct4F2EnemyStats] = useState({
     name: 'Wizard',
     Hp: 430,
-    Atk: 96,
+    Atk: 79,
     Def: 38,
     Mana: 45,
   });
   const [Act4F3EnemyStats, setAct4F3EnemyStats] = useState({
     name: 'Reaper',
     Hp: 380,
-    Atk: 99,
+    Atk: 83,
     Def: 30,
     Mana: 15,
   });
