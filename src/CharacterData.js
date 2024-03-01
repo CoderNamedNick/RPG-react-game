@@ -7,7 +7,7 @@ const CharacterData = ({ playerName, characterStats, updateCharacterStats }) => 
     ...characterStats,  // Directly spread characterStats for initialization
   });
 
-  // Update character data whenever characterStats prop changes
+  // Update character data whenever characterStats prop changes 
   useEffect(() => {
     // Check for skills and update damage based on current Atk attribute
     if (characterStats.Skills && characterStats.Skills.length > 0) {
@@ -17,6 +17,13 @@ const CharacterData = ({ playerName, characterStats, updateCharacterStats }) => 
           return {
             ...skill,
             damage: Math.floor(160 * 0.25 + characterStats.Atk),
+          };
+        }
+        if (skill.name === 'Backstab') {
+          // Update damage for 'Backstab'
+          return {
+            ...skill,
+            damage: Math.floor(42 * 0.25 + characterStats.Atk),
           };
         }
         // Update damage for other skills

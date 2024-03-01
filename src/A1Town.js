@@ -80,6 +80,10 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
     }
 
     const handlerestclick = () => {
+      if (characterStats.Nils < 2) {
+        alert('sorry you are to broke for this') 
+        return
+      }
       if (characterStats.Hp >= characterStats.MaxHp && characterStats.Mana >= characterStats.MaxMana){
         alert(`you already have max Mana and Health`)
         setShowInn(false);
@@ -125,9 +129,9 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
     let AssesoryStoreItems = [{
       Item: 1,
       Name: '  Lucky Charm',
-      Cost: 2,
+      Cost: 3,
       Atk: 2,
-      SkillAtk: 0,
+      MaxMana: 0,
       Def: 2,
       Description: `A simple Lucky Charm that adds a touch of fortune to your adventures. Boosts your attack and defense moderately.`
     },
@@ -135,10 +139,10 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
       Item: 2,
       Name: '  silver Medalian',
       Cost: 5,
-      Def: 0,
+      Def: 4,
       Atk: 2,
-      SkillAtk: 5,
-      Description: `A finely crafted Silver Medallion with magical properties. Enhances your attack and provides a bonus to skill attacks.`
+      MaxMana: 0,
+      Description: `A finely crafted Silver Medallion with magical properties. Enhances your attack and provides a bonus to defence.`
     },
     {
       Item: 3,
@@ -146,7 +150,7 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
       Cost: 10,
       Def: 0,
       Atk: 7,
-      SkillAtk: 5,
+      MaxMana: 4,
       Description: `This stone radiates powerful energy, empowering your attacks with increased damage. Ideal for those seeking a more offensive playstyle.`
     },
     {
@@ -155,17 +159,17 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
       Cost: 25,
       Atk: 0,
       Def: 15,
-      SkillAtk: 6,
+      MaxMana: 10,
       Description: `A protective Ward Stone that significantly boosts your defense. Perfect for those who prefer a resilient and sturdy approach in battles.`
     },
     {
       Item: 5,
-      Name: '  Enhanced Skill Charm',
+      Name: '  Enhanced Mana Charm',
       Cost: 50,
       Atk: 5,
       Def: 2,
-      SkillAtk: 40,
-      Description: `An intricate charm that amplifies your skill attacks to an extraordinary level. Recommended for those who rely on their special abilities.`
+      MaxMana: 30,
+      Description: `An intricate charm that amplifies your Mana to an extraordinary level. Recommended for those who rely on their special abilities.`
     },
     {
       Item: 6,
@@ -173,8 +177,8 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
       Cost: 100,
       Atk: 30,
       Def: 40,
-      SkillAtk: 20,
-      Description: ` A legendary Guardian Stone with unparalleled power. Provides a substantial boost to attack, defense, and skill attacks. The ultimate accessory for seasoned adventurers.`
+      MaxMana: 50,
+      Description: ` A legendary Guardian Stone with unparalleled power. Provides a substantial boost to attack, defense, and Mana. The ultimate accessory for seasoned adventurers.`
     }];
     const handleAssesoryClick = (index) => {
       const selectedAssesory = AssesoryStoreItems[index];
@@ -190,6 +194,7 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
           ...characterStats,
           Atk: characterStats.Atk + selectedAssesory.Atk,
           Def: characterStats.Def + selectedAssesory.Def, // Update the correct field (assuming characterStats has a 'Def' field)
+          MaxMana: characterStats.MaxMana + selectedAssesory.MaxMana,
           Nils: characterStats.Nils - selectedAssesory.Cost,
         };
         updateCharacterStats(updatedStats);
@@ -243,7 +248,7 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
             <h1>{AssesoryStoreItems[hoveredAssesoryItem].Name}</h1>
             <div>
               <h3>Atk Buff: {AssesoryStoreItems[hoveredAssesoryItem].Atk}</h3>
-              <h3>Skill-Atk Buff: {AssesoryStoreItems[hoveredAssesoryItem].SkillAtk}</h3>
+              <h3>Mana Buff: {AssesoryStoreItems[hoveredAssesoryItem].MaxMana}</h3>
               <h3>Def Buff: {AssesoryStoreItems[hoveredAssesoryItem].Def}</h3>
               <h3>Cost: {AssesoryStoreItems[hoveredAssesoryItem].Cost} Nils</h3>
             </div>
@@ -379,7 +384,6 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
       Name: '  Tattered Cleaning Kit',
       Cost: 4,
       Atk: 5,
-      SkillAtk: 0,
       Description: `A worn-out cleaning kit with rusty tools. Despite its shabby appearance, it adds a modest boost to your weapon's attack power. Suitable for beginners.`
     },
     {
@@ -387,23 +391,20 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
       Name: '  Novice Sharpening Kit',
       Cost: 6,
       Atk: 8,
-      SkillAtk: 0,
       Description: `An entry-level sharpening kit for improving the cutting edge of your weapon. Provides a noticeable increase in attack power without any additional skills.`
     },
     {
       Item: 3,
       Name: '  Crafted Hilt',
       Cost: 10,
-      Atk: 9,
-      SkillAtk: 3,
+      Atk: 11,
       Description: `A carefully crafted hilt designed for enhanced handling and precision. Grants a moderate boost to both attack power and skill-based attacks.`
     },
     {
       Item: 4,
       Name: '  Novice Enchantment Stone',
       Cost: 25,
-      Atk: 22,
-      SkillAtk: 9,
+      Atk: 28,
       Description: `A magical stone imbued with basic enchantments. Enhances your weapon with additional attack power and skill-based damage. A valuable upgrade for those seeking more power.`
     },
     {
@@ -411,15 +412,13 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
       Name: '  Expert Sharpening Kit',
       Cost: 50,
       Atk: 40,
-      SkillAtk: 0,
       Description: `A high-quality sharpening kit designed for experienced warriors. Significantly boosts the cutting power of your weapon, making it a formidable choice in battles.`
     },
     {
       Item: 6,
       Name: '  Dragon Stone Enchantment',
       Cost: 120,
-      Atk: 60,
-      SkillAtk: 30,
+      Atk: 145,
       Description: `An ancient stone infused with the power of dragons. Unleashes a tremendous surge in both attack power and skill-based damage. Reserved for those facing the most formidable foes.`
     }];
     const handleWeaponClick = (index) => {
@@ -437,9 +436,6 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
           Atk: characterStats.Atk + selectedWeapon.Atk, // Update the correct field (assuming characterStats has a 'Def' field)
           Nils: characterStats.Nils - selectedWeapon.Cost,
         };
-        updateCharacterStats(updatedStats);
-    
-        updatedStats.Skills[0].damage += selectedWeapon.SkillAtk;
         updateCharacterStats(updatedStats);
         // Add the selected item to the player's inventory
         updatedStats.Inventory = [...updatedStats.Inventory, selectedWeapon.Name];
@@ -488,7 +484,6 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
             <h1>{WeaponStoreItems[hoveredWeaponItem].Name}</h1>
             <div>
               <h3>Atk Buff: {WeaponStoreItems[hoveredWeaponItem].Atk}</h3>
-              <h3>Skill-Atk Buff: {WeaponStoreItems[hoveredWeaponItem].SkillAtk}</h3>
               <h3>Cost: {WeaponStoreItems[hoveredWeaponItem].Cost} Nils</h3>
             </div>
             <h4>{WeaponStoreItems[hoveredWeaponItem].Description}</h4>
