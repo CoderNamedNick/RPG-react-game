@@ -26,6 +26,13 @@ const CharacterData = ({ playerName, characterStats, updateCharacterStats }) => 
             damage: Math.floor(42 * 0.25 + characterStats.Atk),
           };
         }
+        if (skill.name === 'Deflect') {
+          // Update damage for 'Deflect'
+          return {
+            ...skill,
+            damage: Math.floor(22 * 0.25 + characterStats.Def),
+          };
+        }
         // Update damage for other skills
         return {
           ...skill,

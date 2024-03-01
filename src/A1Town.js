@@ -89,7 +89,7 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
         setShowInn(false);
         setShowInnDescription(false)
         return
-      }
+      } 
       if (characterStats.Hp >= characterStats.MaxHp && characterStats.Mana <= characterStats.MaxMana){
         let ManaMissing = characterStats.MaxMana - characterStats.Mana
         const updatedStats = {
@@ -198,10 +198,7 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
           Nils: characterStats.Nils - selectedAssesory.Cost,
         };
         updateCharacterStats(updatedStats);
-    
-        updatedStats.Skills[0].damage += selectedAssesory.SkillAtk;
-        updateCharacterStats(updatedStats);
-        // Add the selected item to the player's inventory
+        
         updatedStats.Inventory = [...updatedStats.Inventory, selectedAssesory.Name];
     
         // Optionally, you can update other player stats based on the selected item

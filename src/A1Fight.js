@@ -371,7 +371,7 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn, E
     if (param === 3) {
       const items = [
         { range: [1], item: 'Heart Pendant, ', attributes: ['MaxHp'], increases: [25] },
-        { range: [2], item: 'Skill Pendant, ', attributes: ['Skills.damage'], increases: [10] },
+        { range: [2], item: 'Atk Pendant, ', attributes: ['Atk'], increases: [8] },
         { range: [3], item: 'Mana Ring, ', attributes: ['MaxMana'], increases: [10] },
         { range: [4], item: 'Pouch of Nil, ', attributes: ['Nils'], increases: [20] },
         { range: [5], item: 'Pair of Potions, ', attributes: ['Potions'], increases: [2] },
@@ -396,21 +396,6 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn, E
   
         if (selectedItem.item && selectedItem.item.length > 0) {
           updatedStats.Inventory = [...updatedStats.Inventory, selectedItem.item];
-        }
-  
-        // Check if the item is Skill Pendant
-        if (selectedItem.item === 'Skill Pendant, ') {
-          // Check if the character has Skills array
-          if (updatedStats.Skills) {
-            // Increase the damage of the first skill by 10
-            updatedStats.Skills[0].damage += 10;
-          } else {
-            // If Skills array doesn't exist, create it with the first skill
-            updatedStats.Skills = [
-              { name: 'Basic Skill', damage: 10, manaCost: 5 },
-              // Add more skills as needed
-            ];
-          }
         }
   
         updateCharacterStats(updatedStats);

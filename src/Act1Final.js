@@ -35,13 +35,19 @@ const Act1FinalComponent = ({ playerName, characterStats, updateCharacterStats,}
         <h1>Thank you for playing!!!!!</h1>
         <div className="last-p-div">
         <p>
-          This game this is just a small project so that i can use on my portfolio. I felt like an RPG game was original and cool.
+          This game is just a small project i can use on my portfolio. I felt like an RPG game was original and cool.
           If you played and enjoyed please feel free to reach out
-          to me on <a href="https://github.com/CoderNamedNick">Github</a> or my email what you can find on <a href="https://github.com/CoderNamedNick">Github!</a> and if youre an employer and you beat my game I hope it was good.
+          to me on <a href="https://github.com/CoderNamedNick">Github</a> or my email what you can find on <a href="https://github.com/CoderNamedNick">Github!</a> and if you are an employer and you beat my game I hope it was good.
           I dont plan to progress the game or make it better but maybe there is an end......maybe.
         </p>
         </div>
         <h1>Shout Out to. FreepngImg.com for most of my pngs. </h1>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <h1>And Thank You! </h1>
+        <h1>Refresh page to play again!</h1>
       </div>
     )
   }
