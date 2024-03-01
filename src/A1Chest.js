@@ -15,7 +15,7 @@ const A1Chest = ({ playerName, onReturn, updateCharacterStats, characterStats })
       { range: [30, 40], item: 'Staff',attributes: ['MaxMana','Mana', 'Atk'], increases: [42, 42, 3], Skills: [{ name: 'Fireball', damage: 166, manaCost: 8 }] },
       { range: [40, 50], item: 'Dagger', attributes: ['MaxMana','Mana', 'Atk'], increases: [8, 8, 13], Skills: [{ name: 'Backstab', damage: 42, manaCost: 5 }] },
       { range: [50, 60], item: 'Spear', attributes: ['MaxMana','Mana', 'Atk'], increases: [10, 10, 10], Skills: [{ name: 'Thrust', damage: 28, manaCost: 5 }] },
-      { range: [60, 70], item: 'Axe', attributes: ['MaxMana','Mana', 'Atk'], increases: [18, 18, 13], Skills: [{ name: 'Cleave', damage: 55, manaCost: 10 }] },
+      { range: [60, 70], item: 'Axe', attributes: ['MaxMana','Mana', 'Atk'], increases: [18, 18, 13], Skills: [{ name: 'Cleave', damage: 45, manaCost: 8 }] },
     ];
 
     let randomNum = Math.floor(Math.random() * 70);

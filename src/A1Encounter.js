@@ -92,7 +92,7 @@ const A1Encounter = ({ playerName, characterStats, updateCharacterStats, onRetur
           alert('You Lose')
           const updatedStats6 = {
             ...characterStats,
-            MaxMana: characterStats.MaxMana - 10,
+            MaxMana: characterStats.MaxMana - 7,
           };
           updateCharacterStats(updatedStats6);
           setThirdGame1(true)
@@ -113,7 +113,7 @@ const A1Encounter = ({ playerName, characterStats, updateCharacterStats, onRetur
           alert('You Lose')
           const updatedStats8 = {
             ...characterStats,
-            MaxMana: characterStats.MaxMana - 10,
+            MaxMana: characterStats.MaxMana - 7,
           };
           updateCharacterStats(updatedStats8);
           setThirdGame1(true)
@@ -180,7 +180,7 @@ const A1Encounter = ({ playerName, characterStats, updateCharacterStats, onRetur
           If yOu LoSe I HuRt yOu!
           <br></br>
           <br></br>
-          <span>Current MaxMana: {characterStats.MaxMana} - 10</span>
+          <span>Current MaxMana: {characterStats.MaxMana} - 7</span>
         </p>
         <h1 className="Moms PLay">PLAY?</h1>
         <h2 onClick={handleyesclick4} className="h2yes">
