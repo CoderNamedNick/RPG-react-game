@@ -26,8 +26,8 @@ const GamePartThreeComponent = ({ playerName, characterStats, updateCharacterSta
   const [showA3BossFight, setA3BossFight] = useState(false);
   const [Act3EnemyStats, setAct3EnemyStats] = useState({
     name: 'Werewolf',
-    Hp: 245,
-    Atk: 45,
+    Hp: 225,
+    Atk: 35,
     Def: 30,
     Mana: 20,
   });
@@ -39,21 +39,21 @@ const GamePartThreeComponent = ({ playerName, characterStats, updateCharacterSta
   };
   const [Act3F2EnemyStats, setAct3F2EnemyStats] = useState({
     name: 'Dark Cave Elf',
-    Hp: 260,
-    Atk: 44,
+    Hp: 240,
+    Atk: 34,
     Def: 38,
     Mana: 25,
   });
   const [Act3F3EnemyStats, setAct3F3EnemyStats] = useState({
     name: 'Cave Dwelling Orc',
-    Hp: 270,
-    Atk: 43,
+    Hp: 250,
+    Atk: 33,
     Def: 40,
     Mana: 15,
   });
   const [A3BossEnemyStats, setA3BossEnemyStats] = useState({
     name: 'Demon',
-    Hp: 365,
+    Hp: 345,
     Atk: 55,
     Def: 56,
     Mana: 30,

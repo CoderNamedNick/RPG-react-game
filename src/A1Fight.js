@@ -7,7 +7,7 @@ import potion from './images/love-potion.png'
 const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn, Enemystats, updateEnemyStats, enemyImage }) => {
   const [FirstAction, setFirstAction] = useState(true);
   const [EnemyDefeated, setEnemyDefeated] = useState(false);
-  const [ShowCharacterStats, setShowCharacterStats] = useState(false)
+  const [ShowCharacterStats, setShowCharacterStats] = useState(true)
   const [ShowEnemy, setShowEnemy] = useState(false)
   const [ShowSlash, setShowSlash] = useState(false)
   const [ShowFightBTN, setShowFightBTN] = useState(false)
