@@ -257,15 +257,20 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn, E
     setFightBtnDisabled(true);
   }
   const handleMana = () => {
+    if (Enemystats.Hp <= 0) {
+      setEnemyDefeated(true);
+      return null;
+    }
     if (characterStats.Mana >= characterStats.MaxMana) {
       alert('already full mana')
       return
     }
     let EnemyDmg = EnemyTurn();
+    let manaRegen = Math.floor(characterStats.MaxMana / 6)
     const updatedStats = {
       ...characterStats,
       Hp: characterStats.Hp - EnemyDmg,
-      Mana: characterStats.Mana + 3,
+      Mana: characterStats.Mana + manaRegen,
     };
     updateCharacterStats(updatedStats);
   }
