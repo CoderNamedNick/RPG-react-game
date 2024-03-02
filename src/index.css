@@ -383,6 +383,14 @@ h1{
   position: absolute;
   bottom: 30%;
 }
+.ItemStatsDiv{
+  position: absolute;
+  background-color: rgba(31, 32, 32, 0.548);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  right: 0;
+}
 .return-btn{
   position: absolute;
   width: 160px;

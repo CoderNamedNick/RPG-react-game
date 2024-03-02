@@ -26,6 +26,13 @@ const CharacterData = ({ playerName, characterStats, updateCharacterStats }) => 
             damage: Math.floor(42 * 0.25 + characterStats.Atk),
           };
         }
+        if (skill.name === 'Cleave') {
+          // Update damage for 'Cleave'
+          return {
+            ...skill,
+            damage: Math.floor(-200 * 0.25 + characterStats.MaxHp),
+          };
+        }
         if (skill.name === 'Deflect') {
           // Update damage for 'Deflect'
           return {

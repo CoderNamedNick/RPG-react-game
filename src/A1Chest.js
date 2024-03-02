@@ -93,7 +93,7 @@ const A1Chest = ({ playerName, onReturn, updateCharacterStats, characterStats })
         <h4>Staff - Skill "FireBall" scales with MaxMana stat</h4>
         <h4>Dagger - Skill "BackStab" scales with Atk stat</h4>
         <h4>Spear - Skill "Thrust" scales with Atk stat</h4>
-        <h4>Axe - Skill "Cleave" scales with Atk stat</h4>
+        <h4>Axe - Skill "Cleave" scales with Max Hp stat</h4>
       </div>
       <CharacterData
         playerName={playerName}

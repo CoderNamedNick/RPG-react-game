@@ -7,8 +7,8 @@ const Act1FinalComponent = ({ playerName, characterStats, updateCharacterStats,}
   const [FinalBossFightDone, setFinalBossFightDone] = useState(false);
   const [A1FinalBossEnemyStats, setA1FinalBossEnemyStats] = useState({
     name: 'Felia the Shrine Goddess',
-    Hp: 655,
-    Atk: 115,
+    Hp: 555,
+    Atk: 105,
     Def: 85,
     Mana: 50,
     type: 'Boss',

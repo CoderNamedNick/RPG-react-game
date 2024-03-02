@@ -263,6 +263,7 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
       Name: '  Cloak,',
       Cost: 4,
       Def: 3,
+      MaxHp: 0,
       Description: `A ragged old cloak that could be used for minor protection but won't offer much defense. It's a basic and affordable option for beginners.`
     },
     {
@@ -270,34 +271,39 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
       Name: '  Boots,',
       Cost: 4,
       Def: 3,
+      MaxHp: 0,
       Description: `Sturdy leather boots that provide moderate defense. While not the most protective, they offer a balance between cost and functionality.`
     },
     {
       Item: 3,
       Name: '  Helm,',
       Cost: 10,
-      Def: 8,
+      Def: 6,
+      MaxHp: 10,
       Description: ` A well-crafted helmet offering significant defense for the head. It provides enhanced protection and is a crucial addition to your armor set.`
     },
     {
       Item: 4,
       Name: '  Arm Gaurds,',
       Cost: 25,
-      Def: 17,
+      Def: 15,
+      MaxHp: 25,
       Description: `Tough arm guards made of reinforced materials, providing substantial defense for your arms. Ideal for those seeking better protection in battles.`
     },
     {
       Item: 5,
-      Name: '  Chain Mail,',
-      Cost: 50,
-      Def: 36,
-      Description: `A suit of chain mail armor that covers the body, offering a high level of protection against various attacks. A solid choice for those who prioritize defense.`
+      Name: ' Enhanced Chain Mail,',
+      Cost: 60,
+      Def: 30,
+      MaxHp: 40,
+      Description: `A suit of chain mail armor that covers the body, offering a high level of protection against various attacks. A solid choice for those who prioritize defense and health.`
     },
     {
       Item: 6,
       Name: '  Full Metal Armor,',
-      Cost: 90,
-      Def: 60,
+      Cost: 110,
+      Def: 50,
+      MaxHp: 60,
       Description: `The pinnacle of armor, this full metal set provides exceptional defense for the entire body. Expensive but worth the investment for those facing formidable foes.`
     }]
 
@@ -321,6 +327,7 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
         const updatedStats = {
           ...characterStats,
           Def: characterStats.Def + selectedArmor.Def, // Update the correct field (assuming characterStats has a 'Def' field)
+          MaxHp: characterStats.MaxHp + selectedArmor.MaxHp,
           Nils: characterStats.Nils - selectedArmor.Cost,
         };
         updateCharacterStats(updatedStats);
@@ -366,6 +373,7 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
             <h1>{ArmorStoreItems[hoveredArmorItem].Name}</h1>
             <div>
               <h3>Def Buff: {ArmorStoreItems[hoveredArmorItem].Def}</h3>
+              <h3>Max Hp Buff: {ArmorStoreItems[hoveredArmorItem].MaxHp}</h3>
               <h3>Cost: {ArmorStoreItems[hoveredArmorItem].Cost} Nils</h3>
             </div>
             <h4>{ArmorStoreItems[hoveredArmorItem].Description}</h4>
@@ -552,14 +560,14 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
       {ShowWeaponShopDescription && (
         <div className="Hover-Descriptions">
         <h1>Weapon Smith</h1>
-        <p>May Raise ATK and Skill stats</p>
+        <p> Raise ATK stats</p>
         <p>?? Nils</p>
       </div>
       )}
       {ShowAssesoryShopDescription && (
         <div className="Hover-Descriptions">
         <h1>Accessory Smith</h1>
-        <p>?????</p>
+        <p>Raise Many Stats </p>
         <p>?? Nils</p>
       </div>
       )}

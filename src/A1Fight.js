@@ -256,8 +256,18 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn, E
     combatstart(Enemystats);
     setFightBtnDisabled(true);
   }
-  const handleRun = () => {
-    alert(playerName + ' can not escape')
+  const handleMana = () => {
+    if (characterStats.Mana >= characterStats.MaxMana) {
+      alert('already full mana')
+      return
+    }
+    let EnemyDmg = EnemyTurn();
+    const updatedStats = {
+      ...characterStats,
+      Hp: characterStats.Hp - EnemyDmg,
+      Mana: characterStats.Mana + 3,
+    };
+    updateCharacterStats(updatedStats);
   }
 
   const handleCharacterDeath = () => {
@@ -549,8 +559,8 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn, E
             <h2>Fight</h2>
           </button>
         )}
-        <div onClick={handleRun} className="CombatMoves move4">
-          <h2>Run</h2>
+        <div onClick={handleMana} className="CombatMoves move4">
+          <h2>Recover Mana</h2>
         </div>
       </div>
     </div>
