@@ -47,6 +47,7 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn, E
   }, [Enemystats]); // The empty dependency array ensures it only runs once when the component mounts
 
   const combatstart = (enemyStats) => {
+    setShowCharacterStats(false)
     alert("Combat Has started");
 
     // Use the passed enemy stats to initialize the combat
