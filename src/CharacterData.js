@@ -16,7 +16,7 @@ const CharacterData = ({ playerName, characterStats, updateCharacterStats }) => 
           // Update damage for 'Fireball'
           return {
             ...skill,
-            damage: Math.floor(160 * 0.25 + characterStats.Atk),
+            damage: Math.floor(30 * 0.25 + characterStats.MaxMana),
           };
         }
         if (skill.name === 'Backstab') {
