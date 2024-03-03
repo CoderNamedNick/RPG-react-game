@@ -64,6 +64,7 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn, E
 
     setFirstAction(false);
     setShowEnemy(true);
+    setShowTutorial(false)
     setShowTutorialBtn(false)
 
     setTimeout(() => {
@@ -225,6 +226,8 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn, E
   //on Observation + Run
   const handleObsertaion = () => {
     setobservation(true)
+    setShowTutorialBtn(false)
+    setShowTutorial(false)
     if (FirstActionCompleted) {
       return;
     }
