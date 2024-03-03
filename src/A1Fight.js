@@ -316,6 +316,9 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn, E
   const handleAfterEnemyDefeated = () => {
     // Your logic for what should happen after the enemy is defeated
     alert("Congratulations! You've defeated the enemy. Performing post-defeat actions...");
+    if (Enemystats.type === 'FinalBoss'){
+      return
+    }
     if (Enemystats.type === 'Boss'){
       if (characterStats.Hp >= characterStats.MaxHp && characterStats.Mana <= characterStats.MaxMana){
         let ManaMissing = characterStats.MaxMana - characterStats.Mana

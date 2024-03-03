@@ -11,7 +11,7 @@ const Act1FinalComponent = ({ playerName, characterStats, updateCharacterStats,}
     Atk: 105,
     Def: 85,
     Mana: 50,
-    type: 'Boss',
+    type: 'FinalBoss',
   });
   const updateFinalBossEnemyStats = (updatedEnStats3) => {
     setTimeout(() => {
