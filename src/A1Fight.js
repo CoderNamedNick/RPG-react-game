@@ -511,7 +511,9 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn, E
           <p>
             You start by not knowing who or what you opponent is To find out before you fight you can OBSERVE. After seeing you enemy you can choose to start combat.
             You may also start combat by pressing any attack command! When in combat you take turns fighting but the enemy attacks first
-            so watch your HP at the top right if you take to much damge the health pots to the left heal you for 50 hp. Opponents also have stats the more you play the stronger foes await.
+            so watch your HP at the top right if you take to much damge the health pots to the left heal you for 50 hp.
+            Occasionally your attacks can miss so try to be as lucky as you can.
+            Opponents also have stats the more you play the stronger foes await.
             To see your stats just press the "Player Stats" button on the top left. When entering a fight space it is shown by default.
           </p>
           <h2>Commands</h2>
