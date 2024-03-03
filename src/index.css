@@ -424,6 +424,19 @@ h1{
  align-items: center;
  cursor: pointer;
 }
+.Tutorial-btn{
+  position: absolute;
+  left: 40%;
+  border: 2px solid black;
+  width: 200px;
+  height: 80px;
+  bottom: 33%;
+  background-color: rgba(12, 199, 158, 0.925);
+  font-size: 25px;
+}
+.Tutorial-btn:hover{
+  background-color: rgba(121, 228, 205, 0.925);
+}
 .EnemyStats{
   background-color: rgba(0, 0, 0, 0.322);
   position: absolute;

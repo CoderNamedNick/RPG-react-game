@@ -8,6 +8,8 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn, E
   const [FirstAction, setFirstAction] = useState(true);
   const [EnemyDefeated, setEnemyDefeated] = useState(false);
   const [ShowCharacterStats, setShowCharacterStats] = useState(true)
+  const [ShowTutorial, setShowTutorial] = useState(false)
+  const [ShowTutorialBtn, setShowTutorialBtn] = useState(true)
   const [ShowEnemy, setShowEnemy] = useState(false)
   const [ShowSlash, setShowSlash] = useState(false)
   const [ShowFightBTN, setShowFightBTN] = useState(false)
@@ -58,6 +60,7 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn, E
 
     setFirstAction(false);
     setShowEnemy(true);
+    setShowTutorialBtn(false)
 
     setTimeout(() => {
       setFirstActionCompleted(true);
@@ -490,6 +493,31 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn, E
             updateCharacterStats={updateCharacterStats}
             characterStats={characterStats}
           />
+        </div>
+      )}
+      {ShowTutorialBtn && (
+        <button className="Tutorial-btn">Tutorial?</button>
+      )}
+      {ShowTutorial && (
+        <div>
+          <h2>Rules Of combat</h2>
+          <p>
+            You start by not knowing who or what you opponent is! as you can see by the left of your screen.
+            to find out before you fight you can OBSERVE. After seeing you enemy you can choose to start combat.
+            you may also start comabt by just pressing any attack command! When in combat you take turns fighting but since you are so trained the enemy attacks first
+            so watch your HP at the top left . your opponent also has stats so watch out. the more you play the stronger foes await.
+            To see your stats just press the "Player Stats" button on the top left. When entering a fight space it is shown by default.
+          </p>
+          <h2>Commands</h2>
+          <p>
+            BASIC ATTACK- To fight use your Attack commands at the bottom. Basic atk does the damage of your ATK stat - part of enemies def stat.
+            SKILLS- vary with different stats you raise! for example the Sword skill "SLASH" does more damage based off your Atk stat.
+            You can only use your skill sparingly "more than others" check how much mana is required in the Player Stats. 
+            Opponents can use skills to and deal more damage than regularly
+            RECOVER MANA- after every attack you recover 1 mana the more your Max mana raises you can use this to restore 1/5th of Max Mana
+            at the cost of taking a hit.
+          </p>
+          <h1>BEST OF LUCK</h1>
         </div>
       )}
       {ShowEnemy && (
