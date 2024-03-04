@@ -119,7 +119,7 @@ const GamePartOne = ({ playerName, characterStats, updateCharacterStats, FinishP
                   ) : (
                     <div>
                       <h1>
-                        Welcome to my game! You start From the bottom and work up!
+                        Welcome to my game! You start from the bottom and work up!
                         I hope you enjoy my game! its a work in progress!
                       </h1>
                       <div className="Inv-div">
