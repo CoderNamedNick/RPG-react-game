@@ -10,17 +10,8 @@ const StartGame = ({ updatePlayerName, onFinish }) => {
     const newName = event.target.value;
     setName(newName);
 
-    // Play sound whenever user types in something as the name
-    if (newName.trim() !== '') {
-      const audio = new Audio("/mixkit-mechanical-typewriter-hit-1365.wav"); // Update path to your WAV file
-      audio.play();
-    }
   };
 
-  const playAudio2 = () => {
-    const audio2 = new Audio("/mixkit-typewriter-classic-return-1381.wav");
-    audio2.play();
-  };
 
   // Function to handle form submission
   const handleSubmit = (event) => {
@@ -56,7 +47,7 @@ const StartGame = ({ updatePlayerName, onFinish }) => {
         <br />
         <div>
           {/* No need to trigger audio on button click */}
-          <button className="SGbtn" type="submit" onClick={playAudio2}>Start Game</button>
+          <button className="SGbtn" type="submit">Start Game</button>
         </div>
       </form>
     </div>
