@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/RPG-react-game/static/css/main.79bfc435.css",
-    "main.js": "/RPG-react-game/static/js/main.3861a22f.js",
+    "main.css": "/RPG-react-game/static/css/main.d8f289d3.css",
+    "main.js": "/RPG-react-game/static/js/main.f3ed9f55.js",
     "static/js/787.39f3a982.chunk.js": "/RPG-react-game/static/js/787.39f3a982.chunk.js",
     "static/media/2-2-dragon-png-4.png": "/RPG-react-game/static/media/2-2-dragon-png-4.c0697a2aa2a24ad0c168.png",
     "static/media/pngimg.com - werewolf_PNG2.png": "/RPG-react-game/static/media/pngimg.com - werewolf_PNG2.5f4c0b7f478d6c44b994.png",
@@ -24,12 +24,12 @@
     "static/media/pixil-frame-0.png": "/RPG-react-game/static/media/pixil-frame-0.cf1c8a8936d8301bc327.png",
     "static/media/mouth-smile-clip-art-nicubunu_Mouth_with_teeth.png": "/RPG-react-game/static/media/mouth-smile-clip-art-nicubunu_Mouth_with_teeth.7973b78c86bdb0f2101b.png",
     "index.html": "/RPG-react-game/index.html",
-    "main.79bfc435.css.map": "/RPG-react-game/static/css/main.79bfc435.css.map",
-    "main.3861a22f.js.map": "/RPG-react-game/static/js/main.3861a22f.js.map",
+    "main.d8f289d3.css.map": "/RPG-react-game/static/css/main.d8f289d3.css.map",
+    "main.f3ed9f55.js.map": "/RPG-react-game/static/js/main.f3ed9f55.js.map",
     "787.39f3a982.chunk.js.map": "/RPG-react-game/static/js/787.39f3a982.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.79bfc435.css",
-    "static/js/main.3861a22f.js"
+    "static/css/main.d8f289d3.css",
+    "static/js/main.f3ed9f55.js"
   ]
 }
