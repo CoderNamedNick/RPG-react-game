@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import StartGame from "./StartGame";
-import GamePartOne from "./GamePartOne";
-import GamePartTwoComponent from "./GamePartTwo";
-import GamePartThreeComponent from "./GamePartThree";
-import GamePartFourComponent from './GamePartFour';
+import GamePartOne from "./Game Acts/GamePartOne";
+import GamePartTwoComponent from "./Game Acts/GamePartTwo";
+import GamePartThreeComponent from "./Game Acts/GamePartThree";
+import GamePartFourComponent from './Game Acts/GamePartFour';
 import Act1FinalComponent from "./Act1Final";
 
 function App() {

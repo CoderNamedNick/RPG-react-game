@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import A1HealthManaBars from "./A1HealthManaBars";
-import A1Fight from "./A1Fight";
-import CharacterData from "./CharacterData";
-import A1Encounter from "./A1Encounter";
-import A1Town from "./A1Town";
-import Werewolf from './images/pngimg.com - werewolf_PNG2.png'
-import DarkElf from './images/pngimg.com - elf_PNG7.png'
-import Orc from './images/pngimg.com - orc_PNG35.png'
-import Demon from './images/pngimg.com - demon_PNG45.png'
+import A1HealthManaBars from "../A1HealthManaBars";
+import A1Fight from "../A1Fight";
+import CharacterData from "../CharacterData";
+import A1Encounter from "../A1Encounter";
+import A1Town from "../A1Town";
+import Werewolf from '../images/pngimg.com - werewolf_PNG2.png'
+import DarkElf from '../images/pngimg.com - elf_PNG7.png'
+import Orc from '../images/pngimg.com - orc_PNG35.png'
+import Demon from '../images/pngimg.com - demon_PNG45.png'
 
 const GamePartThreeComponent = ({ playerName, characterStats, updateCharacterStats, FinishP3 }) => {
   const [showCharacterData, setShowCharacterData] = useState(false);

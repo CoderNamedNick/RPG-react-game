@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import A1HealthManaBars from "./A1HealthManaBars";
-import A1Chest from "./A1Chest";
-import A1Fight from "./A1Fight";
-import CharacterData from "./CharacterData";
-import arrow from './images/up-arrow.png';
-import A1Encounter from "./A1Encounter";
-import A1Town from "./A1Town";
-import goblin from './images/goblin-18.png'
-import troll from './images/84614-troll-mythical-monster-minotaur-organism-creature.png'
+import A1HealthManaBars from "../A1HealthManaBars";
+import A1Chest from "../A1Chest";
+import A1Fight from "../A1Fight";
+import CharacterData from "../CharacterData";
+import arrow from '../images/up-arrow.png';
+import A1Encounter from "../A1Encounter";
+import A1Town from "../A1Town";
+import goblin from '../images/goblin-18.png'
+import troll from '../images/84614-troll-mythical-monster-minotaur-organism-creature.png'
 
 const GamePartOne = ({ playerName, characterStats, updateCharacterStats, FinishP1, }) => {
   const [showChest, setShowChest] = useState(false);
@@ -118,7 +118,7 @@ const GamePartOne = ({ playerName, characterStats, updateCharacterStats, FinishP
                     />
                   ) : (
                     <div>
-                      <h1>
+                      <h1 className="Act1-Map-h1">
                         Welcome to my game! You start from the bottom and work up!
                         I hope you enjoy my game! its a work in progress!
                       </h1>

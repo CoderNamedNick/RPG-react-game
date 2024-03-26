@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import A1HealthManaBars from "./A1HealthManaBars";
-import A1Fight from "./A1Fight";
-import CharacterData from "./CharacterData";
-import A1Encounter from "./A1Encounter";
-import RestPoint from './RestPoint'
-import A1Town from "./A1Town";
-import abomination from './images/4-2-creature-png-file.png'
-import wizard from './images/3-2-wizard-picture.png'
-import reaper from './images/30101-4-grim-reaper-hd.png'
-import knight from './images/81638-armour-oni-for-no-knight-orochi-yamata.png'
+import A1HealthManaBars from "../A1HealthManaBars";
+import A1Fight from "../A1Fight";
+import CharacterData from "../CharacterData";
+import A1Encounter from "../A1Encounter";
+import RestPoint from '../RestPoint'
+import A1Town from "../A1Town";
+import abomination from '../images/4-2-creature-png-file.png'
+import wizard from '../images/3-2-wizard-picture.png'
+import reaper from '../images/30101-4-grim-reaper-hd.png'
+import knight from '../images/81638-armour-oni-for-no-knight-orochi-yamata.png'
 
 const GamePartFourComponent = ({ playerName, characterStats, updateCharacterStats, FinishP4 }) => {
   const [showCharacterData, setShowCharacterData] = useState(false);
