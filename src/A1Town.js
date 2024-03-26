@@ -244,12 +244,12 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
           <div className="Weapon-Description-Div">
             <h1>{AssesoryStoreItems[hoveredAssesoryItem].Name}</h1>
             <div>
-              <h3>Atk Buff: {AssesoryStoreItems[hoveredAssesoryItem].Atk}</h3>
-              <h3>Mana Buff: {AssesoryStoreItems[hoveredAssesoryItem].MaxMana}</h3>
-              <h3>Def Buff: {AssesoryStoreItems[hoveredAssesoryItem].Def}</h3>
-              <h3>Cost: {AssesoryStoreItems[hoveredAssesoryItem].Cost} Nils</h3>
+              <h4>Atk Buff: {AssesoryStoreItems[hoveredAssesoryItem].Atk}</h4>
+              <h4>Mana Buff: {AssesoryStoreItems[hoveredAssesoryItem].MaxMana}</h4>
+              <h4>Def Buff: {AssesoryStoreItems[hoveredAssesoryItem].Def}</h4>
+              <h4>Cost: {AssesoryStoreItems[hoveredAssesoryItem].Cost} Nils</h4>
             </div>
-            <h4>{AssesoryStoreItems[hoveredAssesoryItem].Description}</h4>
+            <h4 style={{ marginTop: '-20px' }}>{AssesoryStoreItems[hoveredAssesoryItem].Description}</h4>
           </div>
         )}
       </div>
@@ -376,7 +376,7 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
               <h3>Max Hp Buff: {ArmorStoreItems[hoveredArmorItem].MaxHp}</h3>
               <h3>Cost: {ArmorStoreItems[hoveredArmorItem].Cost} Nils</h3>
             </div>
-            <h4>{ArmorStoreItems[hoveredArmorItem].Description}</h4>
+            <h4 style={{ marginTop: '-20px' }}>{ArmorStoreItems[hoveredArmorItem].Description}</h4>
           </div>
         )}
       </div>

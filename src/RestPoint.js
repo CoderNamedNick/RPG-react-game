@@ -37,7 +37,7 @@ const RestPoint = ({ playerName, characterStats, updateCharacterStats, onReturn 
     <div className="Inn-main-div">
       <img onClick={ExitArrow} className="LeftArrow" src={leftarrow} alt="EXIT"></img>
       <h1 onClick={handlerestclick} className="Moms Items">REST?</h1>
-      <div className="Act2-Map-bars">
+      <div>
         <A1HealthManaBars 
           playerName={playerName}
           characterStats={characterStats}

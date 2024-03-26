@@ -145,7 +145,7 @@ const GamePartTwoComponent = ({ playerName, characterStats, updateCharacterStats
                               Player Stats
                             </button>
                           </div>
-                          <div className="Act2-Map-bars">
+                          <div className="">
                             <A1HealthManaBars 
                               playerName={playerName}
                               characterStats={characterStats}

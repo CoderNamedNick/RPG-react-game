@@ -5,7 +5,12 @@ import chest from './images/treasure.png';
 const A1Chest = ({ playerName, onReturn, updateCharacterStats, characterStats }) => {
   const [RewardDone, setRewardDone] = useState(false);
   const [ShowRewardBtn, setShowRewardBtn] = useState(true);
+  const [ShowItems, setShowItems] = useState(false);
   const [isReturnButtonEnabled, setReturnButtonEnabled] = useState(true);
+
+  const ShowItemDiv = () => {
+    setShowItems(!ShowItems)
+  }
 
   const handleChestClick = () => {
     const items = [
@@ -83,18 +88,21 @@ const A1Chest = ({ playerName, onReturn, updateCharacterStats, characterStats })
           Return
         </button>
       </div>
-      <div className="ItemStatsDiv">
-        <h2>Items Obtainable From Chest</h2>
-        <h3>guaranteed: 3 Health Potions</h3>
-        <h2>CHANCE:</h2>
-        <h4>Sword - Skill "Slash" scales with Atk stat</h4>
-        <h4>Bow - Skill "Strong Shot" scales with Atk stat</h4>
-        <h4>Shield - Skill "Deflect" scales with Def stat</h4>
-        <h4>Staff - Skill "FireBall" scales with MaxMana stat</h4>
-        <h4>Dagger - Skill "BackStab" scales with Atk stat</h4>
-        <h4>Spear - Skill "Thrust" scales with Atk stat</h4>
-        <h4>Axe - Skill "Cleave" scales with Max Hp stat</h4>
-      </div>
+      <button className="ShowchestItems-btn" onClick={ShowItemDiv}>Show Obtainable Items</button>
+      {ShowItems && (
+        <div className="ItemStatsDiv">
+          <h2>Items Obtainable From Chest</h2>
+          <h3>guaranteed: 3 Health Potions</h3>
+          <h2>CHANCE:</h2>
+          <h4>Sword - Skill "Slash" scales with Atk stat</h4>
+          <h4>Bow - Skill "Strong Shot" scales with Atk stat</h4>
+          <h4>Shield - Skill "Deflect" scales with Def stat</h4>
+          <h4>Staff - Skill "FireBall" scales with MaxMana stat</h4>
+          <h4>Dagger - Skill "BackStab" scales with Atk stat</h4>
+          <h4>Spear - Skill "Thrust" scales with Atk stat</h4>
+          <h4>Axe - Skill "Cleave" scales with Max Hp stat</h4>
+        </div>
+      )}
       <CharacterData
         playerName={playerName}
         updateCharacterStats={updateCharacterStats}

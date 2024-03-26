@@ -972,3 +972,60 @@ h1{
   font-size: 30px;
   padding: 1%;
 }
+.ShowchestItems-btn{
+  position: absolute;
+  width: 160px;
+  font-size: 20px;
+  font-weight: 700;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 6px;
+  right: 5%;
+  top: 5%;
+}
+.ItemStatsDiv{
+  margin-top: 40px;
+}
+@media only screen and (max-width: 500px) {
+  .Act1-Map-h1{
+    font-size: 20px;
+  }
+  .PlayerBars{
+    width: 150px;
+  }
+  .swamp-p,
+  .swamp-p2 {
+    display: none;
+  }
+  .Inv-data{
+    width: 140px;
+    margin-left: 1px;
+  }
+  .PN-span{
+    display: none;
+  }
+  .ItemStatsDiv{
+    width: 325px;
+    margin-top: 54px;
+  }
+  .EnemyStats{
+    width: 100px;
+  }
+  .Enemy-PNG{
+    width: 300px;
+    height: 300px;
+  }
+  .Slash-PNG{
+    width: 200px;
+  }
+  .Wincon{
+    width: 150px;
+    top: 40%;
+  }
+  .Losecon{
+    width: 150px;
+    top: 40%;
+  }
+}

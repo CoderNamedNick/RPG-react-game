@@ -60,7 +60,7 @@ const CharacterData = ({ playerName, characterStats, updateCharacterStats }) => 
 
   return (
     <div className="Inv-data">
-      <h2>Player Name: {characterData.PlayerName}</h2>
+      <h2><span className="PN-span">Player Name:</span>{characterData.PlayerName}</h2>
       <p>LVL: {characterData.LVL}</p>
       <p>MaxHP: {characterData.MaxHp}</p>
       <p>HP: {characterData.Hp}</p>
