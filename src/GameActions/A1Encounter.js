@@ -1,7 +1,7 @@
 import { useState } from "react";
-import mouth from './images/mouth-smile-clip-art-nicubunu_Mouth_with_teeth.png'
-import A1HealthManaBars from "./A1HealthManaBars";
-import CharacterData from "./CharacterData";
+import mouth from '../images/mouth-smile-clip-art-nicubunu_Mouth_with_teeth.png'
+import A1HealthManaBars from "../A1HealthManaBars";
+import CharacterData from "../CharacterData";
 
 const A1Encounter = ({ playerName, characterStats, updateCharacterStats, onReturn }) => {
   const [PlayingGame, setPlayingGame] = useState(false);

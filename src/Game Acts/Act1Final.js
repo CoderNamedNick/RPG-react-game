@@ -1,6 +1,6 @@
 import React, { useState } from "react"; 
-import A1Fight from "./A1Fight";
-import dragon from './images/2-2-dragon-png-4.png'
+import A1Fight from "../GameActions/A1Fight";
+import dragon from '../images/2-2-dragon-png-4.png'
 
 const Act1FinalComponent = ({ playerName, characterStats, updateCharacterStats,}) => {
   const [showFinalBossFight, setshowFinalBossFight] = useState(false);

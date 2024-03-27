@@ -1,7 +1,7 @@
 import { useState} from "react"
-import A1HealthManaBars from "./A1HealthManaBars"
-import leftarrow from './images/arrow-pointing-to-left.png'
-import CharacterData from "./CharacterData"
+import A1HealthManaBars from "../A1HealthManaBars"
+import leftarrow from '../images/arrow-pointing-to-left.png'
+import CharacterData from "../CharacterData"
 
 
 const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) => {

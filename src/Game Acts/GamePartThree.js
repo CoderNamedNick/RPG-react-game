@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import A1HealthManaBars from "../A1HealthManaBars";
-import A1Fight from "../A1Fight";
+import A1Fight from "../GameActions/A1Fight";
 import CharacterData from "../CharacterData";
-import A1Encounter from "../A1Encounter";
-import A1Town from "../A1Town";
+import A1Encounter from "../GameActions/A1Encounter";
+import A1Town from "../GameActions/A1Town";
 import Werewolf from '../images/pngimg.com - werewolf_PNG2.png'
 import DarkElf from '../images/pngimg.com - elf_PNG7.png'
 import Orc from '../images/pngimg.com - orc_PNG35.png'

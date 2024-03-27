@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import A1HealthManaBars from "../A1HealthManaBars";
-import A1Fight from "../A1Fight";
+import A1Fight from "../GameActions/A1Fight";
 import CharacterData from "../CharacterData";
-import A1Encounter from "../A1Encounter";
-import RestPoint from '../RestPoint'
-import A1Town from "../A1Town";
+import A1Encounter from "../GameActions/A1Encounter";
+import RestPoint from '../GameActions/RestPoint'
+import A1Town from "../GameActions/A1Town";
 import abomination from '../images/4-2-creature-png-file.png'
 import wizard from '../images/3-2-wizard-picture.png'
 import reaper from '../images/30101-4-grim-reaper-hd.png'

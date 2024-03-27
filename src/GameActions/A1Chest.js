@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import CharacterData from "./CharacterData";
-import chest from './images/treasure.png';
+import CharacterData from "../CharacterData";
+import chest from '../images/treasure.png';
 
 const A1Chest = ({ playerName, onReturn, updateCharacterStats, characterStats }) => {
   const [RewardDone, setRewardDone] = useState(false);

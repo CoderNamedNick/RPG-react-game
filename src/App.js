@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import StartGame from "./StartGame";
+import StartGame from "./Game Acts/StartGame";
 import GamePartOne from "./Game Acts/GamePartOne";
 import GamePartTwoComponent from "./Game Acts/GamePartTwo";
 import GamePartThreeComponent from "./Game Acts/GamePartThree";
 import GamePartFourComponent from './Game Acts/GamePartFour';
-import Act1FinalComponent from "./Act1Final";
+import Act1FinalComponent from "./Game Acts/Act1Final";
 
 function App() {
   const [playerName, setPlayerName] = useState('');

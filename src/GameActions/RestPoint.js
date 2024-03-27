@@ -1,7 +1,7 @@
 import React from "react";
-import A1HealthManaBars from "./A1HealthManaBars";
-import leftarrow from './images/arrow-pointing-to-left.png'
-import campfire from './images/campfire-clipart-md.png'
+import A1HealthManaBars from "../A1HealthManaBars";
+import leftarrow from '../images/arrow-pointing-to-left.png'
+import campfire from '../images/campfire-clipart-md.png'
 
 const RestPoint = ({ playerName, characterStats, updateCharacterStats, onReturn }) => {
   const ExitArrow = () => {
