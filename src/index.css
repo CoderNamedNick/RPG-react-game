@@ -1028,4 +1028,14 @@ h1{
     width: 150px;
     top: 40%;
   }
+  .SHOPS{
+    width: 150px;
+    height: 80px;
+  }
+  .Roof{
+    padding-bottom: 65px;
+  }
+  .Door{
+    left: 23%;
+  }
 }

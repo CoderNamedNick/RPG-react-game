@@ -526,22 +526,18 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
       <div className="SHOPS  Shop1" onClick={HandleInnClick} onMouseOver={HandleInnHover} onMouseLeave={HandlExits}>
         <div className="Door"></div>
         <div className="Roof"></div>
-        Inn
       </div>
       <div className="SHOPS  Shop2" onClick={HandleArmorClick} onMouseOver={HandleArmorHover} onMouseLeave={HandlExits}>
         <div className="Door"></div>
         <div className="Roof"></div>
-        Shop2
       </div>
       <div className="SHOPS  Shop3" onClick={HandleWeaponClick} onMouseOver={HandleWeaponHover} onMouseLeave={HandlExits}>
         <div className="Door"></div>
         <div className="Roof"></div>
-        Shop3
       </div>
       <div className="SHOPS  Shop4" onClick={HandleAssesoryClick} onMouseOver={HandleItemHover} onMouseLeave={HandlExits}>
         <div className="Door"></div>
         <div className="Roof"></div>
-        Shop4
       </div>
       {ShowInnDescription && (
         <div className="Hover-Descriptions">
