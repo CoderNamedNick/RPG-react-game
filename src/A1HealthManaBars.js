@@ -7,7 +7,6 @@ const A1HealthManaBars = ({ playerName, characterStats }) => {
   useEffect(() => {
     const calculateBarWidth = (currentValue, maxValue) => {
       const percentage = (currentValue / maxValue) * 100;
-      // Ensure the width doesn't exceed 100%
       const width = percentage > 100 ? "100%" : `${percentage}%`;
       return width;
     };

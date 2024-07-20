@@ -7,7 +7,6 @@ const RestPoint = ({ playerName, characterStats, updateCharacterStats, onReturn 
   const ExitArrow = () => {
     onReturn()
   }
-  //MAKE REST NOT CHNAGE OVERHEAL
 
   const handlerestclick = () => {
     if (characterStats.Hp >= characterStats.MaxHp && characterStats.Mana >= characterStats.MaxMana){

@@ -1,57 +1,47 @@
 import React, { useState, useEffect } from "react";
 
 const CharacterData = ({ playerName, characterStats, updateCharacterStats }) => {
-  // Initialize character data using props
   const [characterData, setCharacterData] = useState({
     PlayerName: playerName,
-    ...characterStats,  // Directly spread characterStats for initialization
+    ...characterStats, 
   });
 
-  // Update character data whenever characterStats prop changes 
   useEffect(() => {
-    // Check for skills and update damage based on current Atk attribute
     if (characterStats.Skills && characterStats.Skills.length > 0) {
       const updatedSkills = characterStats.Skills.map(skill => {
         if (skill.name === 'Fireball') {
-          // Update damage for 'Fireball'
           return {
             ...skill,
             damage: Math.floor(30 * 0.25 + characterStats.MaxMana),
           };
         }
         if (skill.name === 'Backstab') {
-          // Update damage for 'Backstab'
           return {
             ...skill,
             damage: Math.floor(42 * 0.25 + characterStats.Atk),
           };
         }
         if (skill.name === 'Cleave') {
-          // Update damage for 'Cleave'
           return {
             ...skill,
             damage: Math.floor(-200 * 0.25 + characterStats.MaxHp),
           };
         }
         if (skill.name === 'Deflect') {
-          // Update damage for 'Deflect'
           return {
             ...skill,
             damage: Math.floor(22 * 0.25 + characterStats.Def),
           };
         }
-        // Update damage for other skills
         return {
           ...skill,
           damage: Math.floor(skill.damage * 0.25 + characterStats.Atk),
         };
       });
   
-      // Update characterStats with the modified skills
       updateCharacterStats({ ...characterStats, Skills: updatedSkills });
     }
-  
-    // Update character data
+
     setCharacterData({
       PlayerName: playerName,
       ...characterStats,

@@ -22,19 +22,17 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn, E
   const [isCharacterDead, setIsCharacterDead] = useState(false);
   useEffect(() => {
     if (Enemystats.Hp <= 0) {
-      // Call the function you want to execute after the enemy is defeated
       handleAfterEnemyDefeated();
     }
   }, [EnemyDefeated]);
   useEffect(() => {
     if (characterStats.Hp <= 0) {
-      // Call the function you want to execute after the character dies
       handleCharacterDeath();
     }
   }, [characterStats.Hp]);
 
   const handleReturn = () => {
-    onReturn(); //return function
+    onReturn(); 
   };
   const handleCharacterstats = () => {
     setShowCharacterStats(!ShowCharacterStats)
@@ -44,22 +42,17 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn, E
     setShowTutorial(!ShowTutorial)
   }
 
-  //This is Enemy stats and and attacks
   useEffect(() => {
-    // This effect runs when the component mounts
-    // Set initial enemy stats using the passed Enemystats
     const updatedEnStats = { ...Enemystats };
     updateEnemyStats(updatedEnStats);
-  }, [Enemystats]); // The empty dependency array ensures it only runs once when the component mounts
+  }, [Enemystats]); 
 
   const combatstart = (enemyStats) => {
     setShowCharacterStats(false)
     alert("Combat Has started");
 
-    // Use the passed enemy stats to initialize the combat
     const updatedEnStats = { ...enemyStats };
 
-    // Update the enemy stats
     updateEnemyStats(updatedEnStats);
 
     setFirstAction(false);
@@ -99,18 +92,15 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn, E
       let CharacterDef = characterStats.Def / 1.5;
       let DmgDealt = Math.max(0, EnemyAtk - CharacterDef);
       let DMGdealt = Math.round(DmgDealt);
-  
-      // Return the calculated damage value
+
       return DMGdealt;
     }
   };
-  
-  // Use useEffect to update the state after the component has rendered
+
   useEffect(() => {
     if (!FirstAction) {
       const damageDealt = EnemyTurn();
-  
-      // Update the enemy stats outside the rendering phase
+
       const updatedEnstats = {
         ...Enemystats,
         Hp: Enemystats.Hp - damageDealt,
@@ -118,7 +108,6 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn, E
       updateEnemyStats(updatedEnstats);
     }
   }, [FirstAction]);
-  //THIS IS PLAYER ATTACKS AND STATS
   const DamageToEnemy = (Enemy, damage) => {
     if (Enemy.Hp <= 0) {
       setEnemyDefeated(true);
@@ -149,7 +138,6 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn, E
       let EnemyDmg = EnemyTurn();
       setShowSlash(true);
   
-      // Use setTimeout to hide the slash after 2000 milliseconds (2 seconds)
       setTimeout(function () {
         setShowSlash(false);
       }, 700);
@@ -194,8 +182,7 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn, E
 
           let EnemyDmg = EnemyTurn();
           setShowSlash(true);
-  
-          // Use setTimeout to hide the slash after 2000 milliseconds (2 seconds)
+
           setTimeout(function () {
             setShowSlash(false);
           }, 700);
@@ -223,7 +210,7 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn, E
       }
     }
   };
-  //on Observation + Run
+
   const handleObsertaion = () => {
     setobservation(true)
     setShowTutorialBtn(false)
@@ -286,10 +273,8 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn, E
   }
 
   const handleCharacterDeath = () => {
-    // Your logic for what should happen when the character dies
     alert("YOU DIED");
     setIsCharacterDead(true);
-    // You might want to perform additional actions, such as resetting the game or navigating to a game-over screen.
   };
 
   if (isCharacterDead) {
@@ -321,10 +306,7 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn, E
     );
   }
 
-  //after Fight
- // The effect will re-run whenever EnemyDefeated changes
   const handleAfterEnemyDefeated = () => {
-    // Your logic for what should happen after the enemy is defeated
     alert("Congratulations! You've defeated the enemy. Performing post-defeat actions...");
     if (Enemystats.type === 'FinalBoss'){
       return
@@ -376,7 +358,6 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn, E
 
   const handleRewardDivs = (param) => {
     if (RewardBtnDisabled) {
-      // Do nothing if the reward button is disabled
       return;
     }
     if (param === 1) {
@@ -433,8 +414,6 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn, E
         console.error("No matching item found for random number:", ItemNumb);
       }
     }
-  
-    // setRewardBtnDisabled(true); // This line was repeated, removed to avoid redundancy
     setShowReturnBTN(true);
   };
 
@@ -492,7 +471,6 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn, E
 
   return (
     <div className="Fight-main-Div">
-      {/* make a cool fight scene with skills and think of an enemy to fight */}
       {ShowCharacterStats &&(
         <div>
           <CharacterData
@@ -555,7 +533,6 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn, E
       </div>
       {!ShowEnemy && (
         <div className="EnemyStats">
-        {/* Display EnemyStats */}
         <p>Name: ??</p>
         <p>HP: ??</p>
         <p>ATK: ??</p>
@@ -565,7 +542,6 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn, E
       )}
       {ShowEnemy && (
          <div className="EnemyStats">
-         {/* Display EnemyStats */}
          <p>Name: {Enemystats.name}</p>
          <p>HP: {Enemystats.Hp}</p>
          <p>ATK: {Enemystats.Atk}</p>
@@ -588,7 +564,6 @@ const A1Fight = ({ playerName, characterStats, updateCharacterStats, onReturn, E
             <h2>dmg: {characterStats.Skills[0].damage}</h2>
           </div>
         )}
-        {/* Display other skills as needed */}
         {!ShowFightBTN && (
           <div 
             onClick={handleObsertaion}

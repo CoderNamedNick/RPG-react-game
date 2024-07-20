@@ -36,7 +36,6 @@ const A1Chest = ({ playerName, onReturn, updateCharacterStats, characterStats })
         Potions: characterStats.Potions + 3,
       };
 
-      // Update each attribute and increase value
       if (selectedItem.attributes && selectedItem.increases && selectedItem.attributes.length === selectedItem.increases.length) {
         selectedItem.attributes.forEach((attribute, index) => {
           updatedStats[attribute] = characterStats[attribute] + selectedItem.increases[index];
@@ -53,8 +52,6 @@ const A1Chest = ({ playerName, onReturn, updateCharacterStats, characterStats })
         updatedStats.Skills = [...updatedStats.Skills, ...selectedItem.Skills];
       }
       
-
-      // Call the updateCharacterStats function passed as a prop
       updateCharacterStats(updatedStats);
       console.log(updatedStats);
     }

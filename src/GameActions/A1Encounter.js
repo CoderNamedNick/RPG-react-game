@@ -17,10 +17,8 @@ const A1Encounter = ({ playerName, characterStats, updateCharacterStats, onRetur
   const [ThirdGame1, setThirdGame1] = useState(false);
   const [randomnum] = useState(() => Math.floor(Math.random() * 2) + 1);
 
-  //I FIXED IT
-
   const handleReturn = () => {
-    onReturn(); // return function
+    onReturn(); 
   };
   const handleCharacterstats = () => {
     setShowCharacterStats(!ShowCharacterStats)
@@ -36,7 +34,6 @@ const A1Encounter = ({ playerName, characterStats, updateCharacterStats, onRetur
       setTails('yes');
     }
 
-    // Execute the callback with the updated values
     if (callback) {
       callback();
     }
@@ -58,8 +55,6 @@ const A1Encounter = ({ playerName, characterStats, updateCharacterStats, onRetur
     coinflip(() => setSecondPlayingGame1(true));
   };
 
-  
-
   if (randomnum === 1) {
     if (ThirdGame1) {
       return (
@@ -74,9 +69,6 @@ const A1Encounter = ({ playerName, characterStats, updateCharacterStats, onRetur
     }
 
     if (SecondPlayingGame1) {
-      // Add your game logic here
-      // You can return different content or components based on the game state
-      
       const handlHeadsclick3 = () => {
         if (Heads === 'yes') {
           alert('You WIn')
@@ -120,12 +112,10 @@ const A1Encounter = ({ playerName, characterStats, updateCharacterStats, onRetur
         }
       }
 
-
       return (
         <div className="Main-A1-Encounter-Div">
           <p className="Moms">I WoNt ChEaT</p>
           <img className="mouth" src={mouth} alt="mouth"></img>
-          {/* Display game content or components */}
           <div>
             <A1HealthManaBars 
               playerName={playerName}
@@ -141,7 +131,6 @@ const A1Encounter = ({ playerName, characterStats, updateCharacterStats, onRetur
         </div>
       );
     }
-
 
     if (SecondGame1) {
       return (
@@ -193,12 +182,7 @@ const A1Encounter = ({ playerName, characterStats, updateCharacterStats, onRetur
       )
     }
 
-
-
     if (PlayingGame1) {
-      // Add your game logic here
-      // You can return different content or components based on the game state
-      
       const handlHeadsclick4 = () => {
         if (Heads === 'yes') {
           alert('You WIn')
@@ -240,12 +224,10 @@ const A1Encounter = ({ playerName, characterStats, updateCharacterStats, onRetur
         }
       }
 
-
       return (
         <div className="Main-A1-Encounter-Div">
           <p className="Moms">I WoNt ChEaT</p>
           <img className="mouth" src={mouth} alt="mouth"></img>
-          {/* Display game content or components */}
           <div>
             <A1HealthManaBars 
               playerName={playerName}
@@ -307,8 +289,6 @@ const A1Encounter = ({ playerName, characterStats, updateCharacterStats, onRetur
     );
   }
 
-  //I ONLY WHANT THIS TO PLAY IF RANDOMNUM IS 2
-
   else if (randomnum === 2) {
     if (randomnum === 1) {
       alert('ERROR')
@@ -329,8 +309,6 @@ const A1Encounter = ({ playerName, characterStats, updateCharacterStats, onRetur
     }
 
     if (SecondPlayingGame) {
-      // Add your game logic here
-      // You can return different content or components based on the game state
       if (randomnum === 1) {
         alert('ERROR')
       }
@@ -378,12 +356,10 @@ const A1Encounter = ({ playerName, characterStats, updateCharacterStats, onRetur
         }
       }
 
-
       return (
         <div className="Main-A1-Encounter-Div">
           <p className="Moms">I WoNt ChEaT</p>
           <img className="mouth" src={mouth} alt="mouth"></img>
-          {/* Display game content or components */}
           <div>
             <A1HealthManaBars 
               playerName={playerName}
@@ -399,7 +375,6 @@ const A1Encounter = ({ playerName, characterStats, updateCharacterStats, onRetur
         </div>
       );
     }
-
 
     if (SecondGame) {
       if (randomnum === 1) {
@@ -454,12 +429,8 @@ const A1Encounter = ({ playerName, characterStats, updateCharacterStats, onRetur
       )
     }
 
-
-
     if (PlayingGame) {
-      // Add your game logic here
-      // You can return different content or components based on the game state
-      
+
       const handlHeadsclick = () => {
         if (Heads === 'yes') {
           alert('You WIn')
@@ -501,12 +472,10 @@ const A1Encounter = ({ playerName, characterStats, updateCharacterStats, onRetur
         }
       }
 
-
       return (
         <div className="Main-A1-Encounter-Div">
           <p className="Moms">I WoNt ChEaT</p>
           <img className="mouth" src={mouth} alt="mouth"></img>
-          {/* Display game content or components */}
           <div>
             <A1HealthManaBars 
               playerName={playerName}

@@ -48,8 +48,6 @@ function App() {
     setGameStarted(true);
   };
 
-  //console.log("Character Stats:", characterStats);
-
   return (
     <div>
       {!gameStarted && <StartGame updatePlayerName={setPlayerName} onFinish={handleStartGame} />}

@@ -3,7 +3,6 @@ import A1HealthManaBars from "../A1HealthManaBars"
 import leftarrow from '../images/arrow-pointing-to-left.png'
 import CharacterData from "../CharacterData"
 
-
 const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) => {
   const [ShowCharacterStats, setShowCharacterStats] = useState(false)
   const [ShowInnDescription, setShowInnDescription] = useState(false)
@@ -18,8 +17,6 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
   const [hoveredWeaponItem, setHoveredWeaponItem] = useState(null);
   const [hoveredAssesoryItem, setHoveredAssesoryItem] = useState(null);
   
-  //MAKE REST NOT CHNAGE OVERHEAL
-
   const handleLeaveclick =() => {
     onReturn()
   }
@@ -70,7 +67,6 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
   }
 
   if (ShowInn) {
-
     const ExitArrow4 = () => {
       setShowInn(false)
       setShowInnDescription(false)
@@ -186,26 +182,21 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
         alert(`You already have ${selectedAssesory.Name} in your inventory`);
         return;
       }
-    
-      // Check if the player has enough Nils to buy the item
+
       if (characterStats.Nils >= selectedAssesory.Cost) {
-        // Subtract the cost from the player's Nils
         const updatedStats = {
           ...characterStats,
           Atk: characterStats.Atk + selectedAssesory.Atk,
-          Def: characterStats.Def + selectedAssesory.Def, // Update the correct field (assuming characterStats has a 'Def' field)
+          Def: characterStats.Def + selectedAssesory.Def, 
           MaxMana: characterStats.MaxMana + selectedAssesory.MaxMana,
           Nils: characterStats.Nils - selectedAssesory.Cost,
         };
         updateCharacterStats(updatedStats);
         
         updatedStats.Inventory = [...updatedStats.Inventory, selectedAssesory.Name];
-    
-        // Optionally, you can update other player stats based on the selected item
-        // For example, you can add defense to the player's stats
+
         alert(`${selectedAssesory.Name} Purchased`)
       } else {
-        // Display a message or handle the case where the player doesn't have enough Nils
         alert("Not enough Nils to buy this item");
       }
     };
@@ -321,25 +312,19 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
         return;
       }
     
-      // Check if the player has enough Nils to buy the item
       if (characterStats.Nils >= selectedArmor.Cost) {
-        // Subtract the cost from the player's Nils
         const updatedStats = {
           ...characterStats,
-          Def: characterStats.Def + selectedArmor.Def, // Update the correct field (assuming characterStats has a 'Def' field)
+          Def: characterStats.Def + selectedArmor.Def,
           MaxHp: characterStats.MaxHp + selectedArmor.MaxHp,
           Nils: characterStats.Nils - selectedArmor.Cost,
         };
         updateCharacterStats(updatedStats);
-    
-        // Add the selected item to the player's inventory
+  
         updatedStats.Inventory = [...updatedStats.Inventory, selectedArmor.Name];
-    
-        // Optionally, you can update other player stats based on the selected item
-        // For example, you can add defense to the player's stats
+
         alert(`${selectedArmor.Name} Purchased`)
       } else {
-        // Display a message or handle the case where the player doesn't have enough Nils
         alert("Not enough Nils to buy this item");
       }
     };
@@ -433,23 +418,17 @@ const A1Town = ({ playerName, characterStats, updateCharacterStats, onReturn }) 
         return;
       }
     
-      // Check if the player has enough Nils to buy the item
       if (characterStats.Nils >= selectedWeapon.Cost) {
-        // Subtract the cost from the player's Nils
         const updatedStats = {
           ...characterStats,
-          Atk: characterStats.Atk + selectedWeapon.Atk, // Update the correct field (assuming characterStats has a 'Def' field)
+          Atk: characterStats.Atk + selectedWeapon.Atk, 
           Nils: characterStats.Nils - selectedWeapon.Cost,
         };
         updateCharacterStats(updatedStats);
-        // Add the selected item to the player's inventory
         updatedStats.Inventory = [...updatedStats.Inventory, selectedWeapon.Name];
     
-        // Optionally, you can update other player stats based on the selected item
-        // For example, you can add defense to the player's stats
         alert(`${selectedWeapon.Name} Purchased`)
       } else {
-        // Display a message or handle the case where the player doesn't have enough Nils
         alert("Not enough Nils to buy this item");
       }
     };
