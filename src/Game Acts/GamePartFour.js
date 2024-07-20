@@ -33,7 +33,6 @@ const GamePartFourComponent = ({ playerName, characterStats, updateCharacterStat
     Mana: 20,
   });
   const updateEnemyStats = (updatedEnStats) => {
-    // Wrap the state update in a setTimeout to defer it to the next tick
     setTimeout(() => {
       setAct4EnemyStats(updatedEnStats);
     }, 0);
@@ -61,19 +60,16 @@ const GamePartFourComponent = ({ playerName, characterStats, updateCharacterStat
     type: 'Boss',
   });
   const updateA4BossEnemyStats = (updatedEnStats3) => {
-    // Wrap the state update in a setTimeout to defer it to the next tick
     setTimeout(() => {
       setA4BossEnemyStats(updatedEnStats3);
     }, 0);
   };
   const updateA4F2EnemyStats = (updatedEnStats2) => {
-    // Wrap the state update in a setTimeout to defer it to the next tick
     setTimeout(() => {
       setAct4F2EnemyStats(updatedEnStats2);
     }, 0);
   };
   const updateA4F3EnemyStats = (updatedEnStats2) => {
-    // Wrap the state update in a setTimeout to defer it to the next tick
     setTimeout(() => {
       setAct4F3EnemyStats(updatedEnStats2);
     }, 0);
@@ -87,6 +83,7 @@ const GamePartFourComponent = ({ playerName, characterStats, updateCharacterStat
     setShowRestPoint(false);
     setShowTown(false);
   };
+
   const handleTownReturn = () => {
     setShowFight(false);
     setShowEncounter(false);
@@ -127,22 +124,20 @@ const GamePartFourComponent = ({ playerName, characterStats, updateCharacterStat
     setTownDone(true);
   }
 
-
-  //get png
   if (showA3BossFight) {
     return (
       <div>
-          <h1>Act 4 BOSS FIGHT</h1>
-          <A1Fight
-            onReturn={FinishP4}
-            Enemystats={A4BossEnemyStats}
-            updateEnemyStats={updateA4BossEnemyStats}
-            playerName={playerName}
-            enemyImage={knight}
-            updateCharacterStats={updateCharacterStats}
-            characterStats={characterStats}
-          />
-        </div>
+        <h1>Act 4 BOSS FIGHT</h1>
+        <A1Fight
+          onReturn={FinishP4}
+          Enemystats={A4BossEnemyStats}
+          updateEnemyStats={updateA4BossEnemyStats}
+          playerName={playerName}
+          enemyImage={knight}
+          updateCharacterStats={updateCharacterStats}
+          characterStats={characterStats}
+        />
+      </div>
     )
   }
 
@@ -312,7 +307,6 @@ const GamePartFourComponent = ({ playerName, characterStats, updateCharacterStat
           characterStats={characterStats}
         />
       )}
-
     </div>
   );
 }

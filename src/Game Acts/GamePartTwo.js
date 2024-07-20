@@ -30,7 +30,6 @@ const GamePartTwoComponent = ({ playerName, characterStats, updateCharacterStats
     Mana: 10,
   });
   const updateEnemyStats = (updatedEnStats) => {
-    // Wrap the state update in a setTimeout to defer it to the next tick
     setTimeout(() => {
       setAct2EnemyStats(updatedEnStats);
     }, 0);
@@ -51,18 +50,15 @@ const GamePartTwoComponent = ({ playerName, characterStats, updateCharacterStats
     type: 'Boss',
   });
   const updateA2BossEnemyStats = (updatedEnStats3) => {
-    // Wrap the state update in a setTimeout to defer it to the next tick
     setTimeout(() => {
       setA2BossEnemyStats(updatedEnStats3);
     }, 0);
   };
   const updateA2F2EnemyStats = (updatedEnStats2) => {
-    // Wrap the state update in a setTimeout to defer it to the next tick
     setTimeout(() => {
       setAct2F2EnemyStats(updatedEnStats2);
     }, 0);
   };
-
   const handleReturnToGame = () => {
     setShowFight(false);
     setShowFight2(false)
@@ -77,11 +73,9 @@ const GamePartTwoComponent = ({ playerName, characterStats, updateCharacterStats
     setShowRestPoint(false)
     setA2BossFight(true);
   }
-
   const handleInventoryClick = () => {
     setShowCharacterData(!showCharacterData);
   };
-
   const handleFightClick = () => {
     setShowFight(true);
     setFightDone(true);
@@ -90,7 +84,6 @@ const GamePartTwoComponent = ({ playerName, characterStats, updateCharacterStats
     setShowFight2(true);
     setFight2Done(true);
   };
-
   const handleEncounterClick = () => {
     if (!RestPointDone) {
       return
@@ -107,7 +100,6 @@ const GamePartTwoComponent = ({ playerName, characterStats, updateCharacterStats
     setRestPointDone(true);
   }
 
-  //get png
   if (showA2BossFight) {
     return (
       <div>
@@ -124,7 +116,6 @@ const GamePartTwoComponent = ({ playerName, characterStats, updateCharacterStats
         </div>
     )
   }
-
   return (
     <div className="Forest-Map-main-div">
       {!showTown && (
@@ -212,7 +203,6 @@ const GamePartTwoComponent = ({ playerName, characterStats, updateCharacterStats
           )}
         </div>
       )}
-
       {showFight && (
         <div>
           <h1>FIGHT</h1>
@@ -265,8 +255,8 @@ const GamePartTwoComponent = ({ playerName, characterStats, updateCharacterStats
           characterStats={characterStats}
         />
       )}
-
     </div>
   );
 }
+
 export default GamePartTwoComponent;

@@ -28,7 +28,6 @@ const Act1FinalComponent = ({ playerName, characterStats, updateCharacterStats,}
     setshowFinalBossFight(true);
   }
   
-
   if(FinalBossFightDone) {
     return (
       <div>

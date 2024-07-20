@@ -32,7 +32,6 @@ const GamePartThreeComponent = ({ playerName, characterStats, updateCharacterSta
     Mana: 20,
   });
   const updateEnemyStats = (updatedEnStats) => {
-    // Wrap the state update in a setTimeout to defer it to the next tick
     setTimeout(() => {
       setAct3EnemyStats(updatedEnStats);
     }, 0);
@@ -60,19 +59,16 @@ const GamePartThreeComponent = ({ playerName, characterStats, updateCharacterSta
     type: 'Boss',
   });
   const updateA3BossEnemyStats = (updatedEnStats3) => {
-    // Wrap the state update in a setTimeout to defer it to the next tick
     setTimeout(() => {
       setA3BossEnemyStats(updatedEnStats3);
     }, 0);
   };
   const updateA3F2EnemyStats = (updatedEnStats2) => {
-    // Wrap the state update in a setTimeout to defer it to the next tick
     setTimeout(() => {
       setAct3F2EnemyStats(updatedEnStats2);
     }, 0);
   };
   const updateA3F3EnemyStats = (updatedEnStats2) => {
-    // Wrap the state update in a setTimeout to defer it to the next tick
     setTimeout(() => {
       setAct3F3EnemyStats(updatedEnStats2);
     }, 0);
@@ -95,11 +91,9 @@ const GamePartThreeComponent = ({ playerName, characterStats, updateCharacterSta
     setShowTown(false);
     setA3BossFight(true);
   }
-
   const handleInventoryClick = () => {
     setShowCharacterData(!showCharacterData);
   };
-
   const handleFightClick = () => {
     setShowFight(true);
     setFightDone(true);
@@ -112,7 +106,6 @@ const GamePartThreeComponent = ({ playerName, characterStats, updateCharacterSta
     setShowFight3(true);
     setFight3Done(true);
   };
-
   const handleEncounterClick = () => {
     setShowEncounter(true);
     setEncounterDone(true);
@@ -126,22 +119,20 @@ const GamePartThreeComponent = ({ playerName, characterStats, updateCharacterSta
     setTownDone(true);
   }
 
-
-  //get png
   if (showA3BossFight) {
     return (
       <div>
-          <h1>Act 3 BOSS FIGHT</h1>
-          <A1Fight
-            onReturn={FinishP3}
-            Enemystats={A3BossEnemyStats}
-            updateEnemyStats={updateA3BossEnemyStats}
-            playerName={playerName}
-            enemyImage={Demon}
-            updateCharacterStats={updateCharacterStats}
-            characterStats={characterStats}
-          />
-        </div>
+        <h1>Act 3 BOSS FIGHT</h1>
+        <A1Fight
+          onReturn={FinishP3}
+          Enemystats={A3BossEnemyStats}
+          updateEnemyStats={updateA3BossEnemyStats}
+          playerName={playerName}
+          enemyImage={Demon}
+          updateCharacterStats={updateCharacterStats}
+          characterStats={characterStats}
+        />
+      </div>
     )
   }
 
@@ -244,7 +235,6 @@ const GamePartThreeComponent = ({ playerName, characterStats, updateCharacterSta
           )}
         </div>
       )}
-
       {showFight && (
         <div>
           <h1>FIGHT</h1>
@@ -311,7 +301,6 @@ const GamePartThreeComponent = ({ playerName, characterStats, updateCharacterSta
           characterStats={characterStats}
         />
       )}
-
     </div>
   );
 }

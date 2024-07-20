@@ -28,7 +28,6 @@ const GamePartOne = ({ playerName, characterStats, updateCharacterStats, FinishP
     Mana: 5,
   });
   const updateEnemyStats = (updatedEnStats) => {
-    // Wrap the state update in a setTimeout to defer it to the next tick
     setTimeout(() => {
       setAct1EnemyStats(updatedEnStats);
     }, 0);
@@ -42,7 +41,6 @@ const GamePartOne = ({ playerName, characterStats, updateCharacterStats, FinishP
     type: 'Boss',
   });
   const updatebossStats = (updatedEnStats) => {
-    // Wrap the state update in a setTimeout to defer it to the next tick
     setTimeout(() => {
       setAct1BossStats(updatedEnStats);
     }, 0);
@@ -198,7 +196,6 @@ const GamePartOne = ({ playerName, characterStats, updateCharacterStats, FinishP
           )}
         </div>
       )}
-
       {showFight && (
         <div>
           <h1>FIGHT</h1>
@@ -229,7 +226,6 @@ const GamePartOne = ({ playerName, characterStats, updateCharacterStats, FinishP
           characterStats={characterStats}
         />
       )}
-
     </div>
   );
 };
